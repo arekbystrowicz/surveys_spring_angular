@@ -1,13 +1,13 @@
 package com.cafetamine.surveys.survey;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
+import java.util.List;
+
+import com.cafetamine.surveys.category.Category;
 
 
 @Entity
@@ -28,6 +28,8 @@ public class Survey {
     private Boolean isPublished;
     @NotNull
     private Boolean isAccessible;
+    @OneToMany
+    private List<Category> categories;
 
     public Long getId() {
         return id;
@@ -91,6 +93,14 @@ public class Survey {
 
     public void setAccessible(Boolean accessible) {
         isAccessible = accessible;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
 }
