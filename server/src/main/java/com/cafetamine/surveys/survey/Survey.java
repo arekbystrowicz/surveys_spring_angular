@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.cafetamine.surveys.category.Category;
+import com.cafetamine.surveys.user.User;
 
 
 @Entity
@@ -28,6 +29,9 @@ public class Survey {
     private Boolean isPublished;
     @NotNull
     private Boolean isAccessible;
+    @NotNull
+    @OneToOne
+    private User author;
     @OneToMany
     private List<Category> categories;
 
@@ -93,6 +97,14 @@ public class Survey {
 
     public void setAccessible(Boolean accessible) {
         isAccessible = accessible;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     public List<Category> getCategories() {
