@@ -5,7 +5,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
+import java.util.List;
 
+import com.cafetamine.surveys.answer.Answer;
 import com.cafetamine.surveys.survey.Survey;
 
 
@@ -27,6 +29,8 @@ public class Question {
     @NotNull
     @OneToOne
     private Survey survey;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
+    private List<Answer> answers;
 
     public Long getId() {
         return id;

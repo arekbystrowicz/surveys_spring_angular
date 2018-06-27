@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 
 import java.util.Date;
 
+import com.cafetamine.surveys.question.Question;
+
 
 @Entity
 public class Answer {
@@ -18,6 +20,9 @@ public class Answer {
     @NotNull
     private Date creationDate;
     private Date lastUpdateDate;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id", nullable = false)
+    private Question question;
 
     public Long getId() {
         return id;
