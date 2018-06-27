@@ -88,4 +88,12 @@ public class Question {
         this.survey = survey;
     }
 
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
 }
