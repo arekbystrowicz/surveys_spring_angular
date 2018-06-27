@@ -6,9 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.NotNull;
 
+import java.util.Date;
+
 import com.cafetamine.surveys.answer.Answer;
 import com.cafetamine.surveys.user.User;
-
 
 
 @Entity
@@ -21,5 +22,8 @@ public class Solution {
     private User author;
     @NotNull
     private Answer answer;
+    @NotNull
+    private Date creationDate;
+    private Date lastUpdateDate;
 
 }
