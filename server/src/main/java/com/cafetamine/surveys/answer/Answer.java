@@ -1,36 +1,28 @@
-package com.cafetamine.surveys.question;
+package com.cafetamine.surveys.answer;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
-import java.util.List;
 
-import com.cafetamine.surveys.answer.Answer;
-import com.cafetamine.surveys.survey.Survey;
+import com.cafetamine.surveys.question.Question;
 
 
 @Entity
-public class Question {
+public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    private String title;
-    @NotEmpty
     private String description;
     @NotNull
     private Date creationDate;
     private Date lastUpdateDate;
-    @NotNull
-    private Boolean isAccessible;
-    @NotNull
-    @OneToOne
-    private Survey survey;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
-    private List<Answer> answers;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id", nullable = false)
+    private Question question;
 
     public Long getId() {
         return id;
@@ -38,14 +30,6 @@ public class Question {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {
@@ -70,22 +54,6 @@ public class Question {
 
     public void setLastUpdateDate(Date lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public Boolean getAccessible() {
-        return isAccessible;
-    }
-
-    public void setAccessible(Boolean accessible) {
-        isAccessible = accessible;
-    }
-
-    public Survey getSurvey() {
-        return survey;
-    }
-
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
     }
 
 }
