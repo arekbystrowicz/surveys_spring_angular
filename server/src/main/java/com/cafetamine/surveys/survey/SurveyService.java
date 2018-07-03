@@ -23,15 +23,15 @@ public class SurveyService {
         return survey.get();
     }
 
-    private Survey getPublishedById(Long id) {
+    public Survey getPublishedById(Long id) {
         return this.getByIdAndAccessibleAndPublished(id, true, true);
     }
 
-    private Survey getUnpublishedById(Long id) {
+    public Survey getUnpublishedById(Long id) {
         return this.getByIdAndAccessibleAndPublished(id, true, false);
     }
 
-    private Iterable<Survey> getPublished() {
+    public Iterable<Survey> getPublished() {
         return this.surveyRepository.findAllByAccessibleAndPublished(true, true);
     }
 
