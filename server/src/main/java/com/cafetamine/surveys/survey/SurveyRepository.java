@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+import com.cafetamine.surveys.user.User;
+
 
 @Repository
 public interface SurveyRepository extends CrudRepository<Survey, Long> {
@@ -12,5 +14,7 @@ public interface SurveyRepository extends CrudRepository<Survey, Long> {
     Optional<Survey> findByIdAndIsAccessibleAndIsPublished(Long id, Boolean isAccessible, Boolean isPublished);
 
     Iterable<Survey> findAllByIsAccessibleAndIsPublished(Boolean isAccessible, Boolean isPublished);
+
+    Iterable<Survey> findAllByAuthorAndAccessibleAndPublished(User author, Boolean isAccessible, Boolean isPublished);
 
 }
