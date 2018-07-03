@@ -54,4 +54,8 @@ public class SurveyService {
         return this.surveyRepository.findAllByCategoriesContainingAndAccessibleAndPublished(category, true, true);
     }
 
+    public Iterable<Survey> getByTitle(String title) {
+        return this.surveyRepository.findAllByTitleAndAccessibleAndPublished(title, true, true);
+    }
+
 }
