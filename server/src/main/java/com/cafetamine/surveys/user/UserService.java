@@ -27,9 +27,17 @@ public class UserService {
         return this.getByIdAndActive(id, true);
     }
 
+    public User delete(Long id) {
+        User user = this.getById(id);
+        user.setActive(false);
+        
+        return this.userRepository.save(user);
+    }
+
     public User restore(Long id) {
         User user = this.getByIdAndActive(id, false);
         user.setActive(true);
+
         return this.userRepository.save(user);
     }
 
