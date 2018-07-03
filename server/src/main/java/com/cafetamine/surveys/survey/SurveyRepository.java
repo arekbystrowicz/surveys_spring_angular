@@ -11,4 +11,6 @@ public interface SurveyRepository extends CrudRepository<Survey, Long> {
 
     Optional<Survey> findByIdAndIsAccessibleAndIsPublished(Long id, Boolean isAccessible, Boolean isPublished);
 
+    Iterable<Survey> findAllByIsAccessibleAndIsPublished(Boolean isAccessible, Boolean isPublished);
+
 }
