@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+import com.cafetamine.surveys.user.User;
+
 
 @Service
 public class CategoryService {
@@ -34,6 +36,10 @@ public class CategoryService {
 
     public Iterable<Category> getAll() {
         return this.categoryRepository.findAll();
+    }
+
+    public Iterable<Category> getByAuthor(User author) {
+        return this.categoryRepository.findAllByAuthor(author);
     }
 
 }
