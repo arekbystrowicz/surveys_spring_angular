@@ -30,16 +30,19 @@ public class QuestionService {
     }
 
     public Question create(Question question) {
+        // TODO adjust implementation to client
         return this.questionRepository.save(question);
     }
 
     public Question update(Question question) {
+        // TODO adjust implementation to client
         return this.questionRepository.save(question);
     }
 
     public Question delete(Question question) {
-        this.questionRepository.delete(question);
-        return question;
+        // TODO adjust implementation to client
+        question.setAccessible(false);
+        return this.questionRepository.save(question);
     }
 
 }
