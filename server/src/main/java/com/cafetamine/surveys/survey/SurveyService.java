@@ -44,4 +44,8 @@ public class SurveyService {
         return this.surveyRepository.findAllByAuthorAndAccessibleAndPublished(user, true, true);
     }
 
+    public Iterable<Survey> getWorkspace(User user) {
+        return this.surveyRepository.findAllByAuthorAndAccessibleAndPublished(user, true, false);
+    }
+
 }
