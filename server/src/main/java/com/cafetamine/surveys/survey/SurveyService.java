@@ -58,4 +58,19 @@ public class SurveyService {
         return this.surveyRepository.findAllByTitleAndAccessibleAndPublished(title, true, true);
     }
 
+    public Survey create(Survey survey) {
+        // TODO adjust implementation to client
+        return this.surveyRepository.save(survey);
+    }
+
+    public Survey update(Survey survey) {
+        // TODO adjust implementation to client
+        return this.surveyRepository.save(survey);
+    }
+
+    public Survey delete(Survey survey) {
+        survey.setAccessible(false);
+        return this.surveyRepository.save(survey);
+    }
+
 }
