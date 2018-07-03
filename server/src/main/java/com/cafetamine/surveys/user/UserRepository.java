@@ -1,4 +1,9 @@
 package com.cafetamine.surveys.user;
 
-public interface UserRepository {
+import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
+
+
+@Repository
+public interface UserRepository extends CrudRepository<User, Long> {
 }
