@@ -12,6 +12,6 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
 
     Optional<Category> findByTag(String tag);
 
-    Iterable<Category> findByAuthor(User author);
+    Iterable<Category> findAllByAuthor(User author);
 
 }
