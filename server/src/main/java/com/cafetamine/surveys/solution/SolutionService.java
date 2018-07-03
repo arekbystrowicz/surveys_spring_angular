@@ -34,4 +34,19 @@ public class SolutionService {
         return this.solutionRepository.findAllByAnswerAndAuthor(answer, author);
     }
 
+    public Solution create(Solution solution) {
+        // TODO adjust implementation to client
+        return this.solutionRepository.save(solution);
+    }
+
+    public Solution update(Solution solution) {
+        // TODO adjust implementation to client
+        return this.solutionRepository.save(solution);
+    }
+
+    public Solution delete(Solution solution) {
+        this.solutionRepository.delete(solution);
+        return solution;
+    }
+
 }
