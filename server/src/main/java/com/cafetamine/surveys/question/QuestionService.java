@@ -26,7 +26,7 @@ public class QuestionService {
     }
 
     public Iterable<Question> getAllBySurvey(Survey survey) {
-        return this.questionRepository.findAllBySurvey(survey);
+        return this.questionRepository.findAllBySurveyAndAccessible(survey, true);
     }
 
     public Question create(Question question) {
