@@ -31,4 +31,8 @@ public class SurveyService {
         return this.getByIdAndAccessibleAndPublished(id, true, false);
     }
 
+    private Iterable<Survey> getPublished() {
+        return this.surveyRepository.findAllByAccessibleAndPublished(true, true);
+    }
+
 }
