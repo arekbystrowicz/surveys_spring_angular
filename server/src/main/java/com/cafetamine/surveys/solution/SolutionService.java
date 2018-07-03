@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+import com.cafetamine.surveys.answer.Answer;
+
 
 @Service
 public class SolutionService {
@@ -22,5 +24,9 @@ public class SolutionService {
         }
         return solution.get();
     }
-    
+
+    public Iterable<Solution> getByAnswer(Answer answer) {
+        return this.solutionRepository.findAllByAnswer(answer);
+    }
+
 }
