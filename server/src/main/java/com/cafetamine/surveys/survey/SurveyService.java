@@ -1,5 +1,6 @@
 package com.cafetamine.surveys.survey;
 
+import com.cafetamine.surveys.user.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -33,6 +34,14 @@ public class SurveyService {
 
     public Iterable<Survey> getPublished() {
         return this.surveyRepository.findAllByAccessibleAndPublished(true, true);
+    }
+
+    public Iterable<Survey> getUnpublished() {
+        return this.surveyRepository.findAllByAccessibleAndPublished(true, false);
+    }
+
+    public Iterable<Survey> getByAuthor(User user) {
+        return this.surveyRepository.findAllByAuthorAndAccessibleAndPublished(user, true, true);
     }
 
 }
