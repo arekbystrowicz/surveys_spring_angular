@@ -9,6 +9,6 @@ import java.util.Optional;
 @Repository
 public interface SurveyRepository extends CrudRepository<Survey, Long> {
 
-    Optional<Survey> findByIdAndIsAccessible(Long id, Boolean isAccessible);
+    Optional<Survey> findByIdAndIsAccessibleAndIsPublished(Long id, Boolean isAccessible, Boolean isPublished);
 
 }
