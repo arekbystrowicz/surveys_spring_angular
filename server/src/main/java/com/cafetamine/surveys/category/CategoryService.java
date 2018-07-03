@@ -14,6 +14,15 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
+    public Category getById(Long id) {
+        Optional<Category> category = this.categoryRepository.findById(id);
+        if (!category.isPresent()) {
+            // TODO exception
+            throw new RuntimeException("404 category not found");
+        }
+        return category.get();
+    }
+
     public Category getByTag(String tag) {
         Optional<Category> category = this.categoryRepository.findByTag(tag);
         if (!category.isPresent()) {
