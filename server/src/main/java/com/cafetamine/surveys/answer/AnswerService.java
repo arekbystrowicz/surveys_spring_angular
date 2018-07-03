@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+import com.cafetamine.surveys.question.Question;
+
 
 @Service
 public class AnswerService {
@@ -21,6 +23,10 @@ public class AnswerService {
             throw new RuntimeException("404 question not found");
         }
         return answer.get();
+    }
+
+    public Iterable<Answer> getByQuestion(Question question) {
+        return this.answerRepository.findAllByQuestion(question);
     }
 
 }
