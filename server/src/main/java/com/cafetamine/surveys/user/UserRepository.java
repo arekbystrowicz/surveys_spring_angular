@@ -9,7 +9,8 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 
-
     Optional<User> findByIdAndIsActive(Long id, Boolean isActive);
+
+    Iterable<User> findAllByIsActive(Boolean isActive);
 
 }
