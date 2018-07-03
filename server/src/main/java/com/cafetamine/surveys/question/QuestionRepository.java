@@ -10,4 +10,5 @@ import com.cafetamine.surveys.survey.Survey;
 public interface QuestionRepository extends CrudRepository<Question, Long> {
 
     Iterable<Question> findAllBySurvey(Survey survey);
+
 }
