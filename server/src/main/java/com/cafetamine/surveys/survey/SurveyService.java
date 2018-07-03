@@ -1,9 +1,11 @@
 package com.cafetamine.surveys.survey;
 
-import com.cafetamine.surveys.user.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
+import com.cafetamine.surveys.user.User;
+import com.cafetamine.surveys.category.Category;
 
 
 @Service
@@ -46,6 +48,10 @@ public class SurveyService {
 
     public Iterable<Survey> getWorkspace(User user) {
         return this.surveyRepository.findAllByAuthorAndAccessibleAndPublished(user, true, false);
+    }
+
+    public Iterable<Survey> getByCategory(Category category) {
+        return this.surveyRepository.findAllByCategoriesContainingAndAccessibleAndPublished(category, true, true);
     }
 
 }
