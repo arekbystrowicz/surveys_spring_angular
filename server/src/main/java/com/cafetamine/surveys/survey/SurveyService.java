@@ -23,4 +23,8 @@ public class SurveyService {
         return survey.get();
     }
 
+    private Survey getPublishedById(Long id) {
+        return this.getByIdAndAccessibleAndPublished(id, true, true);
+    }
+
 }
