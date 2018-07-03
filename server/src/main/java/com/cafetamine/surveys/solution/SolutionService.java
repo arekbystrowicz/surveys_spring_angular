@@ -2,6 +2,8 @@ package com.cafetamine.surveys.solution;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 public class SolutionService {
@@ -12,4 +14,13 @@ public class SolutionService {
         this.solutionRepository = solutionRepository;
     }
 
+    public Solution getById(Long id) {
+        Optional<Solution> solution = this.solutionRepository.findById(id);
+        if (!solution.isPresent()) {
+            // TODO exception
+            throw new RuntimeException("404 solution not found");
+        }
+        return solution.get();
+    }
+    
 }
