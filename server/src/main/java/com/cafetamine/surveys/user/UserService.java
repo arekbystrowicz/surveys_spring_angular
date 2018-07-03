@@ -14,13 +14,17 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User getById(Long id) {
-        Optional<User> user = this.userRepository.findByIdAndIsActive(id, true);
+    private User getByIdAndActive(Long id, Boolean isActive) {
+        Optional<User> user = this.userRepository.findByIdAndIsActive(id, isActive);
         if (!user.isPresent()) {
             // TODO exception
             throw new RuntimeException("404 user not found");
         }
         return user.get();
+    }
+
+    public User getById(Long id) {
+        return this.getByIdAndActive(id, true);
     }
 
 }
