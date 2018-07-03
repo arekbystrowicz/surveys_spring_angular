@@ -25,6 +25,8 @@ public class Question {
     private Date creationDate;
     private Date lastUpdateDate;
     @NotNull
+    private Boolean isAccessible;
+    @NotNull
     @OneToOne
     private Survey survey;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
@@ -68,6 +70,14 @@ public class Question {
 
     public void setLastUpdateDate(Date lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
+    }
+
+    public Boolean getAccessible() {
+        return isAccessible;
+    }
+
+    public void setAccessible(Boolean accessible) {
+        isAccessible = accessible;
     }
 
     public Survey getSurvey() {
