@@ -42,4 +42,20 @@ public class CategoryService {
         return this.categoryRepository.findAllByAuthor(author);
     }
 
+    public Category create(Category category) {
+        // TODO adjust implementation to client
+        return this.categoryRepository.save(category);
+    }
+
+    public Category update(Category category) {
+        // TODO adjust implementation to client
+        return this.categoryRepository.save(category);
+    }
+
+    public Category delete(Category category) {
+        // TODO adjust implementation to client
+        this.categoryRepository.delete(category);
+        return category;
+    }
+
 }
