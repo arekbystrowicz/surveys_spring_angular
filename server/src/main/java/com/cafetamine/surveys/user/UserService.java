@@ -28,6 +28,12 @@ public class UserService {
     }
 
     public User create(User user) {
+        // TODO adjust implementation to client
+        return this.userRepository.save(user);
+    }
+
+    public User update(User user) {
+        // TODO adjust implementation to client
         return this.userRepository.save(user);
     }
 
