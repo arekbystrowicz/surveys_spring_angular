@@ -29,4 +29,20 @@ public class AnswerService {
         return this.answerRepository.findAllByQuestion(question);
     }
 
+    public Answer create(Answer answer) {
+        // TODO adjust implementation to client
+        return this.answerRepository.save(answer);
+    }
+
+    public Answer update(Answer answer) {
+        // TODO adjust implementation to client
+        return this.answerRepository.save(answer);
+    }
+
+    public Answer delete(Answer answer) {
+        // TODO adjust implementation to client
+        this.answerRepository.delete(answer);
+        return answer;
+    }
+
 }
