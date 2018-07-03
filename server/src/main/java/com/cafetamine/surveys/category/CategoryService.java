@@ -32,4 +32,8 @@ public class CategoryService {
         return category.get();
     }
 
+    public Iterable<Category> getAll() {
+        return this.categoryRepository.findAll();
+    }
+
 }
