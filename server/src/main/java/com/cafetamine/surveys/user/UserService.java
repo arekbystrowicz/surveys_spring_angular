@@ -27,4 +27,10 @@ public class UserService {
         return this.getByIdAndActive(id, true);
     }
 
+    public User restore(Long id) {
+        User user = this.getByIdAndActive(id, false);
+        user.setActive(true);
+        return this.userRepository.save(user);
+    }
+
 }
