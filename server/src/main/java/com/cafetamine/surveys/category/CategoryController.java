@@ -1,7 +1,8 @@
 package com.cafetamine.surveys.category;
 
-import com.cafetamine.surveys.user.UserService;
 import org.springframework.web.bind.annotation.*;
+
+import com.cafetamine.surveys.user.UserService;
 
 
 @RestController
