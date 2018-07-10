@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("users")
 public class UserController {
 
-    private UserRepository userRepository;
+    private UserService userService;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
 }
