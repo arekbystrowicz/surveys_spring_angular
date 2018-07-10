@@ -7,7 +7,7 @@ import com.cafetamine.surveys.survey.SurveyService;
 
 
 @RestController
-@RequestMapping("question")
+@RequestMapping("questions")
 public class QuestionController {
 
     private QuestionService questionService;
