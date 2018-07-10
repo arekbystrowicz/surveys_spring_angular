@@ -13,6 +13,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping()
+    public Iterable<User> getAll() {
+        return this.userService.getAll();
+    }
+
     @GetMapping("/{id}")
     public User getById(@PathVariable Long id) {
         return this.userService.getById(id);
