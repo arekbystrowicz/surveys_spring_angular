@@ -1,5 +1,6 @@
 package com.cafetamine.surveys.category;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,11 @@ public class CategoryController {
     @GetMapping()
     public Iterable<Category> categories() {
         return this.categoryService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Category getById(@RequestParam Long id) {
+        return this.categoryService.getById(id);
     }
 
 }
