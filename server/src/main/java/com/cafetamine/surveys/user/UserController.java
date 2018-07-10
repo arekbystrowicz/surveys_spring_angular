@@ -1,5 +1,6 @@
 package com.cafetamine.surveys.user;
 
+import com.cafetamine.surveys.survey.SurveyService;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -8,9 +9,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private UserService userService;
+    private SurveyService surveyService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, SurveyService surveyService) {
         this.userService = userService;
+        this.surveyService = surveyService;
     }
 
     @GetMapping()
