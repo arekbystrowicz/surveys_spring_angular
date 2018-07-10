@@ -28,4 +28,9 @@ public class UserController {
         return this.userService.create(user);
     }
 
+    @PostMapping("/{id}")
+    public User update(@RequestParam User user) {
+        return this.userService.update(user);
+    }
+
 }
