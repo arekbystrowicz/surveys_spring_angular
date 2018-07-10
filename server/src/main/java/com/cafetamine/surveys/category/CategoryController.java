@@ -24,6 +24,11 @@ public class CategoryController {
         return this.categoryService.getAll();
     }
 
+    @GetMapping(params = "user_id={id}")
+    public Iterable<Category> getAllByAuthor(@RequestParam Long id) {
+        return this.categoryService.getByAuthor(this.userService.getById(id));
+    }
+
     @GetMapping("/{id}")
     public Category getById(@RequestParam Long id) {
         return this.categoryService.getById(id);
