@@ -23,4 +23,9 @@ public class UserController {
         return this.userService.getById(id);
     }
 
+    @PostMapping()
+    public User signIn(@RequestParam User user) {
+        return this.userService.create(user);
+    }
+
 }
