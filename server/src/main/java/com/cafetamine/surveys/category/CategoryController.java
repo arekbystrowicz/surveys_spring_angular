@@ -32,8 +32,9 @@ public class CategoryController {
     }
 
     @PostMapping()
-    public Category create(@RequestParam Category category) {
+    public Category create(@RequestBody Category category) {
         return this.categoryService.create(category);
     }
+
 
 }
