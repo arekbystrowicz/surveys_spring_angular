@@ -25,4 +25,9 @@ public class QuestionController {
         return this.questionService.getAllBySurvey(this.surveyService.getPublishedById(id));
     }
 
+    @GetMapping(params = {"survey_id={id}", "action=workspace"})
+    public Iterable<Question> getWorkspaceBySurvey(@RequestParam("survey_id") Long id) {
+        return this.questionService.getAllBySurvey(this.surveyService.getUnpublishedById(id));
+    }
+
 }
