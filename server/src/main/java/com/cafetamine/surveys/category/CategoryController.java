@@ -1,10 +1,7 @@
 package com.cafetamine.surveys.category;
 
 import com.cafetamine.surveys.user.UserService;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -19,18 +16,18 @@ public class CategoryController {
         this.userService = userService;
     }
 
-    @GetMapping(params = "action=show_all")
+    @GetMapping()
     public Iterable<Category> getAll() {
         return this.categoryService.getAll();
     }
 
     @GetMapping(params = "user_id={id}")
-    public Iterable<Category> getAllByAuthor(@RequestParam Long id) {
+    public Iterable<Category> getAllByAuthor(@RequestParam("user_id") Long id) {
         return this.categoryService.getByAuthor(this.userService.getById(id));
     }
 
     @GetMapping("/{id}")
-    public Category getById(@RequestParam Long id) {
+    public Category getById(@PathVariable Long id) {
         return this.categoryService.getById(id);
     }
 
