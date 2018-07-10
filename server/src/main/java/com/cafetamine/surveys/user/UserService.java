@@ -27,6 +27,10 @@ public class UserService {
         return this.getByIdAndActive(id, true);
     }
 
+    public Iterable<User> getAll() {
+        return this.userRepository.findAllByIsActive(true);
+    }
+
     public User create(User user) {
         // TODO adjust implementation to client
         return this.userRepository.save(user);

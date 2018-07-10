@@ -73,4 +73,10 @@ public class SurveyService {
         return this.surveyRepository.save(survey);
     }
 
+    public void deleteAllByAuthor(User author) {
+        for (Survey survey : this.getByAuthor(author)) {
+            this.delete(survey);
+        }
+    }
+
 }
