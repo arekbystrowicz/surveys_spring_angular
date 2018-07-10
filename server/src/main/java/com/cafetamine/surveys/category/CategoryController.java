@@ -31,4 +31,9 @@ public class CategoryController {
         return this.categoryService.getById(id);
     }
 
+    @PostMapping()
+    public Category create(@RequestParam Category category) {
+        return this.categoryService.create(category);
+    }
+
 }
