@@ -28,12 +28,12 @@ public class UserController {
     }
 
     @PostMapping()
-    public User signIn(@RequestParam User user) {
+    public User signIn(@RequestBody User user) {
         return this.userService.create(user);
     }
 
     @PostMapping("/{id}")
-    public User update(@RequestParam User user) {
+    public User update(@RequestBody User user) {
         return this.userService.update(user);
     }
 
