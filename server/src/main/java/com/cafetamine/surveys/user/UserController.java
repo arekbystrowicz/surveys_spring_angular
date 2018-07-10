@@ -1,7 +1,6 @@
 package com.cafetamine.surveys.user;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -12,6 +11,11 @@ public class UserController {
 
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping("/{id}")
+    public User getById(@PathVariable Long id) {
+        return this.userService.getById(id);
     }
 
 }
