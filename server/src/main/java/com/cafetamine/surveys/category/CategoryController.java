@@ -16,7 +16,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping()
+    @GetMapping(params = "action=show_all")
     public Iterable<Category> categories() {
         return this.categoryService.getAll();
     }
