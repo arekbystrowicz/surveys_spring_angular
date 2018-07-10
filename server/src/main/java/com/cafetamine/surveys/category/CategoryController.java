@@ -36,5 +36,9 @@ public class CategoryController {
         return this.categoryService.create(category);
     }
 
+    @PostMapping("/{id}")
+    public Category update(@PathVariable Long id, @RequestBody Category category) {
+        return this.categoryService.update(category);
+    }
 
 }
