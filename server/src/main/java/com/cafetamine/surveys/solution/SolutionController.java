@@ -37,4 +37,9 @@ public class SolutionController {
         return this.solutionService.update(solution);
     }
 
+    @PostMapping(value = "/{id}", params = "action=delete") 
+    public Solution delete(@PathVariable Long id) {
+        return this.solutionService.delete(this.solutionService.getById(id));
+    }
+
 }
