@@ -17,8 +17,8 @@ public class SurveyService {
         this.surveyRepository = surveyRepository;
     }
 
-    private Survey getByIdAndAccessibleAndPublished(Long id, Boolean isAccessible, Boolean isPublished) {
-        Optional<Survey> survey = this.surveyRepository.findByIdAndIsAccessibleAndIsPublished(id, isAccessible, isPublished);
+    public Survey getById(Long id) {
+        Optional<Survey> survey = this.surveyRepository.findByIdAndIsAccessible(id, true);
         if (!survey.isPresent()) {
             // TODO exception
             throw new RuntimeException("404 survey not found");
