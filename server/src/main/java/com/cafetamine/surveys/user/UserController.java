@@ -37,8 +37,8 @@ public class UserController {
         return this.userService.update(user);
     }
 
-    @PostMapping(params = {"id={id}", "action=delete"})
-    public User archive(@RequestParam("id") Long id) {
+    @PostMapping(value = "/{id}", params = "action=delete")
+    public User archive(@PathVariable Long id) {
         User user = this.userService.delete(id);
         this.surveyService.deleteAllByAuthor(user);
 
