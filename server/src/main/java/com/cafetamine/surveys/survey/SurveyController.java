@@ -47,4 +47,10 @@ public class SurveyController {
         return this.surveyService.update(survey);
     }
 
+    @PostMapping(value = "/id", params = "action=delete")
+    public Survey delete(@PathVariable Long id) {
+        // TODO change service to allow both published, unpublished
+        return this.surveyService.delete(this.surveyService.getPublishedById(id));
+    }
+
 }
