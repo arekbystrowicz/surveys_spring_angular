@@ -32,7 +32,7 @@ public class AnswerController {
         return this.answerService.create(answer);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping(value = "/{id}", params = "action=update")
     public Answer update(@RequestBody Answer answer) {
         return this.answerService.update(answer);
     }
