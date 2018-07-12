@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 import com.cafetamine.surveys.user.User;
+import com.cafetamine.surveys.survey.Survey;
 import com.cafetamine.surveys.survey.SurveyService;
 
 
@@ -58,9 +59,22 @@ public class CategoryService {
     public Category delete(Long id) {
         // TODO adjust implementation to client
         Category category = this.getById(id);
+        // TODO tragic! get it out (check this.isUsed)
+        if (this.isUsed(category)) {
+            throw new RuntimeException("This category is used, and cannot be deleted");
+        }
         this.categoryRepository.delete(category);
 
         return category;
+    }
+
+    // TODO change Iterables to sth normal
+    // TODO then get rid of this shitty method
+    private Boolean isUsed(Category category) {
+        for (Survey survey : surveyService.getByCategory(category)) {
+            return true;
+        }
+        return false;
     }
 
 }
