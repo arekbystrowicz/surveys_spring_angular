@@ -25,6 +25,11 @@ public class QuestionService {
         return question.get();
     }
 
+    // TODO development only
+    public Iterable<Question> getAll() {
+        return this.questionRepository.findAll();
+    }
+
     public Iterable<Question> getAllBySurvey(Survey survey) {
         return this.questionRepository.findAllBySurveyAndIsAccessible(survey, true);
     }
