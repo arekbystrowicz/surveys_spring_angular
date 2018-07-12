@@ -32,6 +32,8 @@ public class UserController {
         return this.userService.create(user);
     }
 
+    // TODO when json w/o id is sent -> it's just m::create
+    // TODO  will prbl disperse with actual update implementation but keep eye
     @PostMapping(value = "/{id}", params = "action=update")
     public User update(@RequestBody User user) {
         return this.userService.update(user);
