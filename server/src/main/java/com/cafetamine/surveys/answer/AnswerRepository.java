@@ -9,6 +9,6 @@ import com.cafetamine.surveys.question.Question;
 @Repository
 public interface AnswerRepository extends CrudRepository<Answer, Long> {
 
-    Iterable<Answer> findAllByQuestion(Question question);
+    Iterable<Answer> findAllByQuestionAndIsAccessible(Question question, Boolean isAccessible);
 
 }
