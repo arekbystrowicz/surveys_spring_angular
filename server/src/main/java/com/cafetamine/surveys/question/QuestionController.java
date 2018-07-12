@@ -22,10 +22,11 @@ public class QuestionController {
         return this.questionService.getById(id);
     }
 
-    @GetMapping(params = "survey_id={id}")
-    public Iterable<Question> getBySurvey(@RequestParam("survey_id") Long id) {
-        return this.questionService.getAllBySurvey(this.surveyService.getById(id));
-    }
+      // TODO parameters on source root?
+//    @GetMapping(params = "survey_id={id}")
+//    public Iterable<Question> getBySurvey(@RequestParam("survey_id") Long id) {
+//        return this.questionService.getAllBySurvey(this.surveyService.getById(id));
+//    }
 
     @PostMapping()
     public Question create(@RequestBody Question question) {
