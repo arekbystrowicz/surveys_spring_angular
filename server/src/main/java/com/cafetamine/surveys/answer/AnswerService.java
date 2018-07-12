@@ -17,7 +17,7 @@ public class AnswerService {
     }
 
     public Answer getById(Long id) {
-        Optional<Answer> answer = this.answerRepository.findById(id);
+        Optional<Answer> answer = this.answerRepository.findByIdAndIsAccessible(id, true);
         if (!answer.isPresent()) {
             // TODO exception
             throw new RuntimeException("404 question not found");
