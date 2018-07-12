@@ -26,10 +26,6 @@ public class SurveyService {
         return survey.get();
     }
 
-    public Survey getPublishedById(Long id) {
-        return this.getByIdAndAccessibleAndPublished(id, true, true);
-    }
-
     public Survey getUnpublishedById(Long id) {
         return this.getByIdAndAccessibleAndPublished(id, true, false);
     }
