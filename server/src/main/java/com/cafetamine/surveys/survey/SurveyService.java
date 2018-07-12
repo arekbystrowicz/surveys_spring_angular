@@ -26,6 +26,10 @@ public class SurveyService {
         return survey.get();
     }
 
+    public Iterable<Survey> getAll() {
+        return this.surveyRepository.findAllByIsAccessible(true);
+    }
+
     public Iterable<Survey> getByAuthor(User user) {
         return this.surveyRepository.findAllByAuthorAndIsAccessibleAndIsPublished(user, true, true);
     }
