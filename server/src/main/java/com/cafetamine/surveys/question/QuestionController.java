@@ -27,7 +27,7 @@ public class QuestionController {
         return this.questionService.create(question);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping(value = "/{id}", params = "action=update")
     public Question update(@RequestBody Question question) {
         return this.questionService.update(question);
     }
