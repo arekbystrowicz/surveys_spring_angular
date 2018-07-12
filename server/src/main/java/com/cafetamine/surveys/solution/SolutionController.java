@@ -22,4 +22,9 @@ public class SolutionController {
         return this.solutionService.getById(id);
     }
 
+    @GetMapping(params = "answer_id={id}")
+    public Iterable<Solution> getByAnswer(@RequestParam("answer_id") Long id) {
+        return this.solutionService.getByAnswer(this.answerService.getById(id));
+    }
+
 }
