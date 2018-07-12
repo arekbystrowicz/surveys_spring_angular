@@ -41,7 +41,7 @@ public class AnswerController {
 
     @PostMapping(value = "/{id}", params = "action=delete")
     public Answer delete(@PathVariable Long id) {
-        return this.answerService.delete(this.answerService.getById(id));
+        return this.answerService.delete(id);
     }
 
 }
