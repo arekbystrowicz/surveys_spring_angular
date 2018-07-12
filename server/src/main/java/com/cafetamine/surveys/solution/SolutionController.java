@@ -29,7 +29,7 @@ public class SolutionController {
 
     @PostMapping()
     public Solution create(@RequestBody Solution solution) {
-        this.solutionService.create(solution);
+        return this.solutionService.create(solution);
     }
 
 }
