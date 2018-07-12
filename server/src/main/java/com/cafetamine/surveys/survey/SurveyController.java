@@ -22,6 +22,10 @@ public class SurveyController {
         return this.surveyService.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Survey getById(@PathVariable Long id) {
+        return this.surveyService.getById(id);
+    }
 
 //    @GetMapping(value = "/{id}", params="show=published")
 //    public Survey getPublishedById(@PathVariable Long id) {
