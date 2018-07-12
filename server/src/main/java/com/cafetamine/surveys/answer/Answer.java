@@ -23,6 +23,8 @@ public class Answer {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "question_id", nullable = false)
     private Question question;
+    @NotNull
+    private Boolean isAccessible;
 
     public Long getId() {
         return id;
@@ -62,6 +64,14 @@ public class Answer {
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+
+    public Boolean getAccessible() {
+        return isAccessible;
+    }
+
+    public void setAccessible(Boolean accessible) {
+        isAccessible = accessible;
     }
 
 }
