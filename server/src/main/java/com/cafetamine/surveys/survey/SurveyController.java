@@ -2,15 +2,19 @@ package com.cafetamine.surveys.survey;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.cafetamine.surveys.user.UserService;
+
 
 @RestController
 @RequestMapping("surveys")
 public class SurveyController {
 
     private SurveyService surveyService;
+    private UserService userService;
 
-    public SurveyController(SurveyService surveyService) {
+    public SurveyController(SurveyService surveyService, UserService userService) {
         this.surveyService = surveyService;
+        this.userService = userService;
     }
 
     @GetMapping(value = "/{id}", params="show=published")
