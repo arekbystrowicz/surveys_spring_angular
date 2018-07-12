@@ -32,16 +32,11 @@ public class SurveyController {
         return this.surveyService.getByAuthor(this.userService.getById(id));
     }
 
-//    @GetMapping(params = "user_id={id}")
-//    public Iterable<Survey> getWorkspace(@RequestParam("user_id") Long id) {
-//        return this.surveyService.getWorkspace(this.userService.getById(id));
-//    }
-//
-//    @PostMapping()
-//    public Survey create(@RequestBody Survey survey) {
-//        return this.surveyService.create(survey);
-//    }
-//
+    @PostMapping()
+    public Survey create(@RequestBody Survey survey) {
+        return this.surveyService.create(survey);
+    }
+
 //    @PostMapping(value = "/{id}", params = "action=update")
 //    public Survey update(@RequestBody Survey survey) {
 //        return this.surveyService.update(survey);
