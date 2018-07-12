@@ -26,7 +26,7 @@ public class AnswerService {
     }
 
     public Iterable<Answer> getByQuestion(Question question) {
-        return this.answerRepository.findAllByQuestion(question);
+        return this.answerRepository.findAllByQuestionAndIsAccessible(question, true);
     }
 
     public Answer create(Answer answer) {
