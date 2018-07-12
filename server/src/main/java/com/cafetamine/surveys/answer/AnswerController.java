@@ -1,8 +1,11 @@
 package com.cafetamine.surveys.answer;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.cafetamine.surveys.question.QuestionService;
 
 
 @RestController
@@ -10,12 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class AnswerController {
 
     private AnswerService answerService;
+    private QuestionService questionService;
 
-    public AnswerController(AnswerService answerService) {
+    public AnswerController(AnswerService answerService, QuestionService questionService) {
         this.answerService = answerService;
+        this.questionService = questionService;
     }
 
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public Answer getById(@PathVariable Long id) {
         return this.answerService.getById(id);
     }
