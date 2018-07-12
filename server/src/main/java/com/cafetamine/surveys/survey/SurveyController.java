@@ -27,21 +27,11 @@ public class SurveyController {
         return this.surveyService.getById(id);
     }
 
-//    @GetMapping(value = "/{id}", params="show=published")
-//    public Survey getPublishedById(@PathVariable Long id) {
-//        return this.surveyService.getPublishedById(id);
-//    }
-//
-//    @GetMapping(value = "/{id}", params="show=workspace")
-//    public Survey getWorkspaceById(@PathVariable Long id) {
-//        return this.surveyService.getUnpublishedById(id);
-//    }
-//
-//    @GetMapping(params = "show=published")
-//    public Iterable<Survey> getAllPublished() {
-//        return this.surveyService.getPublished();
-//    }
-//
+    @GetMapping(params = "user_id={id}")
+    public Iterable<Survey> getByAuthor(@RequestParam Long id) {
+        return this.surveyService.getByAuthor(this.userService.getById(id));
+    }
+
 //    @GetMapping(params = "user_id={id}")
 //    public Iterable<Survey> getWorkspace(@RequestParam("user_id") Long id) {
 //        return this.surveyService.getWorkspace(this.userService.getById(id));
