@@ -43,7 +43,7 @@ public class CategoryController {
     }
 
     // TODO cannot be performed! check for safety
-    @PostMapping(params = {"id={id}", "action=delete"})
+    @PostMapping(value = "/{id}", params = "action=delete")
     public Category delete(@PathVariable Long id) {
         return this.categoryService.delete(this.categoryService.getById(id));
     }
