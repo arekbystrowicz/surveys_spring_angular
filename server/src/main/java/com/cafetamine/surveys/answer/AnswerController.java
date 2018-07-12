@@ -17,6 +17,12 @@ public class AnswerController {
         this.questionService = questionService;
     }
 
+    // TODO dev only
+    @GetMapping()
+    public Iterable<Answer> getAll() {
+        return this.answerService.getAll();
+    }
+
     @GetMapping("/{id}")
     public Answer getById(@PathVariable Long id) {
         return this.answerService.getById(id);
