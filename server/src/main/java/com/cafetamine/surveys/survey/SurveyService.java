@@ -18,7 +18,7 @@ public class SurveyService {
     }
 
     private Survey getByIdAndAccessibleAndPublished(Long id, Boolean isAccessible, Boolean isPublished) {
-        Optional<Survey> survey = this.surveyRepository.findByIdAndAccessibleAndPublished(id, isAccessible, isPublished);
+        Optional<Survey> survey = this.surveyRepository.findByIdAndIsAccessibleAndPublished(id, isAccessible, isPublished);
         if (!survey.isPresent()) {
             // TODO exception
             throw new RuntimeException("404 survey not found");
@@ -35,27 +35,27 @@ public class SurveyService {
     }
 
     public Iterable<Survey> getPublished() {
-        return this.surveyRepository.findAllByAccessibleAndPublished(true, true);
+        return this.surveyRepository.findAllByIsAccessibleAndPublished(true, true);
     }
 
     public Iterable<Survey> getUnpublished() {
-        return this.surveyRepository.findAllByAccessibleAndPublished(true, false);
+        return this.surveyRepository.findAllByIsAccessibleAndPublished(true, false);
     }
 
     public Iterable<Survey> getByAuthor(User user) {
-        return this.surveyRepository.findAllByAuthorAndAccessibleAndPublished(user, true, true);
+        return this.surveyRepository.findAllByAuthorAndIsAccessibleAndPublished(user, true, true);
     }
 
     public Iterable<Survey> getWorkspace(User user) {
-        return this.surveyRepository.findAllByAuthorAndAccessibleAndPublished(user, true, false);
+        return this.surveyRepository.findAllByAuthorAndIsAccessibleAndPublished(user, true, false);
     }
 
     public Iterable<Survey> getByCategory(Category category) {
-        return this.surveyRepository.findAllByCategoriesContainingAndAccessibleAndPublished(category, true, true);
+        return this.surveyRepository.findAllByCategoriesContainingIsAndAccessibleAndPublished(category, true, true);
     }
 
     public Iterable<Survey> getByTitle(String title) {
-        return this.surveyRepository.findAllByTitleAndAccessibleAndPublished(title, true, true);
+        return this.surveyRepository.findAllByTitleAndIsAccessibleAndPublished(title, true, true);
     }
 
     public Survey create(Survey survey) {

@@ -12,14 +12,14 @@ import com.cafetamine.surveys.category.Category;
 @Repository
 public interface SurveyRepository extends CrudRepository<Survey, Long> {
 
-    Optional<Survey> findByIdAndAccessibleAndPublished(Long id, Boolean isAccessible, Boolean isPublished);
+    Optional<Survey> findByIdAndIsAccessibleAndPublished(Long id, Boolean isAccessible, Boolean isPublished);
 
-    Iterable<Survey> findAllByAccessibleAndPublished(Boolean isAccessible, Boolean isPublished);
+    Iterable<Survey> findAllByIsAccessibleAndPublished(Boolean isAccessible, Boolean isPublished);
 
-    Iterable<Survey> findAllByAuthorAndAccessibleAndPublished(User author, Boolean isAccessible, Boolean isPublished);
+    Iterable<Survey> findAllByAuthorAndIsAccessibleAndPublished(User author, Boolean isAccessible, Boolean isPublished);
 
-    Iterable<Survey> findAllByCategoriesContainingAndAccessibleAndPublished(Category category, Boolean isAccessible, Boolean isPublished);
+    Iterable<Survey> findAllByCategoriesContainingIsAndAccessibleAndPublished(Category category, Boolean isAccessible, Boolean isPublished);
 
-    Iterable<Survey> findAllByTitleAndAccessibleAndPublished(String title, Boolean isAccessible, Boolean isPublished);
+    Iterable<Survey> findAllByTitleAndIsAccessibleAndPublished(String title, Boolean isAccessible, Boolean isPublished);
 
 }
