@@ -26,10 +26,6 @@ public class SurveyService {
         return survey.get();
     }
 
-    public Survey getUnpublishedById(Long id) {
-        return this.getByIdAndAccessibleAndPublished(id, true, false);
-    }
-
     public Iterable<Survey> getPublished() {
         return this.surveyRepository.findAllByIsAccessibleAndIsPublished(true, true);
     }
