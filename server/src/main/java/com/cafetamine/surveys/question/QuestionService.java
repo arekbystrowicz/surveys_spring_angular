@@ -17,7 +17,7 @@ public class QuestionService {
     }
 
     public Question getById(Long id) {
-        Optional<Question> question = this.questionRepository.findByIdAndAccessible(id, true);
+        Optional<Question> question = this.questionRepository.findByIdAndIsAccessible(id, true);
         if (!question.isPresent()) {
             // TODO exception
             throw new RuntimeException("404 question not found");
@@ -26,7 +26,7 @@ public class QuestionService {
     }
 
     public Iterable<Question> getAllBySurvey(Survey survey) {
-        return this.questionRepository.findAllBySurveyAndAccessible(survey, true);
+        return this.questionRepository.findAllBySurveyAndIsAccessible(survey, true);
     }
 
     public Question create(Question question) {
