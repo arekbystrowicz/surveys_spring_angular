@@ -34,10 +34,6 @@ public class SurveyService {
         return this.surveyRepository.findAllByAuthorAndIsAccessible(user, true);
     }
 
-    public Iterable<Survey> getWorkspace(User user) {
-        return this.surveyRepository.findAllByAuthorAndIsAccessibleAndIsPublished(user, true, false);
-    }
-
     public Iterable<Survey> getByCategory(Category category) {
         return this.surveyRepository.findAllByCategoriesContainingAndIsAccessibleAndIsPublished(category, true, true);
     }
