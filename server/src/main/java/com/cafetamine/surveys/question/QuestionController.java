@@ -27,7 +27,7 @@ public class QuestionController {
         return this.questionService.getAllBySurvey(this.surveyService.getById(id));
     }
 
-    @PostMapping(params = {"action=create"})
+    @PostMapping(params = "action=create")
     public Question create(@RequestBody Question question) {
         return this.questionService.create(question);
     }
