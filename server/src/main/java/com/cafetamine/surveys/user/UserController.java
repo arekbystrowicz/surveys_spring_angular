@@ -32,7 +32,7 @@ public class UserController {
         return this.userService.create(user);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping(value = "/{id}", params = "action=update")
     public User update(@RequestBody User user) {
         return this.userService.update(user);
     }
