@@ -24,7 +24,7 @@ public class SurveyController {
     }
 
     @GetMapping(params = "show=published")
-    public Iterable<Survey> getAllPublishedSurveys() {
+    public Iterable<Survey> getAllPublished() {
         return this.surveyService.getPublished();
     }
 
