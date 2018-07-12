@@ -1,9 +1,6 @@
 package com.cafetamine.surveys.solution;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
@@ -19,8 +16,10 @@ public class Solution {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
+    @OneToOne
     private User author;
     @NotNull
+    @OneToOne
     private Answer answer;
     @NotNull
     private Date creationDate;
