@@ -5,15 +5,18 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 import com.cafetamine.surveys.user.User;
+import com.cafetamine.surveys.survey.SurveyService;
 
 
 @Service
 public class CategoryService {
 
     private CategoryRepository categoryRepository;
+    private SurveyService surveyService;
 
-    public CategoryService(CategoryRepository categoryRepository) {
+    public CategoryService(CategoryRepository categoryRepository, SurveyService surveyService) {
         this.categoryRepository = categoryRepository;
+        this.surveyService = surveyService;
     }
 
     public Category getById(Long id) {
@@ -56,7 +59,7 @@ public class CategoryService {
         // TODO adjust implementation to client
         Category category = this.getById(id);
         this.categoryRepository.delete(category);
-        
+
         return category;
     }
 
