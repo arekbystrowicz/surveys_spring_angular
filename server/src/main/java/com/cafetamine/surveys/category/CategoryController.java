@@ -37,7 +37,8 @@ public class CategoryController {
         return this.categoryService.create(category);
     }
 
-    @PostMapping("/{id}")
+    // TODO check UserController's update comments
+    @PostMapping(value = "/{id}", params = "action=update")
     public Category update(@RequestBody Category category) {
         return this.categoryService.update(category);
     }
