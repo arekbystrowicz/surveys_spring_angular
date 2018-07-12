@@ -17,6 +17,12 @@ public class SurveyController {
         this.userService = userService;
     }
 
+    @GetMapping()
+    public Iterable<Survey> getAll() {
+        return this.surveyService.getAll();
+    }
+
+
 //    @GetMapping(value = "/{id}", params="show=published")
 //    public Survey getPublishedById(@PathVariable Long id) {
 //        return this.surveyService.getPublishedById(id);
