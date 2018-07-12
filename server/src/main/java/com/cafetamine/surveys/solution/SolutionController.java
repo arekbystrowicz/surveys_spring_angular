@@ -27,4 +27,9 @@ public class SolutionController {
         return this.solutionService.getByAnswer(this.answerService.getById(id));
     }
 
+    @PostMapping()
+    public Solution create(@RequestBody Solution solution) {
+        this.solutionService.create(solution);
+    }
+
 }
