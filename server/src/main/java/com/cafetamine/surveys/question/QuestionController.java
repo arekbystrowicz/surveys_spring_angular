@@ -1,9 +1,6 @@
 package com.cafetamine.surveys.question;
 
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.cafetamine.surveys.survey.SurveyService;
 
@@ -28,6 +25,11 @@ public class QuestionController {
     @GetMapping(params = {"survey_id={id}", "action=workspace"})
     public Iterable<Question> getWorkspaceBySurvey(@RequestParam("survey_id") Long id) {
         return this.questionService.getAllBySurvey(this.surveyService.getUnpublishedById(id));
+    }
+
+    @PostMapping(params = {"action=create"})
+    public Question create(@RequestBody Question question) {
+        return this.questionService.create(question);
     }
 
 }
