@@ -17,7 +17,7 @@ public class QuestionController {
         this.surveyService = surveyService;
     }
 
-    @GetMapping(params = {"survey_id={id}", "action=solve"})
+    @GetMapping(params = "survey_id={id}")
     public Iterable<Question> getBySurvey(@RequestParam("survey_id") Long id) {
         return this.questionService.getAllBySurvey(this.surveyService.getById(id));
     }
