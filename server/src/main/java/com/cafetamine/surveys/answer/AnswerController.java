@@ -27,4 +27,9 @@ public class AnswerController {
         return this.answerService.getByQuestion(this.questionService.getById(id));
     }
 
+    @PostMapping()
+    public Answer create(@RequestBody Answer answer) {
+        return this.answerService.create(answer);
+    }
+
 }
