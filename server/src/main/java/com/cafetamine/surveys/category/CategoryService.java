@@ -52,9 +52,11 @@ public class CategoryService {
         return this.categoryRepository.save(category);
     }
 
-    public Category delete(Category category) {
+    public Category delete(Long id) {
         // TODO adjust implementation to client
+        Category category = this.getById(id);
         this.categoryRepository.delete(category);
+        
         return category;
     }
 
