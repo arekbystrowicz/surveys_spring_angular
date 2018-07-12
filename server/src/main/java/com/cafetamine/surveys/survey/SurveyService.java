@@ -31,7 +31,7 @@ public class SurveyService {
     }
 
     public Iterable<Survey> getByAuthor(User user) {
-        return this.surveyRepository.findAllByAuthorAndIsAccessibleAndIsPublished(user, true, true);
+        return this.surveyRepository.findAllByAuthorAndIsAccessible(user, true);
     }
 
     public Iterable<Survey> getWorkspace(User user) {
