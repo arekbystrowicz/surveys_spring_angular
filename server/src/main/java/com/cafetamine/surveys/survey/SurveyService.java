@@ -39,7 +39,7 @@ public class SurveyService {
     }
 
     public Iterable<Survey> getByTitle(String title) {
-        return this.surveyRepository.findAllByTitleAndIsAccessibleAndIsPublished(title, true, true);
+        return this.surveyRepository.findAllByTitleAndIsAccessible(title, true);
     }
 
     public Survey create(Survey survey) {
