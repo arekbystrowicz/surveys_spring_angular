@@ -22,10 +22,11 @@ public class CategoryController {
         return this.categoryService.getAll();
     }
 
-    @GetMapping(params = "user_id={id}")
-    public Iterable<Category> getAllByAuthor(@RequestParam("user_id") Long id) {
-        return this.categoryService.getByAuthor(this.userService.getById(id));
-    }
+      // TODO parameters on source root?
+//    @GetMapping(params = "user_id={id}")
+//    public Iterable<Category> getAllByAuthor(@RequestParam("user_id") Long id) {
+//        return this.categoryService.getByAuthor(this.userService.getById(id));
+//    }
 
     @GetMapping("/{id}")
     public Category getById(@PathVariable Long id) {
