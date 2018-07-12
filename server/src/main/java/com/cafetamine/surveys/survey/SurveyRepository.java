@@ -18,7 +18,7 @@ public interface SurveyRepository extends CrudRepository<Survey, Long> {
 
     Iterable<Survey> findAllByAuthorAndIsAccessibleAndPublished(User author, Boolean isAccessible, Boolean isPublished);
 
-    Iterable<Survey> findAllByCategoriesContainingIsAndAccessibleAndPublished(Category category, Boolean isAccessible, Boolean isPublished);
+    Iterable<Survey> findAllByCategoriesContainingAndIsAccessibleAndPublished(Category category, Boolean isAccessible, Boolean isPublished);
 
     Iterable<Survey> findAllByTitleAndIsAccessibleAndPublished(String title, Boolean isAccessible, Boolean isPublished);
 
