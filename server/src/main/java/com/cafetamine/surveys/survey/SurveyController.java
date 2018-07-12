@@ -1,9 +1,6 @@
 package com.cafetamine.surveys.survey;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -24,6 +21,11 @@ public class SurveyController {
     @GetMapping(value = "/{id}", params="show=workspace")
     public Survey getWorkspaceById(@PathVariable Long id) {
         return this.surveyService.getUnpublishedById(id);
+    }
+
+    @GetMapping(params = "show=published")
+    public Iterable<Survey> getAllPublishedSurveys() {
+        return this.surveyService.getPublished();
     }
 
 }
