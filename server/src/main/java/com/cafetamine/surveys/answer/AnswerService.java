@@ -44,7 +44,7 @@ public class AnswerService {
         Answer answer = this.getById(id);
         answer.setAccessible(false);
 
-        return this.answerRepository.save(answer);;
+        return this.answerRepository.save(answer);
     }
 
 }
