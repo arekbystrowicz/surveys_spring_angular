@@ -32,4 +32,9 @@ public class SolutionController {
         return this.solutionService.create(solution);
     }
 
+    @PostMapping(value = "/{id}", params = "action=update")
+    public Solution update(@RequestBody Solution solution) {
+        return this.solutionService.update(solution);
+    }
+
 }
