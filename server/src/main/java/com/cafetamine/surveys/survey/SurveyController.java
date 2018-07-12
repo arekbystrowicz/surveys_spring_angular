@@ -37,4 +37,9 @@ public class SurveyController {
         return this.surveyService.getWorkspace(this.userService.getById(id));
     }
 
+    @PostMapping()
+    public Survey create(@RequestBody Survey survey) {
+        return this.surveyService.create(survey)
+    }
+
 }
