@@ -32,4 +32,9 @@ public class SurveyController {
         return this.surveyService.getPublished();
     }
 
+    @GetMapping(params = "user_id={id}")
+    public Iterable<Survey> getWorkspace(@RequestParam("user_id") Long id) {
+        return this.surveyService.getWorkspace(this.userService.getById(id));
+    }
+
 }
