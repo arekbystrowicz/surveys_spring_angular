@@ -39,9 +39,11 @@ public class AnswerService {
         return this.answerRepository.save(answer);
     }
 
-    public Answer delete(Answer answer) {
+    public Answer delete(Long id) {
         // TODO adjust implementation to client
+        Answer answer = this.getById(id);
         this.answerRepository.delete(answer);
+
         return answer;
     }
 
