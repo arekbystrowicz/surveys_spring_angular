@@ -52,8 +52,10 @@ public class SurveyService {
         return this.surveyRepository.save(survey);
     }
 
-    public Survey delete(Survey survey) {
+    public Survey delete(Long id) {
+        Survey survey = this.getById(id);
         survey.setAccessible(false);
+
         return this.surveyRepository.save(survey);
     }
 
