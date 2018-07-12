@@ -19,12 +19,12 @@ public class QuestionController {
 
     @GetMapping(params = {"survey_id={id}", "action=solve"})
     public Iterable<Question> getBySurvey(@RequestParam("survey_id") Long id) {
-        return this.questionService.getAllBySurvey(this.surveyService.getPublishedById(id));
+        return this.questionService.getAllBySurvey(this.surveyService.getById(id));
     }
 
     @GetMapping(params = {"survey_id={id}", "action=workspace"})
     public Iterable<Question> getWorkspaceBySurvey(@RequestParam("survey_id") Long id) {
-        return this.questionService.getAllBySurvey(this.surveyService.getUnpublishedById(id));
+        return this.questionService.getAllBySurvey(this.surveyService.getById(id));
     }
 
     @PostMapping(params = {"action=create"})

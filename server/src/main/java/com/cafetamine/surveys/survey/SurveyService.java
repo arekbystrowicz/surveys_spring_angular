@@ -17,8 +17,8 @@ public class SurveyService {
         this.surveyRepository = surveyRepository;
     }
 
-    private Survey getByIdAndAccessibleAndPublished(Long id, Boolean isAccessible, Boolean isPublished) {
-        Optional<Survey> survey = this.surveyRepository.findByIdAndIsAccessibleAndIsPublished(id, isAccessible, isPublished);
+    public Survey getById(Long id) {
+        Optional<Survey> survey = this.surveyRepository.findByIdAndIsAccessible(id, true);
         if (!survey.isPresent()) {
             // TODO exception
             throw new RuntimeException("404 survey not found");
@@ -26,36 +26,20 @@ public class SurveyService {
         return survey.get();
     }
 
-    public Survey getPublishedById(Long id) {
-        return this.getByIdAndAccessibleAndPublished(id, true, true);
-    }
-
-    public Survey getUnpublishedById(Long id) {
-        return this.getByIdAndAccessibleAndPublished(id, true, false);
-    }
-
-    public Iterable<Survey> getPublished() {
-        return this.surveyRepository.findAllByIsAccessibleAndIsPublished(true, true);
-    }
-
-    public Iterable<Survey> getUnpublished() {
-        return this.surveyRepository.findAllByIsAccessibleAndIsPublished(true, false);
+    public Iterable<Survey> getAll() {
+        return this.surveyRepository.findAllByIsAccessible(true);
     }
 
     public Iterable<Survey> getByAuthor(User user) {
-        return this.surveyRepository.findAllByAuthorAndIsAccessibleAndIsPublished(user, true, true);
-    }
-
-    public Iterable<Survey> getWorkspace(User user) {
-        return this.surveyRepository.findAllByAuthorAndIsAccessibleAndIsPublished(user, true, false);
+        return this.surveyRepository.findAllByAuthorAndIsAccessible(user, true);
     }
 
     public Iterable<Survey> getByCategory(Category category) {
-        return this.surveyRepository.findAllByCategoriesContainingAndIsAccessibleAndIsPublished(category, true, true);
+        return this.surveyRepository.findAllByCategoriesContainingAndIsAccessible(category, true);
     }
 
     public Iterable<Survey> getByTitle(String title) {
-        return this.surveyRepository.findAllByTitleAndIsAccessibleAndIsPublished(title, true, true);
+        return this.surveyRepository.findAllByTitleAndIsAccessible(title, true);
     }
 
     public Survey create(Survey survey) {
@@ -68,15 +52,11 @@ public class SurveyService {
         return this.surveyRepository.save(survey);
     }
 
-    public Survey delete(Survey survey) {
+    public Survey delete(Long id) {
+        Survey survey = this.getById(id);
         survey.setAccessible(false);
-        return this.surveyRepository.save(survey);
-    }
 
-    public void deleteAllByAuthor(User author) {
-        for (Survey survey : this.getByAuthor(author)) {
-            this.delete(survey);
-        }
+        return this.surveyRepository.save(survey);
     }
 
 }

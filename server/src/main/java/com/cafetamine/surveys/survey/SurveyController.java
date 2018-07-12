@@ -17,24 +17,19 @@ public class SurveyController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/{id}", params="show=published")
-    public Survey getPublishedById(@PathVariable Long id) {
-        return this.surveyService.getPublishedById(id);
+    @GetMapping()
+    public Iterable<Survey> getAll() {
+        return this.surveyService.getAll();
     }
 
-    @GetMapping(value = "/{id}", params="show=workspace")
-    public Survey getWorkspaceById(@PathVariable Long id) {
-        return this.surveyService.getUnpublishedById(id);
-    }
-
-    @GetMapping(params = "show=published")
-    public Iterable<Survey> getAllPublished() {
-        return this.surveyService.getPublished();
+    @GetMapping("/{id}")
+    public Survey getById(@PathVariable Long id) {
+        return this.surveyService.getById(id);
     }
 
     @GetMapping(params = "user_id={id}")
-    public Iterable<Survey> getWorkspace(@RequestParam("user_id") Long id) {
-        return this.surveyService.getWorkspace(this.userService.getById(id));
+    public Iterable<Survey> getByAuthor(@RequestParam Long id) {
+        return this.surveyService.getByAuthor(this.userService.getById(id));
     }
 
     @PostMapping()
@@ -49,8 +44,7 @@ public class SurveyController {
 
     @PostMapping(value = "/{id}", params = "action=delete")
     public Survey delete(@PathVariable Long id) {
-        // TODO change service to allow both published, unpublished
-        return this.surveyService.delete(this.surveyService.getPublishedById(id));
+        return this.surveyService.delete(id);
     }
 
 }
