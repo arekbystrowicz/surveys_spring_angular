@@ -1,28 +1,26 @@
 package com.cafetamine.surveys.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
 
 
 @Entity
-public class Answer {
+public class Solution {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
-    private String description;
+    @NotNull
+    @OneToOne
+    private User author;
+    @NotNull
+    @OneToOne
+    private Answer answer;
     @NotNull
     private Date creationDate;
     private Date lastUpdateDate;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id", nullable = false)
-    private Question question;
-    @NotNull
-    private Boolean isAccessible;
 
     public Long getId() {
         return id;
@@ -32,12 +30,20 @@ public class Answer {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
     }
 
     public Date getCreationDate() {
@@ -54,22 +60,6 @@ public class Answer {
 
     public void setLastUpdateDate(Date lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
-
-    public Boolean getAccessible() {
-        return isAccessible;
-    }
-
-    public void setAccessible(Boolean accessible) {
-        isAccessible = accessible;
     }
 
 }

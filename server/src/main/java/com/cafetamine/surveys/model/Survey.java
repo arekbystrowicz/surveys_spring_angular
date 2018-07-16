@@ -5,24 +5,32 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
-public class Answer {
+public class Survey {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
+    private String title;
+    @NotEmpty
     private String description;
     @NotNull
     private Date creationDate;
     private Date lastUpdateDate;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id", nullable = false)
-    private Question question;
+    private Date publishDate;
+    @NotNull
+    private Boolean isPublished;
     @NotNull
     private Boolean isAccessible;
+    @NotNull
+    @OneToOne
+    private User author;
+    @OneToMany
+    private List<Category> categories;
 
     public Long getId() {
         return id;
@@ -30,6 +38,14 @@ public class Answer {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -56,12 +72,20 @@ public class Answer {
         this.lastUpdateDate = lastUpdateDate;
     }
 
-    public Question getQuestion() {
-        return question;
+    public Date getPublishDate() {
+        return publishDate;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public Boolean getPublished() {
+        return isPublished;
+    }
+
+    public void setPublished(Boolean published) {
+        isPublished = published;
     }
 
     public Boolean getAccessible() {
@@ -70,6 +94,22 @@ public class Answer {
 
     public void setAccessible(Boolean accessible) {
         isAccessible = accessible;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
 }

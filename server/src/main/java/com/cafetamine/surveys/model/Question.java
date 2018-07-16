@@ -5,24 +5,29 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
-public class Answer {
+public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
+    private String title;
+    @NotEmpty
     private String description;
     @NotNull
     private Date creationDate;
     private Date lastUpdateDate;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id", nullable = false)
-    private Question question;
     @NotNull
     private Boolean isAccessible;
+    @NotNull
+    @OneToOne
+    private Survey survey;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
+    private List<Answer> answers;
 
     public Long getId() {
         return id;
@@ -30,6 +35,14 @@ public class Answer {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -56,20 +69,28 @@ public class Answer {
         this.lastUpdateDate = lastUpdateDate;
     }
 
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
-
     public Boolean getAccessible() {
         return isAccessible;
     }
 
     public void setAccessible(Boolean accessible) {
         isAccessible = accessible;
+    }
+
+    public Survey getSurvey() {
+        return survey;
+    }
+
+    public void setSurvey(Survey survey) {
+        this.survey = survey;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
 }
