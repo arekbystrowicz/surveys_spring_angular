@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-import com.cafetamine.surveys.question.Question;
+import com.cafetamine.surveys.model.Question;
 
 
 @Repository

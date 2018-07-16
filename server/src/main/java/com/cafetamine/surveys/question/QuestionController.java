@@ -1,5 +1,6 @@
 package com.cafetamine.surveys.question;
 
+import com.cafetamine.surveys.model.Question;
 import org.springframework.web.bind.annotation.*;
 
 import com.cafetamine.surveys.survey.SurveyService;

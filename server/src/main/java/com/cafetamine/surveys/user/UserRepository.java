@@ -1,5 +1,6 @@
 package com.cafetamine.surveys.user;
 
+import com.cafetamine.surveys.model.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 

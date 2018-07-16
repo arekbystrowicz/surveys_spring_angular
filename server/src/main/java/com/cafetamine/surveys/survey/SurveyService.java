@@ -1,11 +1,12 @@
 package com.cafetamine.surveys.survey;
 
+import com.cafetamine.surveys.model.Survey;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import com.cafetamine.surveys.user.User;
-import com.cafetamine.surveys.category.Category;
+import com.cafetamine.surveys.model.User;
+import com.cafetamine.surveys.model.Category;
 
 
 @Service

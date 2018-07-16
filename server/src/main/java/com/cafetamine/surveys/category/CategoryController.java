@@ -1,5 +1,6 @@
 package com.cafetamine.surveys.category;
 
+import com.cafetamine.surveys.model.Category;
 import org.springframework.web.bind.annotation.*;
 
 
