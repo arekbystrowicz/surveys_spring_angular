@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "account")
-public class User {
+public class User  extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
