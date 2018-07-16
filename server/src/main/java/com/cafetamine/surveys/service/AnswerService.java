@@ -34,6 +34,7 @@ public class AnswerService {
     public Answer create(Answer answer, Question question) {
         // TODO adjust implementation to client
         answer.setQuestion(question);
+        answer.setAccessible(true);
 
         return this.answerRepository.save(answer);
     }
