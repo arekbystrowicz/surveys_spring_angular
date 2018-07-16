@@ -27,11 +27,6 @@ public class AnswerService {
         return answer.get();
     }
 
-    // TODO dev only
-    public Iterable<Answer> getAll() {
-        return this.answerRepository.findAllByIsAccessible(true);
-    }
-
     public Iterable<Answer> getByQuestion(Question question) {
         return this.answerRepository.findAllByQuestionAndIsAccessible(question, true);
     }
