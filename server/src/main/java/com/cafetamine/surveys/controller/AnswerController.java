@@ -19,7 +19,6 @@ public class AnswerController {
         this.questionService = questionService;
     }
 
-    // TODO dev only
     @GetMapping()
     public Iterable<Answer> getAll(@PathVariable("question_id") Long questionId) {
         return this.answerService.getByQuestion(this.questionService.getById(questionId));
@@ -31,8 +30,8 @@ public class AnswerController {
     }
 
     @PostMapping()
-    public Answer create(@RequestBody Answer answer) {
-        return this.answerService.create(answer);
+    public Answer create(@PathVariable("question_id") Long questionId, @RequestBody Answer answer) {
+        return this.answerService.create(answer, this.questionService.getById(questionId));
     }
 
     @PostMapping(value = "/{answer_id}", params = "action=update")
