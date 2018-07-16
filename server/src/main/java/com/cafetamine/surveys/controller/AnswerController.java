@@ -12,16 +12,17 @@ import com.cafetamine.surveys.service.QuestionService;
 public class AnswerController {
 
     private AnswerService answerService;
-
+    private QuestionService questionService;
 
     public AnswerController(AnswerService answerService, QuestionService questionService) {
         this.answerService = answerService;
+        this.questionService = questionService;
     }
 
     // TODO dev only
     @GetMapping()
     public Iterable<Answer> getAll(@PathVariable("question_id") Long questionId) {
-        return this.answerService.getAll();
+        return this.answerService.getByQuestion(this.questionService.getById(questionId));
     }
 
     @GetMapping("/{id}")
