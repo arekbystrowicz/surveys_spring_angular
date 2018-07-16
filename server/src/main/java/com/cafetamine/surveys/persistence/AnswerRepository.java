@@ -14,9 +14,6 @@ public interface AnswerRepository extends CrudRepository<Answer, Long> {
 
     Optional<Answer> findByIdAndIsAccessible(Long id, Boolean isAccessible);
 
-    // TODO dev only
-    Iterable<Answer> findAllByIsAccessible(Boolean isAccessible);
-
     Iterable<Answer> findAllByQuestionAndIsAccessible(Question question, Boolean isAccessible);
 
 }
