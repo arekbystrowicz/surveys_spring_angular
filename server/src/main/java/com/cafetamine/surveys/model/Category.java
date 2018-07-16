@@ -8,15 +8,13 @@ import java.util.Date;
 
 
 @Entity
-public class Category {
+public class Category extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
     private String tag;
-    @NotNull
-    private Date creationDate;
     @NotNull
     @OneToOne
     private User author;
@@ -35,14 +33,6 @@ public class Category {
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
     }
 
     public User getAuthor() {
