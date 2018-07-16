@@ -7,7 +7,7 @@ import java.util.Date;
 
 
 @Entity
-public class Solution {
+public class Solution extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,6 @@ public class Solution {
     @NotNull
     @OneToOne
     private Answer answer;
-    @NotNull
-    private Date creationDate;
-    private Date lastUpdateDate;
 
     public Long getId() {
         return id;
@@ -44,22 +41,6 @@ public class Solution {
 
     public void setAnswer(Answer answer) {
         this.answer = answer;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
     }
 
 }
