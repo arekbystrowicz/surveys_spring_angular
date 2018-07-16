@@ -18,9 +18,6 @@ public class Survey extends AuditModel {
     private String title;
     @NotEmpty
     private String description;
-    @NotNull
-    private Date creationDate;
-    private Date lastUpdateDate;
     private Date publishDate;
     @NotNull
     private Boolean isPublished;
@@ -54,22 +51,6 @@ public class Survey extends AuditModel {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
     }
 
     public Date getPublishDate() {
