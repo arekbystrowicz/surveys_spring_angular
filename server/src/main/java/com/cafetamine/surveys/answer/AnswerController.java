@@ -2,19 +2,15 @@ package com.cafetamine.surveys.answer;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.cafetamine.surveys.question.QuestionService;
-
 
 @RestController
 @RequestMapping("answers")
 public class AnswerController {
 
     private AnswerService answerService;
-    private QuestionService questionService;
 
-    public AnswerController(AnswerService answerService, QuestionService questionService) {
+    public AnswerController(AnswerService answerService) {
         this.answerService = answerService;
-        this.questionService = questionService;
     }
 
     // TODO dev only
