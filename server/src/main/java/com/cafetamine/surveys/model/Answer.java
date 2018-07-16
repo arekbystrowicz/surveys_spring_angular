@@ -14,9 +14,13 @@ public class Answer extends AuditModel {
     private Long id;
     @NotEmpty
     private String description;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id", nullable = false)
-    private Question question;
+
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "question_id", nullable = false)
+//    private Question question;
+
+
     @NotNull
     private Boolean isAccessible;
 
@@ -36,13 +40,13 @@ public class Answer extends AuditModel {
         this.description = description;
     }
 
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
+//    public Question getQuestion() {
+//        return question;
+//    }
+//
+//    public void setQuestion(Question question) {
+//        this.question = question;
+//    }
 
     public Boolean getAccessible() {
         return isAccessible;
