@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Entity
-public class Question {
+public class Question extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,6 @@ public class Question {
     private String title;
     @NotEmpty
     private String description;
-    @NotNull
-    private Date creationDate;
-    private Date lastUpdateDate;
     @NotNull
     private Boolean isAccessible;
     @NotNull
@@ -51,22 +48,6 @@ public class Question {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
     }
 
     public Boolean getAccessible() {

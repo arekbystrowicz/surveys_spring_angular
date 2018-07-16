@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "account")
-public class User {
+public class User  extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,6 @@ public class User {
     private  String name;
     @NotEmpty
     private String surname;
-    @NotNull
-    private Date joinDate;
-    private Date lastUpdateDate;
-    @NotNull
     private Boolean isActive;
 
     public Long getId() {
@@ -76,22 +72,6 @@ public class User {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public Date getJoinDate() {
-        return joinDate;
-    }
-
-    public void setJoinDate(Date joinDate) {
-        this.joinDate = joinDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
     }
 
     public Boolean getActive() {
