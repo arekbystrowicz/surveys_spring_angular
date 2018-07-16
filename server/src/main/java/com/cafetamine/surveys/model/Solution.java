@@ -7,6 +7,7 @@ import java.util.Date;
 
 
 @Entity
+@Table(name = "solutions")
 public class Solution extends AuditModel {
 
     @Id

@@ -8,7 +8,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "account")
+@Table(name = "accounts")
 public class User  extends AuditModel {
 
     @Id

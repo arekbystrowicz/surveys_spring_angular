@@ -8,6 +8,7 @@ import java.util.Date;
 
 
 @Entity
+@Table(name = "answers")
 public class Answer extends AuditModel {
 
     @Id

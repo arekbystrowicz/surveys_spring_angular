@@ -9,6 +9,7 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "questions")
 public class Question extends AuditModel {
 
     @Id
