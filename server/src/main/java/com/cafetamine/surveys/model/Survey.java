@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Entity
-public class Survey {
+public class Survey extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
