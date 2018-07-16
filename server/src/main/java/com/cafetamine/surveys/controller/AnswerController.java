@@ -30,13 +30,6 @@ public class AnswerController {
         return this.answerService.getById(id);
     }
 
-      // TODO not working (issue::path root and parameters)
-      // TODO through probably not needed as access is provided through question
-//    @GetMapping(params = "question_id={id}")
-//    public Iterable<Answer> getByQuestion(@RequestParam("question_id") Long id) {
-//        return this.answerService.getByQuestion(this.questionService.getById(id));
-//    }
-
     @PostMapping()
     public Answer create(@RequestBody Answer answer) {
         return this.answerService.create(answer);
