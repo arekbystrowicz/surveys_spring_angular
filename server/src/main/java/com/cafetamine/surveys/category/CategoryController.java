@@ -2,19 +2,15 @@ package com.cafetamine.surveys.category;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.cafetamine.surveys.user.UserService;
-
 
 @RestController
 @RequestMapping("/categories")
 public class CategoryController {
 
     private CategoryService categoryService;
-    private UserService userService;
 
-    public CategoryController(CategoryService categoryService, UserService userService) {
+    public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
-        this.userService = userService;
     }
 
     @GetMapping()
