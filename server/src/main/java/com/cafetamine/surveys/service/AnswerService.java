@@ -27,17 +27,15 @@ public class AnswerService {
         return answer.get();
     }
 
-    // TODO dev only
-    public Iterable<Answer> getAll() {
-        return this.answerRepository.findAllByIsAccessible(true);
-    }
-
     public Iterable<Answer> getByQuestion(Question question) {
         return this.answerRepository.findAllByQuestionAndIsAccessible(question, true);
     }
 
-    public Answer create(Answer answer) {
+    public Answer create(Answer answer, Question question) {
         // TODO adjust implementation to client
+        answer.setQuestion(question);
+        answer.setAccessible(true);
+
         return this.answerRepository.save(answer);
     }
 

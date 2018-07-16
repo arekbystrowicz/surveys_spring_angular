@@ -4,8 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import java.util.List;
-
 
 @Entity
 @Table(name = "questions")
@@ -23,8 +21,6 @@ public class Question extends AuditModel {
     @NotNull
     @OneToOne
     private Survey survey;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
-    private List<Answer> answers;
 
     public Long getId() {
         return id;
@@ -64,14 +60,6 @@ public class Question extends AuditModel {
 
     public void setSurvey(Survey survey) {
         this.survey = survey;
-    }
-
-    public List<Answer> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
     }
 
 }
