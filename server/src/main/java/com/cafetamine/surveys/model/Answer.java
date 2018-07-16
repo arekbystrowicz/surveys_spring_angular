@@ -1,12 +1,10 @@
-package com.cafetamine.surveys.answer;
+package com.cafetamine.surveys.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
-
-import com.cafetamine.surveys.question.Question;
 
 
 @Entity

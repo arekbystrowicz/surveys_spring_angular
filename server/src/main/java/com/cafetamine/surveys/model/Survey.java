@@ -1,4 +1,4 @@
-package com.cafetamine.surveys.question;
+package com.cafetamine.surveys.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -7,12 +7,9 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
-import com.cafetamine.surveys.answer.Answer;
-import com.cafetamine.surveys.survey.Survey;
-
 
 @Entity
-public class Question {
+public class Survey {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,13 +21,16 @@ public class Question {
     @NotNull
     private Date creationDate;
     private Date lastUpdateDate;
+    private Date publishDate;
+    @NotNull
+    private Boolean isPublished;
     @NotNull
     private Boolean isAccessible;
     @NotNull
     @OneToOne
-    private Survey survey;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
-    private List<Answer> answers;
+    private User author;
+    @OneToMany
+    private List<Category> categories;
 
     public Long getId() {
         return id;
@@ -72,6 +72,22 @@ public class Question {
         this.lastUpdateDate = lastUpdateDate;
     }
 
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public Boolean getPublished() {
+        return isPublished;
+    }
+
+    public void setPublished(Boolean published) {
+        isPublished = published;
+    }
+
     public Boolean getAccessible() {
         return isAccessible;
     }
@@ -80,20 +96,20 @@ public class Question {
         isAccessible = accessible;
     }
 
-    public Survey getSurvey() {
-        return survey;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
-    public List<Answer> getAnswers() {
-        return answers;
+    public List<Category> getCategories() {
+        return categories;
     }
 
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
 }

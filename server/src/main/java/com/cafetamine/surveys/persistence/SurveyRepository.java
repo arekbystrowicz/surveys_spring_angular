@@ -1,12 +1,13 @@
-package com.cafetamine.surveys.survey;
+package com.cafetamine.surveys.persistence;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-import com.cafetamine.surveys.user.User;
-import com.cafetamine.surveys.category.Category;
+import com.cafetamine.surveys.model.User;
+import com.cafetamine.surveys.model.Category;
+import com.cafetamine.surveys.model.Survey;
 
 
 @Repository
