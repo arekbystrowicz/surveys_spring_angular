@@ -1,4 +1,4 @@
-package com.cafetamine.surveys.category;
+package com.cafetamine.surveys.controller;
 
 import com.cafetamine.surveys.model.Category;
 import com.cafetamine.surveys.service.CategoryService;
