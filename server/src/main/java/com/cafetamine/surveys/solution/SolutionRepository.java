@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 
 import com.cafetamine.surveys.user.User;
-import com.cafetamine.surveys.answer.Answer;
+import com.cafetamine.surveys.model.Answer;
 
 
 @Repository

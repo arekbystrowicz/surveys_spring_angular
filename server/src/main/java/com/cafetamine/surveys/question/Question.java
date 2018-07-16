@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
-import com.cafetamine.surveys.answer.Answer;
+import com.cafetamine.surveys.model.Answer;
 import com.cafetamine.surveys.survey.Survey;
 
 

@@ -1,4 +1,4 @@
-package com.cafetamine.surveys.answer;
+package com.cafetamine.surveys.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
