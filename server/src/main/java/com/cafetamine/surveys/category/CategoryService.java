@@ -1,6 +1,7 @@
 package com.cafetamine.surveys.category;
 
 import com.cafetamine.surveys.model.Category;
+import com.cafetamine.surveys.persistence.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

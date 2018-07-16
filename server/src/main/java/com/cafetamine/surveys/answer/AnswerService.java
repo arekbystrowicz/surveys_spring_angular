@@ -1,6 +1,7 @@
 package com.cafetamine.surveys.answer;
 
 import com.cafetamine.surveys.model.Answer;
+import com.cafetamine.surveys.persistence.AnswerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
