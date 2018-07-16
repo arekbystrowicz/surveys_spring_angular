@@ -4,21 +4,23 @@ import org.springframework.web.bind.annotation.*;
 
 import com.cafetamine.surveys.model.Answer;
 import com.cafetamine.surveys.service.AnswerService;
+import com.cafetamine.surveys.service.QuestionService;
 
 
 @RestController
-@RequestMapping("answers")
+@RequestMapping("questions/{question_id}/answers")
 public class AnswerController {
 
     private AnswerService answerService;
 
-    public AnswerController(AnswerService answerService) {
+
+    public AnswerController(AnswerService answerService, QuestionService questionService) {
         this.answerService = answerService;
     }
 
     // TODO dev only
     @GetMapping()
-    public Iterable<Answer> getAll() {
+    public Iterable<Answer> getAll(@PathVariable("question_id") Long questionId) {
         return this.answerService.getAll();
     }
 
