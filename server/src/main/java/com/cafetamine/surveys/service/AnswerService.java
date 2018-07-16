@@ -31,8 +31,10 @@ public class AnswerService {
         return this.answerRepository.findAllByQuestionAndIsAccessible(question, true);
     }
 
-    public Answer create(Answer answer) {
+    public Answer create(Answer answer, Question question) {
         // TODO adjust implementation to client
+        answer.setQuestion(question);
+
         return this.answerRepository.save(answer);
     }
 
