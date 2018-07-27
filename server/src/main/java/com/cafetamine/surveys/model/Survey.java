@@ -1,4 +1,4 @@
-package com.cafetamine.surveys.question;
+package com.cafetamine.surveys.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -7,12 +7,10 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
-import com.cafetamine.surveys.answer.Answer;
-import com.cafetamine.surveys.survey.Survey;
-
 
 @Entity
-public class Question {
+@Table(name = "surveys")
+public class Survey extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,16 +19,16 @@ public class Question {
     private String title;
     @NotEmpty
     private String description;
+    private Date publishDate;
     @NotNull
-    private Date creationDate;
-    private Date lastUpdateDate;
+    private Boolean isPublished;
     @NotNull
     private Boolean isAccessible;
     @NotNull
     @OneToOne
-    private Survey survey;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
-    private List<Answer> answers;
+    private User author;
+    @OneToMany
+    private List<Category> categories;
 
     public Long getId() {
         return id;
@@ -56,20 +54,20 @@ public class Question {
         this.description = description;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
+    public Date getPublishDate() {
+        return publishDate;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
     }
 
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
+    public Boolean getPublished() {
+        return isPublished;
     }
 
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
+    public void setPublished(Boolean published) {
+        isPublished = published;
     }
 
     public Boolean getAccessible() {
@@ -80,20 +78,20 @@ public class Question {
         isAccessible = accessible;
     }
 
-    public Survey getSurvey() {
-        return survey;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
-    public List<Answer> getAnswers() {
-        return answers;
+    public List<Category> getCategories() {
+        return categories;
     }
 
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
 }

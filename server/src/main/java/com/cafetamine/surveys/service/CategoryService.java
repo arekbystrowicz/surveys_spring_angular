@@ -1,19 +1,24 @@
-package com.cafetamine.surveys.category;
+package com.cafetamine.surveys.service;
 
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import com.cafetamine.surveys.user.User;
+import com.cafetamine.surveys.model.User;
+import com.cafetamine.surveys.model.Survey;
+import com.cafetamine.surveys.model.Category;
+import com.cafetamine.surveys.persistence.CategoryRepository;
 
 
 @Service
 public class CategoryService {
 
     private CategoryRepository categoryRepository;
+    private SurveyService surveyService;
 
-    public CategoryService(CategoryRepository categoryRepository) {
+    public CategoryService(CategoryRepository categoryRepository, SurveyService surveyService) {
         this.categoryRepository = categoryRepository;
+        this.surveyService = surveyService;
     }
 
     public Category getById(Long id) {
@@ -52,10 +57,25 @@ public class CategoryService {
         return this.categoryRepository.save(category);
     }
 
-    public Category delete(Category category) {
+    public Category delete(Long id) {
         // TODO adjust implementation to client
+        Category category = this.getById(id);
+        // TODO tragic! get it out (check this.isUsed)
+        if (this.isUsed(category)) {
+            throw new RuntimeException("This category is used, and cannot be deleted");
+        }
         this.categoryRepository.delete(category);
+
         return category;
+    }
+
+    // TODO change Iterables to sth normal
+    // TODO then get rid of this shitty method
+    private Boolean isUsed(Category category) {
+        for (Survey survey : surveyService.getByCategory(category)) {
+            return true;
+        }
+        return false;
     }
 
 }

@@ -1,10 +1,12 @@
-package com.cafetamine.surveys.question;
+package com.cafetamine.surveys.service;
 
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import com.cafetamine.surveys.survey.Survey;
+import com.cafetamine.surveys.model.Survey;
+import com.cafetamine.surveys.model.Question;
+import com.cafetamine.surveys.persistence.QuestionRepository;
 
 
 @Service
@@ -17,7 +19,7 @@ public class QuestionService {
     }
 
     public Question getById(Long id) {
-        Optional<Question> question = this.questionRepository.findByIdAndAccessible(id, true);
+        Optional<Question> question = this.questionRepository.findByIdAndIsAccessible(id, true);
         if (!question.isPresent()) {
             // TODO exception
             throw new RuntimeException("404 question not found");
@@ -25,8 +27,13 @@ public class QuestionService {
         return question.get();
     }
 
+    // TODO development only
+    public Iterable<Question> getAll() {
+        return this.questionRepository.findAllByIsAccessible(true);
+    }
+
     public Iterable<Question> getAllBySurvey(Survey survey) {
-        return this.questionRepository.findAllBySurveyAndAccessible(survey, true);
+        return this.questionRepository.findAllBySurveyAndIsAccessible(survey, true);
     }
 
     public Question create(Question question) {

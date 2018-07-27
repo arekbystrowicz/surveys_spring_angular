@@ -1,10 +1,12 @@
-package com.cafetamine.surveys.answer;
+package com.cafetamine.surveys.service;
 
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import com.cafetamine.surveys.question.Question;
+import com.cafetamine.surveys.model.Question;
+import com.cafetamine.surveys.model.Answer;
+import com.cafetamine.surveys.persistence.AnswerRepository;
 
 
 @Service
@@ -17,7 +19,7 @@ public class AnswerService {
     }
 
     public Answer getById(Long id) {
-        Optional<Answer> answer = this.answerRepository.findById(id);
+        Optional<Answer> answer = this.answerRepository.findByIdAndIsAccessible(id, true);
         if (!answer.isPresent()) {
             // TODO exception
             throw new RuntimeException("404 question not found");
@@ -26,11 +28,14 @@ public class AnswerService {
     }
 
     public Iterable<Answer> getByQuestion(Question question) {
-        return this.answerRepository.findAllByQuestion(question);
+        return this.answerRepository.findAllByQuestionAndIsAccessible(question, true);
     }
 
-    public Answer create(Answer answer) {
+    public Answer create(Answer answer, Question question) {
         // TODO adjust implementation to client
+        answer.setQuestion(question);
+        answer.setAccessible(true);
+
         return this.answerRepository.save(answer);
     }
 
@@ -39,10 +44,12 @@ public class AnswerService {
         return this.answerRepository.save(answer);
     }
 
-    public Answer delete(Answer answer) {
+    public Answer delete(Long id) {
         // TODO adjust implementation to client
-        this.answerRepository.delete(answer);
-        return answer;
+        Answer answer = this.getById(id);
+        answer.setAccessible(false);
+
+        return this.answerRepository.save(answer);
     }
 
 }

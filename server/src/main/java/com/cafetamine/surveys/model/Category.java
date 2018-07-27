@@ -1,23 +1,19 @@
-package com.cafetamine.surveys.category;
+package com.cafetamine.surveys.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import java.util.Date;
-import com.cafetamine.surveys.user.User;
-
 
 @Entity
-public class Category {
+@Table(name = "categories")
+public class Category extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
     private String tag;
-    @NotNull
-    private Date creationDate;
     @NotNull
     @OneToOne
     private User author;
@@ -36,14 +32,6 @@ public class Category {
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
     }
 
     public User getAuthor() {

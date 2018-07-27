@@ -1,8 +1,11 @@
-package com.cafetamine.surveys.user;
+package com.cafetamine.surveys.service;
 
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
+import com.cafetamine.surveys.model.User;
+import com.cafetamine.surveys.persistence.UserRepository;
 
 
 @Service
@@ -25,6 +28,10 @@ public class UserService {
 
     public User getById(Long id) {
         return this.getByIdAndActive(id, true);
+    }
+
+    public Iterable<User> getAll() {
+        return this.userRepository.findAllByIsActive(true);
     }
 
     public User create(User user) {
