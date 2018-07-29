@@ -7,6 +7,7 @@ import com.cafetamine.surveys.service.CategoryService;
 
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/categories")
 public class CategoryController {
 
