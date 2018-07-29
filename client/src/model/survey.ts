@@ -14,8 +14,3 @@ export class Survey {
   author: User;
   categories: Array<Category>;
 }
-
-
-
-
-
