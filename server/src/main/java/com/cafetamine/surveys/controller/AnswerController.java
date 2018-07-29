@@ -8,6 +8,7 @@ import com.cafetamine.surveys.service.QuestionService;
 
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("questions/{question_id}/answers")
 public class AnswerController {
 
