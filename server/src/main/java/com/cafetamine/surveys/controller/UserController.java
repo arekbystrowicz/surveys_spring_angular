@@ -8,6 +8,7 @@ import com.cafetamine.surveys.service.UserService;
 
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("users")
 public class UserController {
 
