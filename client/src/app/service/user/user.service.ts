@@ -1,35 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs/Observable";
 
 import { User } from "../../model/user";
+
 
 @Injectable()
 export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public get(id: number) {
-
+  public get(id: number): Observable<User> {
+    return null;
   }
 
-  public getAll() {
-
+  public getAll(): Observable<User[]> {
+    return null;
   }
 
-  public create(user: User) {
-
+  public create(user: User): Observable<User> {
+    return null;
   }
 
-  public update(user: User) {
-
+  public update(user: User): Observable<User> {
+    return null;
   }
 
-  public delete(user: User) {
-
+  public delete(user: User):  Observable<User> {
+    return null;
   }
 
-  public restore(user: User) {
-
+  public restore(user: User): Observable<User> {
+    return null;
   }
 
 }
