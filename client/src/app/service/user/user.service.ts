@@ -8,6 +8,8 @@ import { User } from "../../model/user";
 @Injectable()
 export class UserService {
 
+  private originUrl = '//localhost:8080/users';
+
   constructor(private http: HttpClient) { }
 
   public get(id: number): Observable<User> {
