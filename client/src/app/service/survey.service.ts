@@ -7,8 +7,12 @@ export class SurveyService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
+  public getAll(): Observable<any> {
     return this.http.get('//localhost:8080/surveys');
+  }
+
+  public get(id: number) {
+    return this.http.get('//localhost:8080/surveys/' + id);
   }
 
 }
