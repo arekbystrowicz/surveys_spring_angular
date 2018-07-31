@@ -27,4 +27,8 @@ export class QuestionService {
     return this.http.put<Question>(`${this.originUrl}/${question.id}`, question);
   }
 
+  public delete(question: Question):  Observable<Question> {
+    return this.http.delete<Question>(`${this.originUrl}/${question.id}`);
+  }
+
 }
