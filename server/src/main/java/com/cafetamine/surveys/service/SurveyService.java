@@ -44,8 +44,8 @@ public class SurveyService {
         return this.surveyRepository.findAllByTitleAndIsAccessible(title, true);
     }
 
-    public Survey create(Survey updatedSurvey) {
-        // TODO adjust implementation to client
+    public Survey create(Long id, Survey updatedSurvey) {
+        Survey survey = this.getById(id);
         return this.surveyRepository.save(survey);
     }
 
