@@ -52,8 +52,14 @@ public class CategoryService {
         return this.categoryRepository.save(category);
     }
 
-    public Category update(Category category) {
-        // TODO adjust implementation to client
+    public Category update(Long id, Category updatedCategory) {
+        Category category = this.getById(id);
+
+        String tag = updatedCategory.getTag();
+        if (!tag.equals("")) {
+            category.setTag(tag);
+        }
+
         return this.categoryRepository.save(category);
     }
 
