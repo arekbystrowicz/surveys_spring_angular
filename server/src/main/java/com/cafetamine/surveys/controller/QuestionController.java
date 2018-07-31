@@ -35,8 +35,8 @@ public class QuestionController {
 //    }
 
     @PostMapping()
-    public Question create(@RequestBody Question question) {
-        return this.questionService.create(question);
+    public Question create(@RequestBody Question question, @PathVariable("id") Long id) {
+        return this.questionService.create(id, question);
     }
 
     @PutMapping(value = "/{id}")
