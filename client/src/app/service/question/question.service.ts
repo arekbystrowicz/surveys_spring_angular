@@ -15,4 +15,8 @@ export class QuestionService {
     return this.http.get<Question>(`${this.originUrl}/${id}`);
   }
 
+  public getAll(): Observable<Question[]> {
+    return this.http.get<Question[]>(this.originUrl);
+  }
+
 }
