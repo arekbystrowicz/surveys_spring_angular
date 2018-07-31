@@ -44,7 +44,7 @@ public class QuestionController {
         return this.questionService.update(id, question);
     }
 
-    @PostMapping(value = "/{id}", params = "action=delete")
+    @DeleteMapping(value = "/{id}")
     public Question delete(@PathVariable Long id) {
         return this.questionService.delete(this.questionService.getById(id));
     }
