@@ -20,4 +20,8 @@ export class CategoryService {
     return this.http.get<Category[]>(this.originUrl);
   }
 
+  public create(category: Category): Observable<Category> {
+    return this.http.post<Category>(this.originUrl, category);
+  }
+
 }
