@@ -35,12 +35,12 @@ public class AnswerController {
         return this.answerService.create(answer, this.questionService.getById(questionId));
     }
 
-    @PostMapping(value = "/{answer_id}", params = "action=update")
-    public Answer update(@RequestBody Answer answer) {
-        return this.answerService.update(answer);
+    @PutMapping(value = "/{answer_id}")
+    public Answer update(@RequestBody Answer answer, @PathVariable("answer_id") Long id) {
+        return this.answerService.update(id, answer);
     }
 
-    @PostMapping(value = "/{answer_id}", params = "action=delete")
+    @DeleteMapping(value = "/{answer_id}")
     public Answer delete(@PathVariable("answer_id") Long id) {
         return this.answerService.delete(id);
     }

@@ -49,8 +49,19 @@ public class SurveyService {
         return this.surveyRepository.save(survey);
     }
 
-    public Survey update(Survey survey) {
-        // TODO adjust implementation to client
+    public Survey update(Long id, Survey updatedSurvey) {
+        Survey survey = this.getById(id);
+
+        String title = updatedSurvey.getTitle();
+        String description = updatedSurvey.getDescription();
+
+        if (!title.equals("")) {
+            survey.setTitle(title);
+        }
+        if (!description.equals("")) {
+            survey.setDescription(description);
+        }
+
         return this.surveyRepository.save(survey);
     }
 
