@@ -41,6 +41,12 @@ public class AnswerService {
 
     public Answer update(Long id, Answer updatedAnswer) {
         Answer answer = this.getById(id);
+
+        String description = updatedAnswer.getDescription();
+        if (!description.equals("")) {
+            answer.setDescription(description);
+        }
+
         return this.answerRepository.save(answer);
     }
 
