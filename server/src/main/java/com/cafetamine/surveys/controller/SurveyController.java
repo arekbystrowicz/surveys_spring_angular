@@ -40,7 +40,7 @@ public class SurveyController {
         return this.surveyService.create(survey);
     }
 
-    @PostMapping(value = "/{id}", params = "action=update")
+    @PutMapping(value = "/{id}")
     public Survey update(@RequestBody Survey survey) {
         return this.surveyService.update(survey);
     }
