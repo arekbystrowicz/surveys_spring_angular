@@ -41,7 +41,7 @@ public class QuestionService {
         return this.questionRepository.save(question);
     }
 
-    public Question update(Question question) {
+    public Question update(Long id, Question updatedQuestion) {
         // TODO adjust implementation to client
         return this.questionRepository.save(question);
     }
