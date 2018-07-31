@@ -52,7 +52,7 @@ public class CategoryService {
         return this.categoryRepository.save(category);
     }
 
-    public Category update(Long id, Category newCategoryData) {
+    public Category update(Long id, Category updatedCategory) {
         Category category = this.getById(id);
         return this.categoryRepository.save(category);
     }
