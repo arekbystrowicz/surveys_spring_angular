@@ -25,7 +25,7 @@ export class UserService {
   }
 
   public update(user: User): Observable<User> {
-    return null;
+    return this.http.post<User>(`${this.originUrl}/${user.id}?action=update`, user);
   }
 
   public delete(user: User):  Observable<User> {
