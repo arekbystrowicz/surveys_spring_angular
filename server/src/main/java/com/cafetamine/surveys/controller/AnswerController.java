@@ -36,8 +36,8 @@ public class AnswerController {
     }
 
     @PutMapping(value = "/{answer_id}")
-    public Answer update(@RequestBody Answer answer) {
-        return this.answerService.update(answer);
+    public Answer update(@RequestBody Answer answer, @PathVariable("id") Long id) {
+        return this.answerService.update(id, answer);
     }
 
     @PostMapping(value = "/{answer_id}", params = "action=delete")
