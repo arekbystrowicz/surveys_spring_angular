@@ -46,6 +46,17 @@ public class SurveyService {
 
     public Survey create(Long id, Survey updatedSurvey) {
         Survey survey = this.getById(id);
+
+        String title = updatedSurvey.getTitle();
+        String description = updatedSurvey.getDescription();
+
+        if (!title.equals("")) {
+            survey.setTitle(title);
+        }
+        if (!description.equals("")) {
+            survey.setDescription(description);
+        }
+        
         return this.surveyRepository.save(survey);
     }
 
