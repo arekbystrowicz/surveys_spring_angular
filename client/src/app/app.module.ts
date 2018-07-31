@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
+
 import { UserService } from "./service/user/user.service";
+import { CategoryService } from "./service/category/category.service";
 
 
 @NgModule({
@@ -14,7 +16,10 @@ import { UserService } from "./service/user/user.service";
     BrowserModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    CategoryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
