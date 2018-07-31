@@ -29,7 +29,7 @@ export class UserService {
   }
 
   public delete(user: User):  Observable<User> {
-    return null;
+    return this.http.post<User>(`${this.originUrl}/${user.id}?action=delete`, user);
   }
 
   public restore(user: User): Observable<User> {
