@@ -7,7 +7,6 @@ export class Survey {
   description: string;
   isPublished: boolean;
   isAccessible: boolean;
-  author: User;
   publishDate: Date;
   createdAt: Date;
   updatedAt: Date;
