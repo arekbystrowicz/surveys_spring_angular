@@ -36,6 +36,7 @@ public class UserService {
 
     public User create(User user) {
         // TODO adjust implementation to client
+        user.setActive(true);
         return this.userRepository.save(user);
     }
 
