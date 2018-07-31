@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public get(id: number): Observable<User> {
-    return null;
+    return this.http.get<User>(`${this.originUrl}/${id}`);
   }
 
   public getAll(): Observable<User[]> {
