@@ -39,7 +39,7 @@ public class AnswerService {
         return this.answerRepository.save(answer);
     }
 
-    public Answer update(Answer answer) {
+    public Answer update(Long id, Answer answer) {
         // TODO adjust implementation to client
         return this.answerRepository.save(answer);
     }
