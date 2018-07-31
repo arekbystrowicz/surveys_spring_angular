@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { UserService } from "./service/user/user.service";
 import { CategoryService } from "./service/category/category.service";
+import { SurveyService } from "./service/survey.service";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CategoryService } from "./service/category/category.service";
   ],
   providers: [
     UserService,
-    CategoryService
+    CategoryService,
+    SurveyService
   ],
   bootstrap: [AppComponent]
 })
