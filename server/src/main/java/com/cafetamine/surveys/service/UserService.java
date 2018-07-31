@@ -40,23 +40,23 @@ public class UserService {
         return this.userRepository.save(user);
     }
 
-    public User update(Long id, User newUserData) {
+    public User update(Long id, User updatedUser) {
         User user = this.getById(id);
 
-        if (!newUserData.getLogin().equals("")) {
-            user.setLogin(newUserData.getLogin());
+        if (!updatedUser.getLogin().equals("")) {
+            user.setLogin(updatedUser.getLogin());
         }
-        if (!newUserData.getEmail().equals("")) {
-            user.setEmail(newUserData.getEmail());
+        if (!updatedUser.getEmail().equals("")) {
+            user.setEmail(updatedUser.getEmail());
         }
-        if (!newUserData.getPassword().equals("")) {
-            user.setPassword(newUserData.getPassword());
+        if (!updatedUser.getPassword().equals("")) {
+            user.setPassword(updatedUser.getPassword());
         }
-        if (!newUserData.getName().equals("")) {
-            user.setName(newUserData.getName());
+        if (!updatedUser.getName().equals("")) {
+            user.setName(updatedUser.getName());
         }
-        if (!newUserData.getSurname().equals("")) {
-            user.setSurname(newUserData.getSurname());
+        if (!updatedUser.getSurname().equals("")) {
+            user.setSurname(updatedUser.getSurname());
         }
 
         return this.userRepository.save(user);
