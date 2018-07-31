@@ -38,14 +38,12 @@ public class CategoryController {
         return this.categoryService.create(category);
     }
 
-    // TODO check UserController's update comments
     @PutMapping(value = "/{id}")
     public Category update(@RequestBody Category category, @PathVariable("id") Long id) {
         return this.categoryService.update(id, category);
     }
 
-    // TODO cannot be performed! check for safety
-    @PostMapping(value = "/{id}", params = "action=delete")
+    @DeleteMapping(value = "/{id}")
     public Category delete(@PathVariable Long id) {
         return this.categoryService.delete(id);
     }
