@@ -44,7 +44,12 @@ public class SurveyService {
         return this.surveyRepository.findAllByTitleAndIsAccessible(title, true);
     }
 
-    public Survey create(Long id, Survey updatedSurvey) {
+    public Survey create(Survey survey) {
+        // TODO adjust implementation to client
+        return this.surveyRepository.save(survey);
+    }
+
+    public Survey update(Long id, Survey updatedSurvey) {
         Survey survey = this.getById(id);
 
         String title = updatedSurvey.getTitle();
@@ -56,12 +61,7 @@ public class SurveyService {
         if (!description.equals("")) {
             survey.setDescription(description);
         }
-        
-        return this.surveyRepository.save(survey);
-    }
 
-    public Survey update(Survey survey) {
-        // TODO adjust implementation to client
         return this.surveyRepository.save(survey);
     }
 
