@@ -20,4 +20,8 @@ export class SurveyService {
     return this.http.get<Survey[]>(this.originUrl);
   }
 
+  public create(survey: Survey): Observable<Survey> {
+    return this.http.post<Survey>(this.originUrl, survey);
+  }
+
 }
