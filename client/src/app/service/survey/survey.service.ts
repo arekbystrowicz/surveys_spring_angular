@@ -28,4 +28,8 @@ export class SurveyService {
     return this.http.put<Survey>(`${this.originUrl}/${survey.id}`, survey);
   }
 
+  public delete(survey: Survey):  Observable<Survey> {
+    return this.http.delete<Survey>(`${this.originUrl}/${survey.id}`);
+  }
+
 }
