@@ -40,7 +40,7 @@ public class AnswerController {
         return this.answerService.update(id, answer);
     }
 
-    @PostMapping(value = "/{answer_id}", params = "action=delete")
+    @DeleteMapping(value = "/{answer_id}")
     public Answer delete(@PathVariable("answer_id") Long id) {
         return this.answerService.delete(id);
     }
