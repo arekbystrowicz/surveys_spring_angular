@@ -12,4 +12,8 @@ export class SurveyService {
 
   constructor(private http: HttpClient) { }
 
+  public get(id: number): Observable<Survey> {
+    return this.http.get<Survey>(`${this.originUrl}/${id}`);
+  }
+
 }
