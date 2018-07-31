@@ -43,6 +43,17 @@ public class QuestionService {
 
     public Question update(Long id, Question updatedQuestion) {
         Question question = this.getById(id);
+
+        String title = updatedQuestion.getTitle();
+        String description = updatedQuestion.getDescription();
+
+        if (!title.equals("")) {
+            question.setTitle(title);
+        }
+        if (!description.equals("")) {
+            question.setDescription(description);
+        }
+
         return this.questionRepository.save(question);
     }
 
