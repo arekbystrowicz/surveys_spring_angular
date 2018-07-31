@@ -24,4 +24,8 @@ export class SurveyService {
     return this.http.post<Survey>(this.originUrl, survey);
   }
 
+  public update(survey: Survey): Observable<Survey> {
+    return this.http.put<Survey>(`${this.originUrl}/${survey.id}`, survey);
+  }
+
 }
