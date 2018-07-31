@@ -42,6 +42,23 @@ public class UserService {
 
     public User update(Long id, User newUserData) {
         User user = this.getById(id);
+
+        if (!newUserData.getLogin().equals("")) {
+            user.setLogin(newUserData.getLogin());
+        }
+        if (!newUserData.getEmail().equals("")) {
+            user.setEmail(newUserData.getEmail());
+        }
+        if (!newUserData.getPassword().equals("")) {
+            user.setPassword(newUserData.getPassword());
+        }
+        if (!newUserData.getName().equals("")) {
+            user.setName(newUserData.getName());
+        }
+        if (!newUserData.getSurname().equals("")) {
+            user.setSurname(newUserData.getSurname());
+        }
+
         return this.userRepository.save(user);
     }
 
