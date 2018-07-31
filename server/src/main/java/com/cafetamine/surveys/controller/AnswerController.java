@@ -35,7 +35,7 @@ public class AnswerController {
         return this.answerService.create(answer, this.questionService.getById(questionId));
     }
 
-    @PostMapping(value = "/{answer_id}", params = "action=update")
+    @PutMapping(value = "/{answer_id}")
     public Answer update(@RequestBody Answer answer) {
         return this.answerService.update(answer);
     }
