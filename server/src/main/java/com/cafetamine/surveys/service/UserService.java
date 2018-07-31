@@ -43,20 +43,26 @@ public class UserService {
     public User update(Long id, User updatedUser) {
         User user = this.getById(id);
 
-        if (!updatedUser.getLogin().equals("")) {
-            user.setLogin(updatedUser.getLogin());
+        String login = updatedUser.getLogin();
+        String email = updatedUser.getEmail();
+        String password = updatedUser.getPassword();
+        String name = updatedUser.getName();
+        String surname = updatedUser.getSurname();
+
+        if (!login.equals("")) {
+            user.setLogin(login);
         }
-        if (!updatedUser.getEmail().equals("")) {
-            user.setEmail(updatedUser.getEmail());
+        if (!email.equals("")) {
+            user.setEmail(email);
         }
-        if (!updatedUser.getPassword().equals("")) {
-            user.setPassword(updatedUser.getPassword());
+        if (!password.equals("")) {
+            user.setPassword(password);
         }
-        if (!updatedUser.getName().equals("")) {
-            user.setName(updatedUser.getName());
+        if (!name.equals("")) {
+            user.setName(name);
         }
-        if (!updatedUser.getSurname().equals("")) {
-            user.setSurname(updatedUser.getSurname());
+        if (!surname.equals("")) {
+            user.setSurname(surname);
         }
 
         return this.userRepository.save(user);
