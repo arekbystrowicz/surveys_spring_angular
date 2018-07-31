@@ -35,13 +35,13 @@ public class QuestionController {
 //    }
 
     @PostMapping()
-    public Question create(@RequestBody Question question, @PathVariable("id") Long id) {
-        return this.questionService.create(id, question);
+    public Question create(@RequestBody Question question) {
+        return this.questionService.create(question);
     }
 
     @PutMapping(value = "/{id}")
-    public Question update(@RequestBody Question question) {
-        return this.questionService.update(question);
+    public Question update(@RequestBody Question question, @PathVariable("id") Long id) {
+        return this.questionService.update(id, question);
     }
 
     @PostMapping(value = "/{id}", params = "action=delete")
