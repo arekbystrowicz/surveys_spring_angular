@@ -39,8 +39,14 @@ public class AnswerService {
         return this.answerRepository.save(answer);
     }
 
-    public Answer update(Answer answer) {
-        // TODO adjust implementation to client
+    public Answer update(Long id, Answer updatedAnswer) {
+        Answer answer = this.getById(id);
+
+        String description = updatedAnswer.getDescription();
+        if (!description.equals("")) {
+            answer.setDescription(description);
+        }
+
         return this.answerRepository.save(answer);
     }
 
