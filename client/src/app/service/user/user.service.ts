@@ -21,7 +21,7 @@ export class UserService {
   }
 
   public create(user: User): Observable<User> {
-    return null;
+    return this.http.post<User>(this.originUrl, user);
   }
 
   public update(user: User): Observable<User> {
