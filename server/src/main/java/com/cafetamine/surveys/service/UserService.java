@@ -40,8 +40,8 @@ public class UserService {
         return this.userRepository.save(user);
     }
 
-    public User update(User user) {
-        // TODO adjust implementation to client
+    public User update(Long id, User newUserData) {
+        User user = this.getById(id);
         return this.userRepository.save(user);
     }
 
