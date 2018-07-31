@@ -44,7 +44,7 @@ public class SurveyService {
         return this.surveyRepository.findAllByTitleAndIsAccessible(title, true);
     }
 
-    public Survey create(Survey survey) {
+    public Survey create(Survey updatedSurvey) {
         // TODO adjust implementation to client
         return this.surveyRepository.save(survey);
     }
