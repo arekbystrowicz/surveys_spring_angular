@@ -23,4 +23,8 @@ export class QuestionService {
     return this.http.post<Question>(this.originUrl, question);
   }
 
+  public update(question: Question): Observable<Question> {
+    return this.http.put<Question>(`${this.originUrl}/${question.id}`, question);
+  }
+
 }
