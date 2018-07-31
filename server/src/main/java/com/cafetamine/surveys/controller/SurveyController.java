@@ -45,7 +45,7 @@ public class SurveyController {
         return this.surveyService.update(id, survey);
     }
 
-    @PostMapping(value = "/{id}", params = "action=delete")
+    @DeleteMapping(value = "/{id}")
     public Survey delete(@PathVariable Long id) {
         return this.surveyService.delete(id);
     }
