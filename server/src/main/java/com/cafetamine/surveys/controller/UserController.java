@@ -38,8 +38,8 @@ public class UserController {
     // TODO when json w/o id is sent -> it's just m::create
     // TODO  will prbl disperse with actual update implementation but keep eye
     @PutMapping(value = "/{id}")
-    public User update(@RequestBody User user) {
-        return this.userService.update(user);
+    public User update(@RequestBody User user, @PathVariable("id") Long id) {
+        return this.userService.update(id, user);
     }
 
     @DeleteMapping(value = "/{id}")
