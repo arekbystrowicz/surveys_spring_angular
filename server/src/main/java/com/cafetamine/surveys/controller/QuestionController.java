@@ -39,7 +39,7 @@ public class QuestionController {
         return this.questionService.create(question);
     }
 
-    @PostMapping(value = "/{id}", params = "action=update")
+    @PutMapping(value = "/{id}")
     public Question update(@RequestBody Question question) {
         return this.questionService.update(question);
     }
