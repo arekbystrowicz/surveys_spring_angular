@@ -16,4 +16,8 @@ export class CategoryService {
     return this.http.get<Category>(`${this.originUrl}/${id}`);
   }
 
+  public getAll(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.originUrl);
+  }
+
 }
