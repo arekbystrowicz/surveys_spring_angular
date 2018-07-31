@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UserService } from "./service/user/user.service";
 import { CategoryService } from "./service/category/category.service";
 import { SurveyService } from "./service/survey.service";
+import { QuestionService } from "./service/question/question.service";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SurveyService } from "./service/survey.service";
   providers: [
     UserService,
     CategoryService,
-    SurveyService
+    SurveyService,
+    QuestionService
   ],
   bootstrap: [AppComponent]
 })
