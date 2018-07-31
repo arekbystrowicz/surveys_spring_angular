@@ -36,7 +36,7 @@ public class AnswerController {
     }
 
     @PutMapping(value = "/{answer_id}")
-    public Answer update(@RequestBody Answer answer, @PathVariable("id") Long id) {
+    public Answer update(@RequestBody Answer answer, @PathVariable("answer_id") Long id) {
         return this.answerService.update(id, answer);
     }
 
