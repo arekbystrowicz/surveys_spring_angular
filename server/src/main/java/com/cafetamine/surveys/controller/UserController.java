@@ -42,7 +42,7 @@ public class UserController {
         return this.userService.update(user);
     }
 
-    @PostMapping(value = "/{id}", params = "action=delete")
+    @DeleteMapping(value = "/{id}")
     public User archive(@PathVariable Long id) {
         User user = this.userService.delete(id);
         // TODO what witch surveys after he leaves?
