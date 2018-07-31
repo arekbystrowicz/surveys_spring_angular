@@ -40,12 +40,12 @@ public class SurveyController {
         return this.surveyService.create(survey);
     }
 
-    @PostMapping(value = "/{id}", params = "action=update")
-    public Survey update(@RequestBody Survey survey) {
-        return this.surveyService.update(survey);
+    @PutMapping(value = "/{id}")
+    public Survey update(@RequestBody Survey survey, @PathVariable("id") Long id) {
+        return this.surveyService.update(id, survey);
     }
 
-    @PostMapping(value = "/{id}", params = "action=delete")
+    @DeleteMapping(value = "/{id}")
     public Survey delete(@PathVariable Long id) {
         return this.surveyService.delete(id);
     }

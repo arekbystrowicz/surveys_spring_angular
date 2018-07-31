@@ -36,11 +36,35 @@ public class UserService {
 
     public User create(User user) {
         // TODO adjust implementation to client
+        user.setActive(true);
         return this.userRepository.save(user);
     }
 
-    public User update(User user) {
-        // TODO adjust implementation to client
+    public User update(Long id, User updatedUser) {
+        User user = this.getById(id);
+
+        String login = updatedUser.getLogin();
+        String email = updatedUser.getEmail();
+        String password = updatedUser.getPassword();
+        String name = updatedUser.getName();
+        String surname = updatedUser.getSurname();
+
+        if (!login.equals("")) {
+            user.setLogin(login);
+        }
+        if (!email.equals("")) {
+            user.setEmail(email);
+        }
+        if (!password.equals("")) {
+            user.setPassword(password);
+        }
+        if (!name.equals("")) {
+            user.setName(name);
+        }
+        if (!surname.equals("")) {
+            user.setSurname(surname);
+        }
+
         return this.userRepository.save(user);
     }
 

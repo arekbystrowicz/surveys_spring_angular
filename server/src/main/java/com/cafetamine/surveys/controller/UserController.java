@@ -3,7 +3,6 @@ package com.cafetamine.surveys.controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.cafetamine.surveys.model.User;
-import com.cafetamine.surveys.service.SurveyService;
 import com.cafetamine.surveys.service.UserService;
 
 
@@ -13,11 +12,9 @@ import com.cafetamine.surveys.service.UserService;
 public class UserController {
 
     private UserService userService;
-    private SurveyService surveyService;
 
-    public UserController(UserService userService, SurveyService surveyService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.surveyService = surveyService;
     }
 
     @GetMapping()
@@ -35,17 +32,15 @@ public class UserController {
         return this.userService.create(user);
     }
 
-    // TODO when json w/o id is sent -> it's just m::create
-    // TODO  will prbl disperse with actual update implementation but keep eye
-    @PostMapping(value = "/{id}", params = "action=update")
-    public User update(@RequestBody User user) {
-        return this.userService.update(user);
+    @PutMapping(value = "/{id}")
+    public User update(@RequestBody User user, @PathVariable("id") Long id) {
+        return this.userService.update(id, user);
     }
 
-    @PostMapping(value = "/{id}", params = "action=delete")
+    @DeleteMapping(value = "/{id}")
     public User archive(@PathVariable Long id) {
         User user = this.userService.delete(id);
-        // TODO what witch surveys after he leaves?
+        // TODO what with surveys after he leaves?
 
         return user;
     }
