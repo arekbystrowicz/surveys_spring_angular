@@ -40,7 +40,7 @@ public class AnswerService {
     }
 
     public Answer update(Long id, Answer updatedAnswer) {
-        // TODO adjust implementation to client
+        Answer answer = this.getById(id);
         return this.answerRepository.save(answer);
     }
 
