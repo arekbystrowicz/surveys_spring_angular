@@ -3,7 +3,6 @@ package com.cafetamine.surveys.controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.cafetamine.surveys.model.User;
-import com.cafetamine.surveys.service.SurveyService;
 import com.cafetamine.surveys.service.UserService;
 
 
@@ -13,11 +12,9 @@ import com.cafetamine.surveys.service.UserService;
 public class UserController {
 
     private UserService userService;
-    private SurveyService surveyService;
 
-    public UserController(UserService userService, SurveyService surveyService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.surveyService = surveyService;
     }
 
     @GetMapping()
