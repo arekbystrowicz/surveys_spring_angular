@@ -16,4 +16,8 @@ export class SurveyService {
     return this.http.get<Survey>(`${this.originUrl}/${id}`);
   }
 
+  public getAll(): Observable<Survey[]> {
+    return this.http.get<Survey[]>(this.originUrl);
+  }
+
 }
