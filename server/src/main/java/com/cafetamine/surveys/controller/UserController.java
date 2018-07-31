@@ -35,8 +35,6 @@ public class UserController {
         return this.userService.create(user);
     }
 
-    // TODO when json w/o id is sent -> it's just m::create
-    // TODO  will prbl disperse with actual update implementation but keep eye
     @PutMapping(value = "/{id}")
     public User update(@RequestBody User user, @PathVariable("id") Long id) {
         return this.userService.update(id, user);
@@ -45,7 +43,7 @@ public class UserController {
     @DeleteMapping(value = "/{id}")
     public User archive(@PathVariable Long id) {
         User user = this.userService.delete(id);
-        // TODO what witch surveys after he leaves?
+        // TODO what with surveys after he leaves?
 
         return user;
     }
