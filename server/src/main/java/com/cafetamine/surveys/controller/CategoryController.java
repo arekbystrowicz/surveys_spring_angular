@@ -40,8 +40,8 @@ public class CategoryController {
 
     // TODO check UserController's update comments
     @PutMapping(value = "/{id}")
-    public Category update(@RequestBody Category category) {
-        return this.categoryService.update(category);
+    public Category update(@RequestBody Category category, @PathVariable("id") Long id) {
+        return this.categoryService.update(id, category);
     }
 
     // TODO cannot be performed! check for safety
