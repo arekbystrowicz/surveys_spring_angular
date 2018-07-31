@@ -17,7 +17,7 @@ export class UserService {
   }
 
   public getAll(): Observable<User[]> {
-    return null;
+    return this.http.get<User[]>(this.originUrl);
   }
 
   public create(user: User): Observable<User> {
