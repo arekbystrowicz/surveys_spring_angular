@@ -19,4 +19,8 @@ export class QuestionService {
     return this.http.get<Question[]>(this.originUrl);
   }
 
+  public create(question: Question): Observable<Question> {
+    return this.http.post<Question>(this.originUrl, question);
+  }
+
 }
