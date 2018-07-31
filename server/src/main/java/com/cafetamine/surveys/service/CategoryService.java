@@ -52,8 +52,8 @@ public class CategoryService {
         return this.categoryRepository.save(category);
     }
 
-    public Category update(Category category) {
-        // TODO adjust implementation to client
+    public Category update(Long id, Category newCategoryData) {
+        Category category = this.getById(id);
         return this.categoryRepository.save(category);
     }
 
