@@ -12,4 +12,13 @@ export class AnswerService {
 
   constructor(private http: HttpClient) { }
 
+  private getResourceUrl(questionId: number, answerId: number): string {
+    let resourceUrl = `${this.originUrl}/${questionId}/answers`;
+    if (answerId) {
+      resourceUrl += `/${answerId}`;
+    }
+
+    return resourceUrl;
+  }
+
 }
