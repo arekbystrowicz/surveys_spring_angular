@@ -28,6 +28,10 @@ export class AnswerService {
     return this.http.put<Answer>(this.getResourceUrl(questionId, answer.id), answer);
   }
 
+  public delete(questionId: number, answer: Answer):  Observable<Answer> {
+    return this.http.delete<Answer>(this.getResourceUrl(questionId, answer.id));
+  }
+
   private getResourceUrl(questionId: number, answerId: number): string {
     let resourceUrl = `${this.originUrl}/${questionId}/answers`;
     if (answerId) {
