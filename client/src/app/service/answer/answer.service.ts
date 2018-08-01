@@ -12,7 +12,7 @@ export class AnswerService {
 
   constructor(private http: HttpClient) { }
 
-  public get(answerId: number, questionId: number): Observable<Answer> {
+  public get(questionId: number, answerId: number): Observable<Answer> {
     return this.http.get<Answer>(this.getResourceUrl(questionId, answerId));
   }
 
