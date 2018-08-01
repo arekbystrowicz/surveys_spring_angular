@@ -24,6 +24,10 @@ export class AnswerService {
     return this.http.post<Answer>(this.getResourceUrl(questionId, null), answer);
   }
 
+  public update(questionId: number, answer: Answer): Observable<Answer> {
+    return this.http.put<Answer>(this.getResourceUrl(questionId, answer.id), answer);
+  }
+
   private getResourceUrl(questionId: number, answerId: number): string {
     let resourceUrl = `${this.originUrl}/${questionId}/answers`;
     if (answerId) {
