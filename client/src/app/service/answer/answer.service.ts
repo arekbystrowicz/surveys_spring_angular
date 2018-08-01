@@ -12,6 +12,10 @@ export class AnswerService {
 
   constructor(private http: HttpClient) { }
 
+  public get(answerId: number, questionId: number): Observable<Answer> {
+    return this.http.get<Answer>(this.getResourceUrl(questionId, answerId));
+  }
+
   private getResourceUrl(questionId: number, answerId: number): string {
     let resourceUrl = `${this.originUrl}/${questionId}/answers`;
     if (answerId) {
