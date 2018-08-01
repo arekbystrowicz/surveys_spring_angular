@@ -20,6 +20,10 @@ export class AnswerService {
     return this.http.get<Answer[]>(this.getResourceUrl(questionId, null));
   }
 
+  public create(questionId: number, answer: Answer): Observable<Answer> {
+    return this.http.post<Answer>(this.getResourceUrl(questionId, null), answer);
+  }
+
   private getResourceUrl(questionId: number, answerId: number): string {
     let resourceUrl = `${this.originUrl}/${questionId}/answers`;
     if (answerId) {
