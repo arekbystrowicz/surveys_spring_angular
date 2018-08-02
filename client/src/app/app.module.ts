@@ -10,7 +10,7 @@ import { SurveyService } from "./service/survey.service";
 import { QuestionService } from "./service/question/question.service";
 import { AnswerService } from "./service/answer/answer.service";
 
-import { UserProfileComponent } from './view/user/user-profile/user-profile.component';
+import { UserProfileComponent } from './view/user/profile/user-profile.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 
