@@ -11,6 +11,7 @@ import { QuestionService } from "./service/question/question.service";
 import { AnswerService } from "./service/answer/answer.service";
 
 import { UserProfileComponent } from './view/user/user-profile/user-profile.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UserProfileComponent } from './view/user/user-profile/user-profile.comp
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     UserService,
