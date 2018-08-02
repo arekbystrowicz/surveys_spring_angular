@@ -6,6 +6,7 @@ import { UserProfileComponent } from "./view/user/user-profile/user-profile.comp
 
 const routes: Routes = [
 // { path: 'users', component: UserProfileComponent },
+  { path: 'users/:id', component: UserProfileComponent }
 ];
 
 
