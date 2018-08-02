@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { User } from "../../../model/user";
 import { UserService } from "../../../service/user/user.service";
@@ -13,7 +14,7 @@ export class UserProfileComponent implements OnInit {
 
   private user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private route: ActivatedRoute,) { }
 
   private get() {
     let temporaryIdSolution = 1;
