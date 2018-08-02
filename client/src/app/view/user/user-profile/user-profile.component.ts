@@ -16,15 +16,15 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private userService: UserService, private route: ActivatedRoute,) { }
 
+  ngOnInit() {
+    this.get();
+  }
+
   private get() {
     let temporaryIdSolution = 1;
     this.userService.get(temporaryIdSolution)
       .subscribe(user => this.user = user);
 
-  }
-
-  ngOnInit() {
-    this.get();
   }
 
 }
