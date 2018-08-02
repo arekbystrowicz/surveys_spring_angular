@@ -21,10 +21,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   private get() {
-    let temporaryIdSolution = 1;
-    this.userService.get(temporaryIdSolution)
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userService.get(id)
       .subscribe(user => this.user = user);
-
   }
 
 }
