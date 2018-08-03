@@ -1,0 +1,22 @@
+<h3>users</h3>
+
+<table>
+  <tr>
+    <th> </th>
+    <th>name</th>
+    <th>surname</th>
+    <th>email</th>
+    <th>login</th>
+    <th>joined</th>
+  </tr>
+  <tr *ngFor="let user of users; let i = index;"
+      (click)="redirectToProfile(user)">
+    <td>{{ i + 1 }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.surname }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.login }}</td>
+    <td>{{ user.createdAt }}</td>
+  </tr>
+</table>
+

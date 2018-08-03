@@ -13,13 +13,15 @@ import { AnswerService } from "./service/answer/answer.service";
 import { UserProfileComponent } from './view/user/profile/user-profile.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { UserBadgeComponent } from './view/user/badge/user-badge.component';
+import { UserListComponent } from './view/user/list/user-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserProfileComponent,
-    UserBadgeComponent
+    UserBadgeComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
