@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'app-survey-page',
@@ -8,7 +9,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class SurveyPageComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
