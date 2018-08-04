@@ -5,7 +5,7 @@ import { SurveyService } from "../../../service/survey.service";
 
 
 @Component({
-  selector: 'app-surevy-list',
+  selector: 'app-survey-list',
   templateUrl: './survey-list.component.html',
   styleUrls: ['./survey-list.component.css']
 })
