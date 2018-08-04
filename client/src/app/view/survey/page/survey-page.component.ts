@@ -23,7 +23,7 @@ export class SurveyPageComponent implements OnInit {
   private get(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.surveyService.get(id)
-      .subscribe(survey => this.survey = survey);
+      .subscribe(survey => this.survey = new Survey().deserialize(survey));
   }
 
 }
