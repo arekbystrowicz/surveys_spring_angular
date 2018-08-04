@@ -13,7 +13,7 @@ export class Survey implements Deserializable<Survey> {
   createdAt: Date;
   updatedAt: Date;
   author: User;
-  categories: Category[];
+  categories: Category[] = [];
 
   public deserialize(object: any): Survey {
     this.id = object.id;
