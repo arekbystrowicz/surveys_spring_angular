@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 
 import { Survey } from "../../../model/survey";
-import { SurveyService } from "../../../service/survey.service";
+import { SurveyService } from "../../../service/survey/survey.service";
 
 
 @Component({
