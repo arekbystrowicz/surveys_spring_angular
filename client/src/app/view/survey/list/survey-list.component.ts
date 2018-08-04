@@ -16,14 +16,14 @@ export class SurveyListComponent implements OnInit {
 
   constructor(private http: HttpClient, private surveyService: SurveyService) { }
 
+  ngOnInit() {
+    this.getAll();
+  }
+
   private getAll(): void {
     this.surveyService.getAll().subscribe(surveys => {
       this.surveys = surveys;
     });
-  }
-
-  ngOnInit() {
-    this.getAll();
   }
 
 }
