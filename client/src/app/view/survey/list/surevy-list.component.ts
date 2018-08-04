@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
+import { SurveyService } from "../../../service/survey.service";
+
+
 @Component({
   selector: 'app-surevy-list',
   templateUrl: './surevy-list.component.html',
@@ -8,7 +11,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class SurevyListComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private surveyService: SurveyService) { }
 
   ngOnInit() {
   }
