@@ -9,7 +9,7 @@ import { SurveyService } from "../../../service/survey.service";
   templateUrl: './surevy-list.component.html',
   styleUrls: ['./surevy-list.component.css']
 })
-export class SurevyListComponent implements OnInit {
+export class SurveyListComponent implements OnInit {
 
   constructor(private http: HttpClient, private surveyService: SurveyService) { }
 
