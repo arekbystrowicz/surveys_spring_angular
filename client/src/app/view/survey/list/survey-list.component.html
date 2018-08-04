@@ -8,7 +8,8 @@
     <th>author</th>
     <th>published</th>
   </tr>
-  <tr *ngFor="let survey of surveys; let i = index;">
+  <tr *ngFor="let survey of surveys; let i = index;"
+      (click)="redirectToSurveyPage(survey)">
     <td>{{ i + 1 }}</td>
     <td>{{ survey.title }}</td>
     <!-- td><app-category-inlinelist [categories]="survey.categories"></app-category-inlinelist> categories </td -->
