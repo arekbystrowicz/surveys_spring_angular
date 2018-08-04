@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { UserService } from "./service/user/user.service";
 import { CategoryService } from "./service/category/category.service";
-import { SurveyService } from "./service/survey.service";
+import { SurveyService } from "./service/survey/survey.service";
 import { QuestionService } from "./service/question/question.service";
 import { AnswerService } from "./service/answer/answer.service";
 
