@@ -1,3 +1,18 @@
-<p>
-  surevy-list works!
-</p>
+<h3>surveys</h3>
+
+<table>
+  <tr>
+    <th> </th>
+    <th>title</th>
+    <!-- categories -->
+    <th>author</th>
+    <th>published</th>
+  </tr>
+  <tr *ngFor="let survey of surveys; let i = index;">
+    <td>{{ i + 1 }}</td>
+    <td>{{ survey.title }}</td>
+    <!-- td><app-category-inlinelist [categories]="survey.categories"></app-category-inlinelist> categories </td -->
+    <td><app-user-badge [user]="survey.author"></app-user-badge></td>
+    <td>{{ survey.publishDate }}</td>
+  </tr>
+</table>
