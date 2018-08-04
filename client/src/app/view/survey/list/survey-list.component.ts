@@ -23,6 +23,7 @@ export class SurveyListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAll();
   }
 
 }
