@@ -11,12 +11,18 @@ import { SurveyService } from "../../../service/survey.service";
   styleUrls: ['./survey-page.component.css']
 })
 export class SurveyPageComponent implements OnInit {
-  
+
   private survey: Survey;
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  private get(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.surveyService.get(id)
+      .subscribe(survey => this.survey = survey);
   }
 
 }
