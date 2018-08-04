@@ -11,5 +11,5 @@ export class Survey {
   createdAt: Date;
   updatedAt: Date;
   author: User;
-  categories: Array<Category>;
+  categories: Category[];
 }
