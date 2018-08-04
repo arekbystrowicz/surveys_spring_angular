@@ -29,8 +29,8 @@ export class SurveyListComponent implements OnInit {
     });
   }
 
-  private redirectToSurveyPage(survey: Survey): void {
-    this.router.navigate([`/survey/${survey.id}`]);
+  public redirectToSurveyPage(survey: Survey): void {
+    this.router.navigate([`/surveys/${survey.id}`]);
   }
 
 }
