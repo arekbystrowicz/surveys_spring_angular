@@ -6,8 +6,8 @@ import { SurveyService } from "../../../service/survey.service";
 
 @Component({
   selector: 'app-surevy-list',
-  templateUrl: './surevy-list.component.html',
-  styleUrls: ['./surevy-list.component.css']
+  templateUrl: './survey-list.component.html',
+  styleUrls: ['./survey-list.component.css']
 })
 export class SurveyListComponent implements OnInit {
 

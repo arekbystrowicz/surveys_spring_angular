@@ -14,7 +14,7 @@ import { UserProfileComponent } from './view/user/profile/user-profile.component
 import { AppRoutingModule } from './/app-routing.module';
 import { UserBadgeComponent } from './view/user/badge/user-badge.component';
 import { UserListComponent } from './view/user/list/user-list.component';
-import { SurveyListComponent } from './view/survey/list/surevy-list.component';
+import { SurveyListComponent } from './view/survey/list/survey-list.component';
 
 
 @NgModule({
