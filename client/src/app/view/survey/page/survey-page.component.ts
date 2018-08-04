@@ -17,6 +17,7 @@ export class SurveyPageComponent implements OnInit {
   constructor(private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.get();
   }
 
   private get(): void {
