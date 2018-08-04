@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 import { Survey } from "../../../model/survey";
 import { SurveyService } from "../../../service/survey.service";
@@ -14,7 +15,9 @@ export class SurveyListComponent implements OnInit {
 
   surveys: Survey[];
 
-  constructor(private http: HttpClient, private surveyService: SurveyService) { }
+  constructor(private http: HttpClient,
+              private router: Router,
+              private surveyService: SurveyService) { }
 
   ngOnInit() {
     this.getAll();
@@ -24,6 +27,10 @@ export class SurveyListComponent implements OnInit {
     this.surveyService.getAll().subscribe(surveys => {
       this.surveys = surveys;
     });
+  }
+
+  private redirectToSurveyPage(survey: Survey): void {
+    this.router.navigate([`/survey/${survey.id}`]);
   }
 
 }
