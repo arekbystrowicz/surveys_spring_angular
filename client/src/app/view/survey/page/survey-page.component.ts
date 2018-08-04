@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 import { Survey } from "../../../model/survey";
-import { SurveyService } from "../../../service/survey.service";
+import { SurveyService } from "../../../service/survey/survey.service";
 
 
 @Component({
@@ -23,7 +23,7 @@ export class SurveyPageComponent implements OnInit {
   private get(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.surveyService.get(id)
-      .subscribe(survey => this.survey = new Survey().deserialize(survey));
+      .subscribe(survey => this.survey = survey);
   }
 
 }
