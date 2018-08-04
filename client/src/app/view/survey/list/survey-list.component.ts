@@ -12,7 +12,7 @@ import { SurveyService } from "../../../service/survey.service";
 })
 export class SurveyListComponent implements OnInit {
 
-  private surveys: Survey[];
+  surveys: Survey[];
 
   constructor(private http: HttpClient, private surveyService: SurveyService) { }
 
