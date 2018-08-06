@@ -14,3 +14,19 @@
          (focusout)="updateSurvey()">
 
 </div>
+
+<ul>
+  <li *ngFor="let question of questions">
+
+    <input class="hidden"
+           [(ngModel)]="question.title"
+           placeholder="{{ survey.description }}"
+           (focusout)="updateQuestion(question)">
+
+    <input class="hidden"
+           [(ngModel)]="question.description"
+           placeholder="{{ survey.description }}"
+           (focusout)="updateQuestion(question)">
+
+  </li>
+</ul>
