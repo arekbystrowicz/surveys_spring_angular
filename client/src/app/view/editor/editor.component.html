@@ -3,14 +3,16 @@
 <div>
 
   <input class="hidden"
-         [(ngModel)]="survey.title"
+         size="65"
          placeholder="{{ survey.title }}"
+         [(ngModel)]="survey.title"
          (focusout)="updateSurvey()">
 
 
   <input class="hidden"
-         [(ngModel)]="survey.description"
+         size="255"
          placeholder="{{ survey.description }}"
+         [(ngModel)]="survey.description"
          (focusout)="updateSurvey()">
 
 </div>
@@ -19,13 +21,15 @@
   <li *ngFor="let question of questions">
 
     <input class="hidden"
-           [(ngModel)]="question.title"
+           size="65"
            placeholder="{{ survey.description }}"
+           [(ngModel)]="question.title"
            (focusout)="updateQuestion(question)">
 
     <input class="hidden"
-           [(ngModel)]="question.description"
+           size="255"
            placeholder="{{ survey.description }}"
+           [(ngModel)]="question.description"
            (focusout)="updateQuestion(question)">
 
   </li>
