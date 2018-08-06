@@ -19,6 +19,10 @@ export class QuestionService {
     return this.http.get<Question[]>(this.originUrl);
   }
 
+  public getBySurveyId(surveyId: number):  Observable<Question[]> {
+    return new Observable<Question[]>();
+  }
+
   public create(question: Question): Observable<Question> {
     return this.http.post<Question>(this.originUrl, question);
   }
