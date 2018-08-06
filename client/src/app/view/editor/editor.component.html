@@ -1,10 +1,14 @@
 <h3>edit {{ survey.title }}</h3>
 
 <div>
-  <label>survey title:
-    <input [(ngModel)]="survey.title" placeholder="{{ survey.title }}">
-  </label>
-  <label>survey description:
-    <input [(ngModel)]="survey.description" placeholder="{{ survey.description }}">
-  </label>
+
+  <input class="hidden"
+         [(ngModel)]="survey.title"
+         placeholder="{{ survey.title }}">
+
+
+  <input class="hidden"
+         [(ngModel)]="survey.description"
+         placeholder="{{ survey.description }}">
+
 </div>
