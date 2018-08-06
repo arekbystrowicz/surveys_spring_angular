@@ -34,6 +34,12 @@ export class EditorComponent implements OnInit {
       .subscribe(survey => this.survey = survey);
   }
 
+  private getQuestions(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.questionService.getBySurveyId(this.survey)
+      .subscribe(questions => this.questions = questions);
+  }
+
   public updateSurvey() {
     this.surveyService.update(this.survey)
       .subscribe(survey => this.survey = survey);
