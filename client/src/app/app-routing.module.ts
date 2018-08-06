@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserProfileComponent },
   { path: 'surveys', component: SurveyListComponent },
   { path: 'surveys/:id', component: SurveyPageComponent },
-  { path: 'editor?survey_id=:id', component: EditorComponent}
+  { path: 'editor/:id', component: EditorComponent}
 ];
 
 
