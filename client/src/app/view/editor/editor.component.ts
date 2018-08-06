@@ -5,6 +5,7 @@ import { Survey } from "../../model/survey";
 import { Question } from "../../model/question";
 
 import { SurveyService } from "../../service/survey/survey.service";
+import { QuestionService } from "../../service/question/question.service";
 
 
 @Component({
@@ -17,7 +18,11 @@ export class EditorComponent implements OnInit {
   @Input() survey: Survey;
   @Input() questions: Question[];
 
-  constructor(private surveyService: SurveyService, private route: ActivatedRoute) { }
+  constructor(private surveyService: SurveyService,
+              private questionService: QuestionService,
+              private route: ActivatedRoute) {
+
+  }
 
   ngOnInit() {
     this.getSurvey();
