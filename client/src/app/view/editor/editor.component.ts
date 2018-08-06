@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
+import { Survey } from "../../model/survey";
 import { SurveyService } from "../../service/survey/survey.service";
 
 
@@ -10,6 +11,8 @@ import { SurveyService } from "../../service/survey/survey.service";
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
+
+  survey: Survey;
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute) { }
 
