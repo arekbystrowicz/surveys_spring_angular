@@ -26,4 +26,9 @@ export class EditorComponent implements OnInit {
       .subscribe(survey => this.survey = survey);
   }
 
+  public updateSurvey() {
+    this.surveyService.update(this.survey)
+      .subscribe(survey => this.survey = survey);
+  }
+
 }
