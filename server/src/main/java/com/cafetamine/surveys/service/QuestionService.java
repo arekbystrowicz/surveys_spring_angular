@@ -32,8 +32,8 @@ public class QuestionService {
         return this.questionRepository.findAllByIsAccessible(true);
     }
 
-    public Iterable<Question> getAllBySurvey(Survey survey) {
-        return this.questionRepository.findAllBySurveyAndIsAccessible(survey, true);
+    public Iterable<Question> getAllBySurveyId(Long surveyId) {
+        return this.questionRepository.findAllBySurveyIdAndIsAccessible(surveyId, true);
     }
 
     public Question create(Question question) {
