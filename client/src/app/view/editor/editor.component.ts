@@ -26,6 +26,7 @@ export class EditorComponent implements OnInit {
 
   ngOnInit() {
     this.getSurvey();
+    this.getQuestions();
   }
 
   private getSurvey(): void {
@@ -35,8 +36,8 @@ export class EditorComponent implements OnInit {
   }
 
   private getQuestions(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.questionService.getBySurveyId(this.survey)
+    const surveyId = +this.route.snapshot.paramMap.get('id');
+    this.questionService.getBySurveyId(surveyId)
       .subscribe(questions => this.questions = questions);
   }
 
