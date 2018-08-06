@@ -16,6 +16,7 @@ import { UserBadgeComponent } from './view/user/badge/user-badge.component';
 import { UserListComponent } from './view/user/list/user-list.component';
 import { SurveyListComponent } from './view/survey/list/survey-list.component';
 import { SurveyPageComponent } from './view/survey/page/survey-page.component';
+import { EditorComponent } from './view/editor/editor.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SurveyPageComponent } from './view/survey/page/survey-page.component';
     UserBadgeComponent,
     UserListComponent,
     SurveyListComponent,
-    SurveyPageComponent
+    SurveyPageComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
