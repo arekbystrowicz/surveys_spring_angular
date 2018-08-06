@@ -17,6 +17,13 @@ export class EditorComponent implements OnInit {
   constructor(private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.getSurvey();
+  }
+
+  private getSurvey(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.surveyService.get(id)
+      .subscribe(survey => this.survey = survey);
   }
 
 }
