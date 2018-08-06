@@ -20,7 +20,7 @@ export class QuestionService {
   }
 
   public getBySurveyId(surveyId: number):  Observable<Question[]> {
-    return this.http.get<Question>(`${this.originUrl}?survey_id=${surveyId}`);
+    return this.http.get<Question[]>(`${this.originUrl}?survey_id=${surveyId}`);
   }
 
   public create(question: Question): Observable<Question> {
