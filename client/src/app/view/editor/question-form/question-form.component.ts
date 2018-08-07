@@ -19,6 +19,12 @@ export class QuestionFormComponent implements OnInit {
   constructor(private questionService: QuestionService, private answerService: AnswerService) { }
 
   ngOnInit() {
+    this.getAnswers();
+  }
+
+  private getAnswers(): void {
+    this.answerService.getAll(this.question.id)
+      .subscribe(answers => this.answers = answers);
   }
 
   public updateQuestion(): void {
