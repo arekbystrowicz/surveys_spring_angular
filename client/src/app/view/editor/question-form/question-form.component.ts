@@ -15,6 +15,7 @@ export class QuestionFormComponent implements OnInit {
 
   @Input() question: Question;
   answers: Answer[];
+  newAnswer: Answer = new Answer();
 
   constructor(private questionService: QuestionService, private answerService: AnswerService) { }
 
