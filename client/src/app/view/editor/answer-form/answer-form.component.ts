@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AnswerService } from "../../../service/answer/answer.service";
+
 @Component({
   selector: 'app-answer-form',
   templateUrl: './answer-form.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnswerFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private answerService: AnswerService) { }
 
   ngOnInit() {
   }
