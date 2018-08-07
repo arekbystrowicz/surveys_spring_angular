@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { Question } from "../../../model/question";
 
 @Component({
   selector: 'app-question-form',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-form.component.css']
 })
 export class QuestionFormComponent implements OnInit {
+
+  @Input() question: Question;
 
   constructor() { }
 
