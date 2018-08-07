@@ -1,4 +1,5 @@
 <div>
+
   <input class="hidden"
          size="65"
          placeholder="{{ question.title }}"
@@ -10,4 +11,11 @@
          placeholder="{{ question.description }}"
          [(ngModel)]="question.description"
          (focusout)="updateQuestion()">
+
+  <ul>
+    <li *ngFor="let answer of answers">
+      <app-answer-form [answer]="answer"></app-answer-form>
+    </li>
+  </ul>
+
 </div>
