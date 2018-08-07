@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 import { Survey } from "../../model/survey";
@@ -16,7 +16,7 @@ import { QuestionService } from "../../service/question/question.service";
 export class EditorComponent implements OnInit {
 
   survey: Survey;
-  @Input() questions: Question[];
+  questions: Question[];
 
   constructor(private surveyService: SurveyService,
               private questionService: QuestionService,
