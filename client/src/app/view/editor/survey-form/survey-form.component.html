@@ -1,3 +1,16 @@
-<p>
-  survey-form works!
-</p>
+<div>
+
+  <input class="hidden"
+         size="65"
+         placeholder="{{ survey.title }}"
+         [(ngModel)]="survey.title"
+         (focusout)="updateSurvey()">
+
+
+  <input class="hidden"
+         size="255"
+         placeholder="{{ survey.description }}"
+         [(ngModel)]="survey.description"
+         (focusout)="updateSurvey()">
+
+</div>
