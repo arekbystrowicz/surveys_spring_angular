@@ -14,7 +14,7 @@
 
   <ul>
     <li *ngFor="let answer of answers">
-      <app-answer-form [answer]="answer"></app-answer-form>
+      <app-answer-form [answer]="answer" [questionId]="question.id"></app-answer-form>
     </li>
   </ul>
 
