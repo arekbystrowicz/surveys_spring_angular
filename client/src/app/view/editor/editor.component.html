@@ -4,18 +4,6 @@
 
 <ul>
   <li *ngFor="let question of questions">
-
-    <input class="hidden"
-           size="65"
-           placeholder="{{ survey.description }}"
-           [(ngModel)]="question.title"
-           (focusout)="updateQuestion(question)">
-
-    <input class="hidden"
-           size="255"
-           placeholder="{{ survey.description }}"
-           [(ngModel)]="question.description"
-           (focusout)="updateQuestion(question)">
-
+    <app-question-form [question]="question"></app-question-form>
   </li>
 </ul>
