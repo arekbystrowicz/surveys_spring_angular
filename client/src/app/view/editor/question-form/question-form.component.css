@@ -5,3 +5,11 @@ input {
 .hidden {
   border: none;
 }
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding-bottom: 10px;
+}
