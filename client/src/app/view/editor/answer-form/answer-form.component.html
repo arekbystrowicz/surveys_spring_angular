@@ -1,3 +1,9 @@
-<p>
-  answer-form works!
-</p>
+<div>
+
+  <input class="hidden"
+         size="255"
+         placeholder="{{ answer.description }}"
+         [(ngModel)]="answer.description"
+         (focusout)="updateAnswer()">
+
+</div>
