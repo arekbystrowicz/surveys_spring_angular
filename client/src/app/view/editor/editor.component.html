@@ -1,21 +1,6 @@
 <h3>edit {{ survey.title }}</h3>
 
-<div>
-
-  <input class="hidden"
-         size="65"
-         placeholder="{{ survey.title }}"
-         [(ngModel)]="survey.title"
-         (focusout)="updateSurvey()">
-
-
-  <input class="hidden"
-         size="255"
-         placeholder="{{ survey.description }}"
-         [(ngModel)]="survey.description"
-         (focusout)="updateSurvey()">
-
-</div>
+<app-survey-form [survey]="survey"></app-survey-form>
 
 <ul>
   <li *ngFor="let question of questions">
