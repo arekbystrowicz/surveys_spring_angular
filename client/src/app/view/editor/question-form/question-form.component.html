@@ -19,7 +19,7 @@
 
     <li>
       <button id="{{ question.id }}-new-answer-button"
-              (click)="addAnswerField()">add answer</button>
+              (click)="toggleOn()">add answer</button>
 
       <input class="inline"
              id="{{ question.id }}-new-answer-input"
@@ -29,7 +29,7 @@
              [(ngModel)]="newAnswer.description">
 
       <button class="invisible" id="{{ question.id }}-new-answer-submit-button"
-              (click)="createAnswer()">confirm</button>
+              (click)="createAnswer();toggleOff()">confirm</button>
 
     </li>
   </ul>
