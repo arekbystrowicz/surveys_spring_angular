@@ -45,13 +45,13 @@ export class QuestionFormComponent implements OnInit {
     return document.getElementById(this.question.id + '-new-answer-submit-button');
   }
 
-  private toggleOn() {
+  private toggleOn(): void {
     this.getNewAnswerInput().setAttribute('type', 'text');
     this.getNewAnswerButton().style.display = 'none';
     this.getNewAnswerSubmitButton().className = "inline-block";
   }
 
-  private toggleOff() {
+  private toggleOff(): void {
     this.getNewAnswerInput().setAttribute('type', 'hidden');
     this.getNewAnswerButton().style.display = 'block';
     this.getNewAnswerSubmitButton().className = "invisible";
