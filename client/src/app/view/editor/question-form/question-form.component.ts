@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { Question } from "../../../model/question";
+import { Answer } from "../../../model/answer";
 import { QuestionService } from "../../../service/question/question.service";
 
 @Component({
@@ -11,6 +12,7 @@ import { QuestionService } from "../../../service/question/question.service";
 export class QuestionFormComponent implements OnInit {
 
   @Input() question: Question;
+  answers: Answer[];
 
   constructor(private questionService: QuestionService) { }
 
