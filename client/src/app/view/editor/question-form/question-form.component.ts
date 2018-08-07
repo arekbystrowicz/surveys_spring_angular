@@ -17,4 +17,9 @@ export class QuestionFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public updateQuestion(): void {
+    this.questionService.update(this.question)
+      .subscribe(question => this.question = question);
+  }
+
 }

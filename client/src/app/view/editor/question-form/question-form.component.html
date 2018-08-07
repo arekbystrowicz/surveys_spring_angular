@@ -1,13 +1,13 @@
 <div>
   <input class="hidden"
          size="65"
-         placeholder="{{ survey.description }}"
+         placeholder="{{ question.title }}"
          [(ngModel)]="question.title"
-         (focusout)="updateQuestion(question)">
+         (focusout)="updateQuestion()">
 
   <input class="hidden"
          size="255"
-         placeholder="{{ survey.description }}"
+         placeholder="{{ question.description }}"
          [(ngModel)]="question.description"
-         (focusout)="updateQuestion(question)">
+         (focusout)="updateQuestion()">
 </div>
