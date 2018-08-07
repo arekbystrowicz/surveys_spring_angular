@@ -21,7 +21,6 @@ export class EditorComponent implements OnInit {
   constructor(private surveyService: SurveyService,
               private questionService: QuestionService,
               private route: ActivatedRoute) {
-
   }
 
   ngOnInit() {
