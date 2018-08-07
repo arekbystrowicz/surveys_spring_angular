@@ -13,10 +13,16 @@ import { AnswerService } from "../../../service/answer/answer.service";
 export class AnswerFormComponent implements OnInit {
 
   @Input() answer: Answer;
+  @Input() questionId: number;
 
   constructor(private answerService: AnswerService) { }
 
   ngOnInit() {
+  }
+
+  public updateAnswer(): void {
+    this.answerService.update(this.questionId, this.answer)
+      .subscribe(answer => this.answer = answer);
   }
 
 }
