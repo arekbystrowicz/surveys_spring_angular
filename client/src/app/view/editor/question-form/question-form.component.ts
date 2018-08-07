@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Question } from "../../../model/question";
 import { Answer } from "../../../model/answer";
+
 import { QuestionService } from "../../../service/question/question.service";
+import { AnswerService } from "../../../service/answer/answer.service";
 
 @Component({
   selector: 'app-question-form',
@@ -14,7 +16,7 @@ export class QuestionFormComponent implements OnInit {
   @Input() question: Question;
   answers: Answer[];
 
-  constructor(private questionService: QuestionService) { }
+  constructor(private questionService: QuestionService, private answerService: AnswerService) { }
 
   ngOnInit() {
   }
