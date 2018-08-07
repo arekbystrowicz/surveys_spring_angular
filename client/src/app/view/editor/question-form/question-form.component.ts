@@ -33,4 +33,28 @@ export class QuestionFormComponent implements OnInit {
       .subscribe(question => this.question = question);
   }
 
+  private getNewAnswerInput(): HTMLElement {
+    return document.getElementById(this.question.id + '-new-answer-input');
+  }
+
+  private getNewAnswerButton(): HTMLElement {
+    return document.getElementById(this.question.id + '-new-answer-button');
+  }
+
+  private getNewAnswerSubmitButton(): HTMLElement {
+    return document.getElementById(this.question.id + '-new-answer-submit-button');
+  }
+
+  private toggleOn() {
+    this.getNewAnswerInput().setAttribute('type', 'text');
+    this.getNewAnswerButton().style.display = 'none';
+    this.getNewAnswerSubmitButton().className = "inline-block";
+  }
+
+  private toggleOff() {
+    this.getNewAnswerInput().setAttribute('type', 'hidden');
+    this.getNewAnswerButton().style.display = 'block';
+    this.getNewAnswerSubmitButton().className = "invisible";
+  }
+
 }
