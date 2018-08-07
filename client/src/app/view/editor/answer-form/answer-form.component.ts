@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { Answer } from "../../../model/answer";
 
 import { AnswerService } from "../../../service/answer/answer.service";
+
 
 @Component({
   selector: 'app-answer-form',
@@ -8,6 +11,8 @@ import { AnswerService } from "../../../service/answer/answer.service";
   styleUrls: ['./answer-form.component.css']
 })
 export class AnswerFormComponent implements OnInit {
+
+  @Input() answer: Answer;
 
   constructor(private answerService: AnswerService) { }
 
