@@ -20,6 +20,7 @@ import { SurveyPageComponent } from './view/survey/page/survey-page.component';
 import { EditorComponent } from './view/editor/editor.component';
 import { SurveyFormComponent } from './view/editor/survey-form/survey-form.component';
 import { QuestionFormComponent } from './view/editor/question-form/question-form.component';
+import { AnswerFormComponent } from './view/editor/answer-form/answer-form.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { QuestionFormComponent } from './view/editor/question-form/question-form
     SurveyPageComponent,
     EditorComponent,
     SurveyFormComponent,
-    QuestionFormComponent
+    QuestionFormComponent,
+    AnswerFormComponent
   ],
   imports: [
     BrowserModule,
