@@ -13,3 +13,11 @@ ul {
 li {
   padding-bottom: 10px;
 }
+
+.invisible {
+  display: none;
+}
+
+.inline {
+  display: inline-block;
+}
