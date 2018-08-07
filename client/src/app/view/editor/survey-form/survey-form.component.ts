@@ -17,4 +17,9 @@ export class SurveyFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public updateSurvey(): void {
+    this.surveyService.update(this.survey)
+      .subscribe(survey => this.survey = survey);
+  }
+
 }

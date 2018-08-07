@@ -52,11 +52,6 @@ export class EditorComponent implements OnInit {
     this.questions[this.findQuestionIndex(question.id)] = question;
   }
 
-  public updateSurvey(): void {
-    this.surveyService.update(this.survey)
-      .subscribe(survey => this.survey = survey);
-  }
-
   public updateQuestion(updatedQuestion: Question): void {
     let question: Question;
 
