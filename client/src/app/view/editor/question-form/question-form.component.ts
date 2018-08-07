@@ -57,4 +57,11 @@ export class QuestionFormComponent implements OnInit {
     this.getNewAnswerSubmitButton().className = "invisible";
   }
 
+  public createAnswer(): void {
+    this.answerService.create(this.question.id, this.newAnswer)
+      .subscribe(answer => this.answers.push(answer));
+
+    this.newAnswer = new Answer();
+  }
+
 }
