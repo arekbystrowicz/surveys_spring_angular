@@ -28,11 +28,6 @@ export class QuestionFormComponent implements OnInit {
       .subscribe(answers => this.answers = answers);
   }
 
-  public updateQuestion(): void {
-    this.questionService.update(this.question)
-      .subscribe(question => this.question = question);
-  }
-
   private getNewAnswerInput(): HTMLElement {
     return document.getElementById(this.question.id + '-new-answer-input');
   }
@@ -55,6 +50,11 @@ export class QuestionFormComponent implements OnInit {
     this.getNewAnswerInput().setAttribute('type', 'hidden');
     this.getNewAnswerButton().style.display = 'block';
     this.getNewAnswerSubmitButton().className = "invisible";
+  }
+
+  public updateQuestion(): void {
+    this.questionService.update(this.question)
+      .subscribe(question => this.question = question);
   }
 
   public createAnswer(): void {
