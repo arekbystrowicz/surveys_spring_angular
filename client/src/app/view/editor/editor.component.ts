@@ -15,7 +15,7 @@ import { QuestionService } from "../../service/question/question.service";
 })
 export class EditorComponent implements OnInit {
 
-  @Input() survey: Survey;
+  survey: Survey;
   @Input() questions: Question[];
 
   constructor(private surveyService: SurveyService,
