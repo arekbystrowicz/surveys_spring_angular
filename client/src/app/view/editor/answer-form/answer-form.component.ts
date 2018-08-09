@@ -25,6 +25,10 @@ export class AnswerFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public updateAnswer(answer: Answer): void {
+    this.form.updateAnswer(this.questionId, this.answer);
+  }
+
   // public updateAnswer(): void {
   //   this.answerService.update(this.questionId, this.answer)
   //     .subscribe(answer => this.answer = answer);
