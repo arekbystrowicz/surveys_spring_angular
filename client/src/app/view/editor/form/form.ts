@@ -53,6 +53,10 @@ export class SurveyForm {
     return Array.from(this.questions.keys());
   }
 
+  public getAnswers(question: Question): Answer[] {
+    return this.questions.get(question);
+  }
+
   public updateSurvey(survey: Survey): void {
     this.surveyService.update(this.survey)
       .subscribe(response => this.survey = response);
