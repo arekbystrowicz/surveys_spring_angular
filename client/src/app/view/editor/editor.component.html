@@ -2,8 +2,22 @@
 
 <app-survey-form [survey]="form.getSurvey()" [form]="form"></app-survey-form>
 
-<ul>
+<!-- ul>
   <li *ngFor="let question of form.getQuestions()">
     <app-question-form [question]="question"></app-question-form>
+  </li>
+</ul -->
+
+<ul>
+  <li *ngFor="let question of form.getQuestions()">
+    <app-question-form [question]="question" [form]="form"></app-question-form>
+    <!-- ul>
+      <li *ngFor="let answer of form.getAnswers(question)">
+        <app-answer-form [answer]="answer" [form]="form"></app-answer-form>
+      </li>
+    </ul -->
+  </li>
+  <li>
+    <button>add question</button>
   </li>
 </ul>
