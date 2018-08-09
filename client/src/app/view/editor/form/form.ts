@@ -14,6 +14,7 @@ export class SurveyForm {
 
   survey: Survey;
   questions: Map<Question, Answer[]> = new Map<Question, Answer[]>();
+  keys: Question[];
 
   constructor(private surveyService: SurveyService,
               private questionService: QuestionService,
@@ -23,6 +24,7 @@ export class SurveyForm {
   public init(surveyId: number): void {
     this.setSurvey(surveyId);
     this.setQuestions(surveyId);
+
   }
 
   private setSurvey(surveyId: number): void {
@@ -31,17 +33,17 @@ export class SurveyForm {
   }
 
   private setQuestions(surveyId: number): void {
-    this.questionService.getBySurveyId(surveyId)
+    this.questionService.getBySurveyId(1)
       .subscribe(questions => {
-        for (let question of questions) {
-          this.mapQuestionsWithAnswers(question);
-        }
+        this.mapQuestionsWithAnswers(Array.from(questions));
       });
   }
 
-  private mapQuestionsWithAnswers(question: Question): void {
-    this.answerService.getAll(question.id)
-      .subscribe(answers => this.questions.set(question, answers));
+  private mapQuestionsWithAnswers(questions: Question[]): void {
+    for (let question of questions) {
+      this.answerService.getAll(question.id)
+        .subscribe(answers => this.questions.set(question, answers));
+    }
   }
 
   public getSurvey(): Survey {
