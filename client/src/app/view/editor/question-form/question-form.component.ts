@@ -1,11 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Question } from "../../../model/question";
-// import { Answer } from "../../../model/answer";
-//
-// import { QuestionService } from "../../../service/question/question.service";
-// import { AnswerService } from "../../../service/answer/answer.service";
 import { SurveyForm } from "../form/form";
+import { Question } from "../../../model/question";
+
 
 @Component({
   selector: 'app-question-form',
@@ -16,11 +13,6 @@ export class QuestionFormComponent implements OnInit {
 
   @Input() question: Question;
   @Input() form: SurveyForm;
-  // answers: Answer[];
-  // newAnswer: Answer = new Answer();
-  //
-  // constructor(private questionService: QuestionService, private answerService: AnswerService) {
-  // }
 
   constructor() {
   }
@@ -31,15 +23,6 @@ export class QuestionFormComponent implements OnInit {
   public updateQuestion() {
     this.form.updateQuestion(this.question);
   }
-
-  // ngOnInit() {
-  //    this.getAnswers();
-  // }
-
-  // private getAnswers(): void {
-  //   this.answerService.getAll(this.question.id)
-  //     .subscribe(answers => this.answers = answers);
-  // }
 
   // private getNewAnswerInput(): HTMLElement {
   //   return document.getElementById(this.question.id + '-new-answer-input');
@@ -64,12 +47,6 @@ export class QuestionFormComponent implements OnInit {
   //   this.getNewAnswerButton().style.display = 'block';
   //   this.getNewAnswerSubmitButton().className = "invisible";
   // }
-
-  // public updateQuestion(): void {
-  //   this.questionService.update(this.question)
-  //     .subscribe(question => this.question = question);
-  // }
-  //
   // public createAnswer(): void {
   //   this.answerService.create(this.question.id, this.newAnswer)
   //     .subscribe(answer => this.answers.push(answer));
