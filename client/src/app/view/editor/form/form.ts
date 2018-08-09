@@ -53,9 +53,15 @@ export class SurveyForm {
     return Array.from(this.questions.keys());
   }
 
-  public updateSurvey(survey): void {
+  public updateSurvey(survey: Survey): void {
     this.surveyService.update(this.survey)
       .subscribe(response => this.survey = response);
+  }
+
+  public updateQuestion(question: Question): void {
+  // performed by object reference
+    this.questionService.update(question)
+      .subscribe(response => question = response);
   }
 
 }
