@@ -48,4 +48,8 @@ export class SurveyForm {
     return this.survey;
   }
 
+  public getQuestions(): Question[] {
+    return Array.from(this.questions.keys());
+  }
+
 }
