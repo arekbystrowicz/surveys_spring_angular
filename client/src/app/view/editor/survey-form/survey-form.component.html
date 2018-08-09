@@ -1,16 +1,16 @@
-<div *ngIf="survey">
+<div *ngIf="form.getSurvey()">
 
   <input class="hidden"
          size="65"
-         placeholder="{{ survey.title }}"
-         [(ngModel)]="survey.title"
-         (focusout)="updateSurvey()">
+         placeholder="{{ form.getSurvey().title }}"
+         [(ngModel)]="form.getSurvey().title"
+         (focusout)="form.updateSurvey()">
 
 
   <input class="hidden"
          size="255"
-         placeholder="{{ survey.description }}"
-         [(ngModel)]="survey.description"
-         (focusout)="updateSurvey()">
+         placeholder="{{ form.getSurvey().description }}"
+         [(ngModel)]="form.getSurvey().description"
+         (focusout)="form.updateSurvey()">
 
 </div>
