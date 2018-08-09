@@ -68,4 +68,10 @@ export class SurveyForm {
       .subscribe(response => question = response);
   }
 
+  public updateAnswer(questionId: number, answer: Answer): void {
+    // performed by object reference
+    this.answerService.update(questionId, answer)
+      .subscribe(response => answer = response);
+  }
+
 }
