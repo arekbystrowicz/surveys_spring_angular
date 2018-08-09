@@ -14,7 +14,6 @@ export class SurveyForm {
 
   survey: Survey;
   questions: Map<Question, Answer[]> = new Map<Question, Answer[]>();
-  keys: Question[];
 
   constructor(private surveyService: SurveyService,
               private questionService: QuestionService,
@@ -52,6 +51,11 @@ export class SurveyForm {
 
   public getQuestions(): Question[] {
     return Array.from(this.questions.keys());
+  }
+
+  public updateSurvey(): void {
+    this.surveyService.update(this.survey)
+      .subscribe(survey => this.survey = survey);
   }
 
 }
