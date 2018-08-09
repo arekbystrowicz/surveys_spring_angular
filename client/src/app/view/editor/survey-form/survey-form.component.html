@@ -2,15 +2,15 @@
 
   <input class="hidden"
          size="65"
-         placeholder="{{ form.getSurvey().title }}"
-         [(ngModel)]="form.getSurvey().title"
+         placeholder="{{ survey.title }}"
+         [(ngModel)]="survey.title"
          (focusout)="form.updateSurvey()">
 
 
   <input class="hidden"
          size="255"
-         placeholder="{{ form.getSurvey().description }}"
-         [(ngModel)]="form.getSurvey().description"
+         placeholder="{{ survey.description }}"
+         [(ngModel)]="survey.description"
          (focusout)="form.updateSurvey()">
 
 </div>

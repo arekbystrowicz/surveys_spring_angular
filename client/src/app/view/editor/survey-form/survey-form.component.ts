@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { SurveyForm } from "../form/form";
+import { Survey } from "../../../model/survey";
 
 @Component({
   selector: 'app-survey-form',
@@ -10,6 +11,7 @@ import { SurveyForm } from "../form/form";
 export class SurveyFormComponent implements OnInit {
 
   @Input() form: SurveyForm;
+  @Input() survey: Survey;
 
   constructor() { }
 
@@ -17,7 +19,7 @@ export class SurveyFormComponent implements OnInit {
   }
 
   public updateSurvey(): void {
-    this.form.updateSurvey();
+    this.form.updateSurvey(this.survey);
   }
 
 }

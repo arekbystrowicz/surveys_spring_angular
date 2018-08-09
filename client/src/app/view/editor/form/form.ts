@@ -53,9 +53,9 @@ export class SurveyForm {
     return Array.from(this.questions.keys());
   }
 
-  public updateSurvey(): void {
+  public updateSurvey(survey): void {
     this.surveyService.update(this.survey)
-      .subscribe(survey => this.survey = survey);
+      .subscribe(response => this.survey = response);
   }
 
 }
