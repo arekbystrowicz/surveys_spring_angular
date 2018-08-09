@@ -44,4 +44,8 @@ export class SurveyForm {
       .subscribe(answers => this.questions.set(question, answers));
   }
 
+  public getSurvey(): Survey {
+    return this.survey;
+  }
+
 }
