@@ -3,8 +3,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SurveyForm } from "../form/form";
 import { Answer } from "../../../model/answer";
 
-// import { AnswerService } from "../../../service/answer/answer.service";
-
 
 @Component({
   selector: 'app-answer-form',
@@ -17,8 +15,6 @@ export class AnswerFormComponent implements OnInit {
   @Input() answer: Answer;
   @Input() questionId: number;
 
-  // constructor(private answerService: AnswerService) { }
-
   constructor() {
   }
 
@@ -28,10 +24,5 @@ export class AnswerFormComponent implements OnInit {
   public updateAnswer(answer: Answer): void {
     this.form.updateAnswer(this.questionId, this.answer);
   }
-
-  // public updateAnswer(): void {
-  //   this.answerService.update(this.questionId, this.answer)
-  //     .subscribe(answer => this.answer = answer);
-  // }
 
 }
