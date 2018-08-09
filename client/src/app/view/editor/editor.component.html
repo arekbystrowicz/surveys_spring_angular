@@ -1,6 +1,6 @@
 <h3>edit {{ survey?.title }}</h3>
 
-<app-survey-form [survey]="survey"></app-survey-form>
+<app-survey-form [survey]="form.getSurvey()"></app-survey-form>
 
 <ul>
   <li *ngFor="let question of questions">
