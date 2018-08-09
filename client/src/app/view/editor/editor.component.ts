@@ -6,6 +6,7 @@ import { Question } from "../../model/question";
 
 import { SurveyService } from "../../service/survey/survey.service";
 import { QuestionService } from "../../service/question/question.service";
+import { SurveyForm } from "./form/form";
 
 
 @Component({
@@ -18,7 +19,8 @@ export class EditorComponent implements OnInit {
   survey: Survey;
   questions: Question[];
 
-  constructor(private surveyService: SurveyService,
+  constructor(private form: SurveyForm,
+              private surveyService: SurveyService,
               private questionService: QuestionService,
               private route: ActivatedRoute) {
   }
