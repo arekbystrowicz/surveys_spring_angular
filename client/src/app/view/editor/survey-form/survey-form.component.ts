@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Survey } from "../../../model/survey";
-import { SurveyService } from "../../../service/survey/survey.service";
+import { SurveyForm } from "../form/form";
 
 @Component({
   selector: 'app-survey-form',
@@ -10,16 +9,15 @@ import { SurveyService } from "../../../service/survey/survey.service";
 })
 export class SurveyFormComponent implements OnInit {
 
-  @Input() survey: Survey;
+  @Input() form: SurveyForm;
 
-  constructor(private surveyService: SurveyService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   public updateSurvey(): void {
-    this.surveyService.update(this.survey)
-      .subscribe(survey => this.survey = survey);
+    this.form.updateSurvey();
   }
 
 }
