@@ -21,6 +21,7 @@ import { EditorComponent } from './view/editor/editor.component';
 import { SurveyFormComponent } from './view/editor/survey-form/survey-form.component';
 import { QuestionFormComponent } from './view/editor/question-form/question-form.component';
 import { AnswerFormComponent } from './view/editor/answer-form/answer-form.component';
+import { SurveyForm } from "./view/editor/form/form";
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { AnswerFormComponent } from './view/editor/answer-form/answer-form.compo
     CategoryService,
     SurveyService,
     QuestionService,
-    AnswerService
+    AnswerService,
+    SurveyForm
   ],
   bootstrap: [AppComponent]
 })
