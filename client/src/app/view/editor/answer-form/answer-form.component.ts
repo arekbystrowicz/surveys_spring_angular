@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { SurveyForm } from "../form/form";
 import { Answer } from "../../../model/answer";
 
-import { AnswerService } from "../../../service/answer/answer.service";
+// import { AnswerService } from "../../../service/answer/answer.service";
 
 
 @Component({
@@ -12,17 +13,21 @@ import { AnswerService } from "../../../service/answer/answer.service";
 })
 export class AnswerFormComponent implements OnInit {
 
+  @Input() form : SurveyForm;
   @Input() answer: Answer;
   @Input() questionId: number;
 
-  constructor(private answerService: AnswerService) { }
+  // constructor(private answerService: AnswerService) { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  public updateAnswer(): void {
-    this.answerService.update(this.questionId, this.answer)
-      .subscribe(answer => this.answer = answer);
-  }
+  // public updateAnswer(): void {
+  //   this.answerService.update(this.questionId, this.answer)
+  //     .subscribe(answer => this.answer = answer);
+  // }
 
 }
