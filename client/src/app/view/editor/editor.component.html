@@ -11,11 +11,12 @@
 <ul>
   <li *ngFor="let question of form.getQuestions()">
     <app-question-form [question]="question" [form]="form"></app-question-form>
-    <!-- ul>
+    <ul>
       <li *ngFor="let answer of form.getAnswers(question)">
-        <app-answer-form [answer]="answer" [form]="form"></app-answer-form>
+        <app-answer-form [answer]="answer"></app-answer-form>
+        <!-- app-answer-form [answer]="answer" [form]="form"></app-answer-form !-->
       </li>
-    </ul -->
+    </ul>
   </li>
   <li>
     <button>add question</button>
