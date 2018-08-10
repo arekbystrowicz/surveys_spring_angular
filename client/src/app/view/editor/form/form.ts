@@ -75,11 +75,20 @@ export class SurveyForm {
   }
 
   public deleteQuestion(question: Question): void {
-
+    // performed by object reference
+    for (let answer of this.getAnswers(question)) {
+      this.deleteAnswer(question, answer);
+    }
+    // TODO switch subscription with pipe, err, tap -> save for undo
+    this.questionService.delete(question)
+      .subscribe(question => console.log(question));
   }
 
   public deleteAnswer(question: Question, answer: Answer): void {
-
+    // performed by object reference
+    // TODO switch subscription with pipe, err, tap -> save for undo
+    this.answerService.delete(question.id, answer)
+      .subscribe(answer => console.log(answer));
   }
 
 }
