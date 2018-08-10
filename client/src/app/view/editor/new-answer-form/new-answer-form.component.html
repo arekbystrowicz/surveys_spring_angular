@@ -1,3 +1,5 @@
 <div>
-  <button (click)="toggle()">add answer</button>
+  <button *ngIf="isToggled === false" (click)="toggle()">add answer</button>
+
+
 </div>
