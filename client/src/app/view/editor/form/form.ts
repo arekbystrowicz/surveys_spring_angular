@@ -91,9 +91,12 @@ export class SurveyForm {
     // TODO switch subscription with pipe, err, tap -> save for undo
     this.answerService.delete(question.id, answer)
       .subscribe(answer => {
-        let answers = this.questions.get(question);
-        answers.splice(answers.indexOf(answer), 1);
+        this.removeAnswerFromArray(this.questions.get(question), answer)
       });
+  }
+
+  private removeAnswerFromArray(answers: Answer[], answer: Answer): void {
+    answers.splice(answers.findIndex(index => index.id === answer.id), 1);
   }
 
 }
