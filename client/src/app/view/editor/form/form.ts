@@ -81,14 +81,19 @@ export class SurveyForm {
     }
     // TODO switch subscription with pipe, err, tap -> save for undo
     this.questionService.delete(question)
-      .subscribe(question => console.log(question));
+      .subscribe(response => {
+        this.questions.delete(question);
+      });
   }
 
   public deleteAnswer(question: Question, answer: Answer): void {
     // performed by object reference
     // TODO switch subscription with pipe, err, tap -> save for undo
     this.answerService.delete(question.id, answer)
-      .subscribe(answer => console.log(answer));
+      .subscribe(answer => {
+        let answers = this.questions.get(question);
+        answers.splice(answers.indexOf(answer), 1);
+      });
   }
 
 }
