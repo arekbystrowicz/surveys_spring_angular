@@ -23,8 +23,14 @@ export class NewAnswerFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  public toggle() {
+  public toggle(): void {
     this.isToggled = !this.isToggled;
+  }
+
+  public createAnswer(): void {
+    this.form.createAnswer(this.question, this.answer);
+    this.toggle();
+    this.answer = new Answer();
   }
 
 }
