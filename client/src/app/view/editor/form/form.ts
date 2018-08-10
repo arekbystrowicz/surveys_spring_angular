@@ -99,4 +99,12 @@ export class SurveyForm {
     answers.splice(answers.findIndex(index => index.id === answer.id), 1);
   }
 
+  public createQuestion(question: Question): void {
+
+  }
+
+  public createAnswer(question: Question, answer: Answer): void {
+
+  }
+
 }
