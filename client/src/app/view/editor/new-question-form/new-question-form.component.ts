@@ -27,7 +27,10 @@ export class NewQuestionFormComponent implements OnInit {
 
   public update(): void {
     if (this.isFinished()) {
-      
+      // TODO should use subscription pipe tap and err otherwise will not work well if there is no server response
+      this.form.createQuestion(this.question);
+      this.toggle();
+      this.question = new Question();
     }
   }
 
