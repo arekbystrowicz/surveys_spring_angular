@@ -8,7 +8,7 @@
 
     <ul>
       <li *ngFor="let answer of form.getAnswers(question)">
-        <app-answer-form [questionId]="question.id" [answer]="answer" [form]="form"></app-answer-form>
+        <app-answer-form [question]="question" [answer]="answer" [form]="form"></app-answer-form>
       </li>
 
       <li>
