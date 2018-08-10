@@ -1,3 +1,4 @@
 <p>
-  <button (click)="toggle()">create question</button>
+  <button *ngIf="isToggled === false"
+          (click)="toggle()">create question</button>
 </p>
