@@ -7,7 +7,7 @@
          (focusout)="updateQuestion()">
 
   <input class="hidden"
-         size="255"
+         size="65"
          placeholder="{{ question.description }}"
          [(ngModel)]="question.description"
          (focusout)="updateQuestion()">
@@ -33,5 +33,8 @@
 
     </li>
   </ul -->
+  <aside>
+    <button (click)="deleteQuestion()">delete</button>
+  </aside>
 
 </div>

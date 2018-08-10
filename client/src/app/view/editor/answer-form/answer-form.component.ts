@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { SurveyForm } from "../form/form";
 import { Answer } from "../../../model/answer";
+import { Question } from "../../../model/question";
 
 
 @Component({
@@ -13,7 +14,7 @@ export class AnswerFormComponent implements OnInit {
 
   @Input() form : SurveyForm;
   @Input() answer: Answer;
-  @Input() questionId: number;
+  @Input() question: Question;
 
   constructor() {
   }
@@ -22,7 +23,11 @@ export class AnswerFormComponent implements OnInit {
   }
 
   public updateAnswer(answer: Answer): void {
-    this.form.updateAnswer(this.questionId, this.answer);
+    this.form.updateAnswer(this.question, this.answer);
+  }
+
+  public deleteAnswer(): void {
+    this.form.deleteAnswer(this.question, this.answer);
   }
 
 }
