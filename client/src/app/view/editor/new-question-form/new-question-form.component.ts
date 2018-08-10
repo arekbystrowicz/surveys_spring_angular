@@ -21,4 +21,12 @@ export class NewQuestionFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public toggle(): void {
+    if (this.isToggled === false) {
+      this.isToggled = true;
+    } else {
+      // TODO check if both description and title are ze done
+    }
+  }
+
 }
