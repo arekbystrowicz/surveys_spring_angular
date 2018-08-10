@@ -1,4 +1,4 @@
-<p>
+<div>
   <button *ngIf="isToggled === false"
           (click)="toggle()">create question</button>
 
@@ -16,5 +16,4 @@
            [(ngModel)]="question.description"
            (focusout)="update()">
   </div>
-
-</p>
+</div>
