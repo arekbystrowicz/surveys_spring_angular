@@ -74,4 +74,12 @@ export class SurveyForm {
       .subscribe(response => answer = response);
   }
 
+  public deleteQuestion(question: Question): void {
+
+  }
+
+  public deleteAnswer(questionId: number, answer: Answer): void {
+
+  }
+
 }
