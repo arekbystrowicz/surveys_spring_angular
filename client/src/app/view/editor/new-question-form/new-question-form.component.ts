@@ -22,15 +22,19 @@ export class NewQuestionFormComponent implements OnInit {
   }
 
   public toggle(): void {
-    if (this.isToggled === false) {
-      this.isToggled = true;
-    } else {
-      // TODO check if both description and title are ze done
-    }
+    this.isToggled = !this.isToggled
   }
 
   public update(): void {
+    if (this.isFinished()) {
+      
+    }
+  }
 
+  private isFinished(): boolean {
+    if (this.question.title !== "" && this.question.description !== "") {
+      return true;
+    }
   }
 
 }
