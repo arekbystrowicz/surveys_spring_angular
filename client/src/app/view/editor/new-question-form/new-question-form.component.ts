@@ -29,11 +29,7 @@ export class NewQuestionFormComponent implements OnInit {
     }
   }
 
-  public updateTitle(): void {
-
-  }
-
-  public updateDescription(): void {
+  public update(): void {
 
   }
 

@@ -8,13 +8,13 @@
            size="65"
            placeholder="{{ question.title }}"
            [(ngModel)]="question.title"
-           (focusout)="updateTitle()">
+           (focusout)="update()">
 
     <input class="hidden"
            size="65"
            placeholder="{{ question.description }}"
            [(ngModel)]="question.description"
-           (focusout)="updateDescription()">
+           (focusout)="update()">
   </div>
 
 </p>
