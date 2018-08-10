@@ -25,4 +25,8 @@ export class AnswerFormComponent implements OnInit {
     this.form.updateAnswer(this.questionId, this.answer);
   }
 
+  public deleteAnswer(): void {
+    this.form.deleteAnswer(this.questionId, this.answer);
+  }
+
 }
