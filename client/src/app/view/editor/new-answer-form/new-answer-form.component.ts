@@ -9,6 +9,7 @@ import { SurveyForm } from "../form/form";
 export class NewAnswerFormComponent implements OnInit {
 
   @Input() form: SurveyForm;
+  isToggled: boolean = false;
 
   constructor() { }
 
