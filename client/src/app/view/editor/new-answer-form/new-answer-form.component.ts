@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { SurveyForm } from "../form/form";
+import { Question } from "../../../model/question";
 import { Answer } from "../../../model/answer";
 
 
@@ -12,6 +13,8 @@ import { Answer } from "../../../model/answer";
 export class NewAnswerFormComponent implements OnInit {
 
   @Input() form: SurveyForm;
+  @Input() question: Question;
+
   isToggled: boolean = false;
   answer: Answer = new Answer();
 
