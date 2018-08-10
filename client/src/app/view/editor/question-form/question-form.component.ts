@@ -24,6 +24,10 @@ export class QuestionFormComponent implements OnInit {
     this.form.updateQuestion(this.question);
   }
 
+  public deleteQuestion() {
+    this.form.deleteQuestion(this.question);
+  }
+
   // private getNewAnswerInput(): HTMLElement {
   //   return document.getElementById(this.question.id + '-new-answer-input');
   // }
