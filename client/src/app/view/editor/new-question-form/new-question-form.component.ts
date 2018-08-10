@@ -12,6 +12,8 @@ export class NewQuestionFormComponent implements OnInit {
 
   @Input() form: SurveyForm;
 
+  isToggled: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
