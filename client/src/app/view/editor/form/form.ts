@@ -68,9 +68,9 @@ export class SurveyForm {
       .subscribe(response => question = response);
   }
 
-  public updateAnswer(questionId: number, answer: Answer): void {
+  public updateAnswer(question: Question, answer: Answer): void {
     // performed by object reference
-    this.answerService.update(questionId, answer)
+    this.answerService.update(question.id, answer)
       .subscribe(response => answer = response);
   }
 
@@ -78,7 +78,7 @@ export class SurveyForm {
 
   }
 
-  public deleteAnswer(questionId: number, answer: Answer): void {
+  public deleteAnswer(question: Question, answer: Answer): void {
 
   }
 
