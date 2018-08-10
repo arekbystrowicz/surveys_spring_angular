@@ -35,7 +35,7 @@ export class NewQuestionFormComponent implements OnInit {
   }
 
   private isFinished(): boolean {
-    if (this.question.title !== "" && this.question.description !== "") {
+    if (this.question.title && this.question.description) {
       return true;
     }
   }
