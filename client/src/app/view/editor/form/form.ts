@@ -100,8 +100,11 @@ export class SurveyForm {
   }
 
   public createQuestion(question: Question): void {
+
+    // TODO move server-side
     question.survey = this.survey;
     question.isAccessible = true;
+
     this.questionService.create(question)
       .subscribe(response => this.questions.set(question, []));
   }
