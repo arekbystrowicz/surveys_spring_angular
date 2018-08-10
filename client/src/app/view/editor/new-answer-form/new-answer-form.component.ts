@@ -23,4 +23,8 @@ export class NewAnswerFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public toggle() {
+    this.isToggled = !this.isToggled;
+  }
+
 }
