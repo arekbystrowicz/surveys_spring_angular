@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { SurveyForm } from "../form/form";
+import { Answer } from "../../../model/answer";
+
 
 @Component({
   selector: 'app-new-answer-form',
@@ -10,6 +13,7 @@ export class NewAnswerFormComponent implements OnInit {
 
   @Input() form: SurveyForm;
   isToggled: boolean = false;
+  answer: Answer = new Answer();
 
   constructor() { }
 
