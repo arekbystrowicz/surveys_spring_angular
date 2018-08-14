@@ -34,6 +34,11 @@ export class NewQuestionFormComponent implements OnInit {
     }
   }
 
+  public cancel() {
+    this.toggle();
+    this.question = new Question();
+  }
+
   private isFinished(): boolean {
     if (this.question.title && this.question.description) {
       return true;
