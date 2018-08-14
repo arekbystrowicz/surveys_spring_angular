@@ -18,27 +18,27 @@ public class QuestionController {
     }
 
     @GetMapping()
-    public Iterable<Question> getBySurvey(@RequestParam("survey_id") Long id) {
+    public Iterable<Question> getBySurvey(@PathVariable("survey_id") Long id) {
         return this.questionService.getAllBySurveyId(id);
     }
 
-    @GetMapping("/{id}")
-    public Question getById(@PathVariable Long id) {
+    @GetMapping(value = "/{question_id}")
+    public Question getById(@PathVariable("question_id") Long id) {
         return this.questionService.getById(id);
     }
 
     @PostMapping()
-    public Question create(@RequestBody Question question) {
+    public Question create(@PathVariable("survey_id") Long surveyId, @RequestBody Question question) {
         return this.questionService.create(question);
     }
 
-    @PutMapping(value = "/{id}")
-    public Question update(@RequestBody Question question, @PathVariable("id") Long id) {
+    @PutMapping(value = "/{question_id}")
+    public Question update(@PathVariable("question_id") Long id, @RequestBody Question question) {
         return this.questionService.update(id, question);
     }
 
-    @DeleteMapping(value = "/{id}")
-    public Question delete(@PathVariable Long id) {
+    @DeleteMapping(value = "/{question_id}")
+    public Question delete(@PathVariable("question_id") Long id) {
         return this.questionService.delete(this.questionService.getById(id));
     }
 
