@@ -1,13 +1,16 @@
-package com.cafetamine.surveys.model;
+package com.cafetamine.surveys.survey;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import java.util.Date;
+import java.util.List;
+
 
 @Entity
-@Table(name = "questions")
-public class Question extends AuditModel {
+@Table(name = "surveys")
+public class Survey extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +19,16 @@ public class Question extends AuditModel {
     private String title;
     @NotEmpty
     private String description;
+    private Date publishDate;
+    @NotNull
+    private Boolean isPublished;
     @NotNull
     private Boolean isAccessible;
     @NotNull
     @OneToOne
-    private Survey survey;
+    private User author;
+    @OneToMany
+    private List<Category> categories;
 
     public Long getId() {
         return id;
@@ -46,6 +54,22 @@ public class Question extends AuditModel {
         this.description = description;
     }
 
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public Boolean getPublished() {
+        return isPublished;
+    }
+
+    public void setPublished(Boolean published) {
+        isPublished = published;
+    }
+
     public Boolean getAccessible() {
         return isAccessible;
     }
@@ -54,12 +78,20 @@ public class Question extends AuditModel {
         isAccessible = accessible;
     }
 
-    public Survey getSurvey() {
-        return survey;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
 }

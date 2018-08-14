@@ -1,10 +1,8 @@
-package com.cafetamine.surveys.controller;
+package com.cafetamine.surveys.answer;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.cafetamine.surveys.model.Answer;
-import com.cafetamine.surveys.service.AnswerService;
-import com.cafetamine.surveys.service.QuestionService;
+import com.cafetamine.surveys.question.QuestionService;
 
 
 @RestController

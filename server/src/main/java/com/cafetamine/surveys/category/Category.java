@@ -1,4 +1,7 @@
-package com.cafetamine.surveys.model;
+package com.cafetamine.surveys.category;
+
+import com.cafetamine.surveys.shared.AuditModel;
+import com.cafetamine.surveys.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
