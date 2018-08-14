@@ -1,0 +1,12 @@
+<div>
+  <button *ngIf="isToggled === false" (click)="toggle()">add answer</button>
+
+  <input *ngIf="isToggled === true"
+         class="hidden"
+         size="65"
+         placeholder="{{ answer.description }}"
+         [(ngModel)]="answer.description"
+         (focusout)="createAnswer()"
+         autofocus>
+
+</div>
