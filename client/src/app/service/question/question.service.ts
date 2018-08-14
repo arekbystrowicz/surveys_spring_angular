@@ -27,8 +27,8 @@ export class QuestionService {
     return this.http.put<Question>(this.getResourceUrl(surveyId, question.id), question);
   }
 
-  public delete(question: Question):  Observable<Question> {
-    return this.http.delete<Question>(`${this.originUrl}/${question.id}`);
+  public delete(surveyId: number, question: Question):  Observable<Question> {
+    return this.http.delete<Question>(this.getResourceUrl(surveyId, question.id));
   }
 
   private getResourceUrl(surveyId: number, questionId: number): string {
