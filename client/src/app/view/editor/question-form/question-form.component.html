@@ -12,27 +12,6 @@
          [(ngModel)]="question.description"
          (focusout)="updateQuestion()">
 
-  <!-- ul>
-    <li *ngFor="let answer of answers">
-      <app-answer-form [answer]="answer" [questionId]="question.id"></app-answer-form>
-    </li>
-
-    <li>
-      <button id="{{ question.id }}-new-answer-button"
-              (click)="toggleOn()">add answer</button>
-
-      <input class="inline"
-             id="{{ question.id }}-new-answer-input"
-             type="hidden"
-             size="65"
-             placeholder="{{ newAnswer.description }}"
-             [(ngModel)]="newAnswer.description">
-
-      <button class="invisible" id="{{ question.id }}-new-answer-submit-button"
-              (click)="createAnswer();toggleOff()">confirm</button>
-
-    </li>
-  </ul -->
   <aside>
     <button (click)="deleteQuestion()">delete</button>
   </aside>
