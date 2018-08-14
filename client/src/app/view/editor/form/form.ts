@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Survey } from "../../../model/survey";
 import { Question } from "../../../model/question";
 import { Answer } from "../../../model/answer";
+import { Category } from "../../../model/category";
 
 import { SurveyService } from "../../../service/survey/survey.service";
 import { QuestionService } from "../../../service/question/question.service";
@@ -55,6 +56,10 @@ export class SurveyForm {
 
   public getAnswers(question: Question): Answer[] {
     return this.questions.get(question);
+  }
+
+  public getCategories(): Category[] {
+    return this.survey.categories;
   }
 
   public updateSurvey(survey: Survey): void {
