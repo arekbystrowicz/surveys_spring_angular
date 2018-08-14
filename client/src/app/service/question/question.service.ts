@@ -15,8 +15,8 @@ export class QuestionService {
     return this.http.get<Question>(this.getResourceUrl(surveyId, questionId));
   }
 
-  public getAll(): Observable<Question[]> {
-    return this.http.get<Question[]>(this.originUrl);
+  public getAll(surveyId: number): Observable<Question[]> {
+    return this.http.get<Question[]>(this.getResourceUrl(surveyId, null));
   }
 
   public getBySurveyId(surveyId: number):  Observable<Question[]> {
