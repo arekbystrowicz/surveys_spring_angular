@@ -3,6 +3,10 @@
 <app-survey-form [survey]="form.getSurvey()" [form]="form"></app-survey-form>
 
 <ul>
+  <li *ngFor="let category of form.getCategories()">#{{ category.tag }}</li>
+</ul>
+
+<ul>
   <li *ngFor="let question of form.getQuestions()">
     <app-question-form [question]="question" [form]="form"></app-question-form>
 
