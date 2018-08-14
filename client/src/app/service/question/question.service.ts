@@ -11,8 +11,8 @@ export class QuestionService {
 
   constructor(private http: HttpClient) { }
 
-  public get(id: number): Observable<Question> {
-    return this.http.get<Question>(`${this.originUrl}/${id}`);
+  public get(surveyId: number, questionId: number): Observable<Question> {
+    return this.http.get<Question>(this.getResourceUrl(surveyId, questionId));
   }
 
   public getAll(): Observable<Question[]> {
