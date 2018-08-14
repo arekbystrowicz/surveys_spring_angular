@@ -32,7 +32,7 @@ export class SurveyForm {
   }
 
   private setQuestions(surveyId: number): void {
-    this.questionService.getAll(1)
+    this.questionService.getAll(surveyId)
       .subscribe(questions => {
         this.mapQuestionsWithAnswers(Array.from(questions));
       });
