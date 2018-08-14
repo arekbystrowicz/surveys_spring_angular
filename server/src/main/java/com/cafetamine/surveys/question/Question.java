@@ -1,16 +1,16 @@
-package com.cafetamine.surveys.model;
+package com.cafetamine.surveys.question;
+
+import com.cafetamine.surveys.shared.AuditModel;
+import com.cafetamine.surveys.survey.Survey;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import java.util.Date;
-import java.util.List;
-
 
 @Entity
-@Table(name = "surveys")
-public class Survey extends AuditModel {
+@Table(name = "questions")
+public class Question extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,16 +19,11 @@ public class Survey extends AuditModel {
     private String title;
     @NotEmpty
     private String description;
-    private Date publishDate;
-    @NotNull
-    private Boolean isPublished;
     @NotNull
     private Boolean isAccessible;
     @NotNull
     @OneToOne
-    private User author;
-    @OneToMany
-    private List<Category> categories;
+    private Survey survey;
 
     public Long getId() {
         return id;
@@ -54,22 +49,6 @@ public class Survey extends AuditModel {
         this.description = description;
     }
 
-    public Date getPublishDate() {
-        return publishDate;
-    }
-
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
-    }
-
-    public Boolean getPublished() {
-        return isPublished;
-    }
-
-    public void setPublished(Boolean published) {
-        isPublished = published;
-    }
-
     public Boolean getAccessible() {
         return isAccessible;
     }
@@ -78,20 +57,12 @@ public class Survey extends AuditModel {
         isAccessible = accessible;
     }
 
-    public User getAuthor() {
-        return author;
+    public Survey getSurvey() {
+        return survey;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    public List<Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
+    public void setSurvey(Survey survey) {
+        this.survey = survey;
     }
 
 }

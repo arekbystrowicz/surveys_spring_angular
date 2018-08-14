@@ -1,9 +1,6 @@
-package com.cafetamine.surveys.controller;
+package com.cafetamine.surveys.user;
 
 import org.springframework.web.bind.annotation.*;
-
-import com.cafetamine.surveys.model.User;
-import com.cafetamine.surveys.service.UserService;
 
 
 @RestController
