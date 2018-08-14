@@ -23,8 +23,8 @@ export class QuestionService {
     return this.http.post<Question>(this.getResourceUrl(surveyId, null), question);
   }
 
-  public update(question: Question): Observable<Question> {
-    return this.http.put<Question>(`${this.originUrl}/${question.id}`, question);
+  public update(surveyId: number, question: Question): Observable<Question> {
+    return this.http.put<Question>(this.getResourceUrl(surveyId, question.id), question);
   }
 
   public delete(question: Question):  Observable<Question> {
