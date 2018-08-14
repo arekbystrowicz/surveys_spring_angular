@@ -3,7 +3,9 @@ package com.cafetamine.surveys.controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.cafetamine.surveys.model.Question;
+
 import com.cafetamine.surveys.service.QuestionService;
+import com.cafetamine.surveys.service.SurveyService;
 
 
 @RestController
@@ -12,9 +14,11 @@ import com.cafetamine.surveys.service.QuestionService;
 public class QuestionController {
 
     private QuestionService questionService;
+    private SurveyService surveyService;
 
-    public QuestionController(QuestionService questionService) {
+    public QuestionController(QuestionService questionService, SurveyService surveyService) {
         this.questionService = questionService;
+        this.surveyService = surveyService;
     }
 
     @GetMapping()
@@ -29,7 +33,7 @@ public class QuestionController {
 
     @PostMapping()
     public Question create(@PathVariable("survey_id") Long surveyId, @RequestBody Question question) {
-        return this.questionService.create(question);
+        return this.questionService.create(this.surveyService.getById(surveyId), question);
     }
 
     @PutMapping(value = "/{question_id}")
