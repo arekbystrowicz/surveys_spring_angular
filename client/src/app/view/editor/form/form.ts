@@ -105,8 +105,10 @@ export class SurveyForm {
   }
 
   public createAnswer(question: Question, answer: Answer): void {
-    this.answerService.create(question.id, answer)
-      .subscribe(response => this.questions.get(question).push(response));
+    if (answer.description) {
+      this.answerService.create(question.id, answer)
+        .subscribe(response => this.questions.get(question).push(response));
+    }
   }
 
 }
