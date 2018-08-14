@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { SurveyForm } from "../form/form";
+import { Category } from "../../../model/category";
+
 
 @Component({
   selector: 'app-category-form',
@@ -6,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category-form.component.css']
 })
 export class CategoryFormComponent implements OnInit {
+
+  @Input() category: Category;
+  @Input() form: SurveyForm;
 
   constructor() { }
 
