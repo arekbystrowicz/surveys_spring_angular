@@ -7,7 +7,7 @@ import { Question } from "../../model/question";
 @Injectable()
 export class QuestionService {
 
-  private originUrl = '//localhost:8080/surveys/';
+  private originUrl = '//localhost:8080/surveys';
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +20,7 @@ export class QuestionService {
   }
 
   public create(surveyId: number, question: Question): Observable<Question> {
+    console.log(this.getResourceUrl(surveyId, null));
     return this.http.post<Question>(this.getResourceUrl(surveyId, null), question);
   }
 
