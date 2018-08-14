@@ -36,8 +36,10 @@ public class QuestionService {
         return this.questionRepository.findAllBySurveyIdAndIsAccessible(surveyId, true);
     }
 
-    public Question create(Question question) {
-        // TODO adjust implementation to client
+    public Question create(Survey survey, Question question) {
+        question.setSurvey(survey);
+        question.setAccessible(true);
+
         return this.questionRepository.save(question);
     }
 
@@ -58,8 +60,8 @@ public class QuestionService {
     }
 
     public Question delete(Question question) {
-        // TODO adjust implementation to client
         question.setAccessible(false);
+
         return this.questionRepository.save(question);
     }
 
