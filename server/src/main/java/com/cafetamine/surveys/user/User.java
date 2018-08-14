@@ -1,9 +1,9 @@
 package com.cafetamine.surveys.user;
 
-import com.cafetamine.surveys.shared.AuditModel;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+
+import com.cafetamine.surveys.shared.AuditModel;
 
 
 @Entity

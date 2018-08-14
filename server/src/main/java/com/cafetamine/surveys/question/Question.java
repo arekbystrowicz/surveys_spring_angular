@@ -1,11 +1,11 @@
 package com.cafetamine.surveys.question;
 
-import com.cafetamine.surveys.shared.AuditModel;
-import com.cafetamine.surveys.survey.Survey;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import com.cafetamine.surveys.shared.AuditModel;
+import com.cafetamine.surveys.survey.Survey;
 
 
 @Entity

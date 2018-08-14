@@ -7,6 +7,10 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
+import com.cafetamine.surveys.shared.AuditModel;
+import com.cafetamine.surveys.user.User;
+import com.cafetamine.surveys.category.Category;
+
 
 @Entity
 @Table(name = "surveys")
