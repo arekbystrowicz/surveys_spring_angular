@@ -7,7 +7,7 @@ import { Question } from "../../model/question";
 @Injectable()
 export class QuestionService {
 
-  private originUrl = '//localhost:8080/questions';
+  private originUrl = '//localhost:8080/surveys/';
 
   constructor(private http: HttpClient) { }
 
@@ -36,7 +36,12 @@ export class QuestionService {
   }
 
   private getResourceUrl(surveyId: number, questionId: number): string {
-    return this.originUrl;
+    let url = `${this.originUrl}/${surveyId}/questions`;
+    if (questionId) {
+      url += `/${questionId}`;
+    }
+
+    return url;
   }
 
 }
