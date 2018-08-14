@@ -32,7 +32,7 @@ export class SurveyForm {
   }
 
   private setQuestions(surveyId: number): void {
-    this.questionService.getBySurveyId(1)
+    this.questionService.getAll(1)
       .subscribe(questions => {
         this.mapQuestionsWithAnswers(Array.from(questions));
       });
@@ -64,7 +64,7 @@ export class SurveyForm {
 
   public updateQuestion(question: Question): void {
   // performed by object reference
-    this.questionService.update(question)
+    this.questionService.update(this.survey.id, question)
       .subscribe(response => question = response);
   }
 
@@ -80,7 +80,7 @@ export class SurveyForm {
       this.deleteAnswer(question, answer);
     }
     // TODO switch subscription with pipe, err, tap -> save for undo
-    this.questionService.delete(question)
+    this.questionService.delete(this.survey.id, question)
       .subscribe(response => {
         this.questions.delete(question);
       });
@@ -100,12 +100,7 @@ export class SurveyForm {
   }
 
   public createQuestion(question: Question): void {
-
-    // TODO move server-side
-    question.survey = this.survey;
-    question.isAccessible = true;
-
-    this.questionService.create(question)
+    this.questionService.create(this.survey.id, question)
       .subscribe(response => this.questions.set(question, []));
   }
 
