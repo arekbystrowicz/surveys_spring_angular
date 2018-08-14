@@ -35,4 +35,8 @@ export class QuestionService {
     return this.http.delete<Question>(`${this.originUrl}/${question.id}`);
   }
 
+  private getResourceUrl(surveyId: number, questionId: number): string {
+    return this.originUrl;
+  }
+
 }
