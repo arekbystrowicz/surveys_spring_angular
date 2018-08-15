@@ -18,6 +18,14 @@ public class CategoryService {
         return this.categoryRepository.findAll();
     }
 
+    public Category getById(Long id) {
+        Optional<Category> category = this.categoryRepository.findById(id);
+        if (!category.isPresent()) {
+            throw new RuntimeException("404 category not found");
+        }
+        return category.get();
+    }
+
     public Category forTag(Category category) {
         Optional<Category> fromTag = this.categoryRepository.findByTag(category.getTag());
         if (fromTag.isPresent()) {
@@ -33,14 +41,6 @@ public class CategoryService {
 
     private Category create(Category category) {
         return this.categoryRepository.save(category);
-    }
-
-    private Category getById(Long id) {
-        Optional<Category> category = this.categoryRepository.findById(id);
-        if (!category.isPresent()) {
-            throw new RuntimeException("404 category not found");
-        }
-        return category.get();
     }
 
 }
