@@ -30,4 +30,9 @@ public class CategoryService {
         return this.categoryRepository.save(category);
     }
 
+    public void delete(Long id) {
+        Category category = this.getById(id);
+        this.categoryRepository.delete(category);
+    }
+
 }
