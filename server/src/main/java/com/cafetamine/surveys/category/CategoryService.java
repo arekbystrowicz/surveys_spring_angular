@@ -25,4 +25,9 @@ public class CategoryService {
         }
         return this.create(category);
     }
+
+    private Category create(Category category) {
+        return this.categoryRepository.save(category);
+    }
+
 }
