@@ -18,4 +18,11 @@ public class CategoryService {
         return this.categoryRepository.findAll();
     }
 
+    public Category forTag(Category category) {
+        Optional<Category> fromTag = this.categoryRepository.findByTag(category.getTag());
+        if (fromTag.isPresent()) {
+            return fromTag.get();
+        }
+        return this.create(category);
+    }
 }
