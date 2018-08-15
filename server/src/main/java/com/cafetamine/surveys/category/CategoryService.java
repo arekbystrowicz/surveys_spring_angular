@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import com.cafetamine.surveys.user.User;
 import com.cafetamine.surveys.survey.Survey;
 
 
