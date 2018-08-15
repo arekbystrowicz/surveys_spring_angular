@@ -19,9 +19,4 @@ public class CategoryController {
         return this.categoryService.getAll();
     }
 
-    @GetMapping(value = "/{id}")
-    public Category getById(@PathVariable("id") Long id) {
-        return this.categoryService.getById(id);
-    }
-    
 }

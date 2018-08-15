@@ -18,13 +18,4 @@ public class CategoryService {
         return this.categoryRepository.findAll();
     }
 
-    public Category getById(Long id) {
-        Optional<Category> category = this.categoryRepository.findById(id);
-        if (!category.isPresent()) {
-            // TODO exception
-            throw new RuntimeException("404 category not found");
-        }
-        return category.get();
-    }
-
 }
