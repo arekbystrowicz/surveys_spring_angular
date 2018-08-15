@@ -3,6 +3,7 @@ package com.cafetamine.surveys.survey;
 import org.springframework.web.bind.annotation.*;
 
 import com.cafetamine.surveys.user.UserService;
+import com.cafetamine.surveys.category.CategoryService;
 
 
 @RestController
@@ -12,8 +13,12 @@ public class SurveyController {
 
     private SurveyService surveyService;
     private UserService userService;
+    private CategoryService categoryService;
 
-    public SurveyController(SurveyService surveyService, UserService userService) {
+    public SurveyController(SurveyService surveyService,
+                            UserService userService,
+                            CategoryService categoryService) {
+
         this.surveyService = surveyService;
         this.userService = userService;
     }
