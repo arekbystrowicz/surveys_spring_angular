@@ -42,10 +42,6 @@ public class CategoryService {
         return this.categoryRepository.findAll();
     }
 
-    public Iterable<Category> getByAuthor(User author) {
-        return this.categoryRepository.findAllByAuthor(author);
-    }
-
     public Category create(Category category) {
         // TODO adjust implementation to client
         return this.categoryRepository.save(category);
