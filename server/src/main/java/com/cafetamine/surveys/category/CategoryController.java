@@ -14,5 +14,10 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
+    @GetMapping()
+    public Iterable<Category> getAll() {
+        return this.categoryService.getAll();
+    }
+
 
 }
