@@ -26,13 +26,21 @@ public class CategoryService {
         return this.create(category);
     }
 
+    public void delete(Long id) {
+        Category category = this.getById(id);
+        this.categoryRepository.delete(category);
+    }
+
     private Category create(Category category) {
         return this.categoryRepository.save(category);
     }
 
-    public void delete(Long id) {
-        Category category = this.getById(id);
-        this.categoryRepository.delete(category);
+    private Category getById(Long id) {
+        Optional<Category> category = this.categoryRepository.findById(id);
+        if (!category.isPresent()) {
+            throw new RuntimeException("404 category not found");
+        }
+        return category.get();
     }
 
 }
