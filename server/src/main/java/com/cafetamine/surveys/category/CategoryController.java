@@ -19,4 +19,9 @@ public class CategoryController {
         return this.categoryService.getAll();
     }
 
+    @PostMapping()
+    public Category getByTag(@RequestBody Category category) {
+        return this.categoryService.forTag(category);
+    }
+
 }
