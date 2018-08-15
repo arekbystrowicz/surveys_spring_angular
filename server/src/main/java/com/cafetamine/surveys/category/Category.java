@@ -17,7 +17,6 @@ public class Category extends AuditModel {
     private Long id;
     @NotEmpty
     private String tag;
-    @NotNull
 
     public Long getId() {
         return id;
