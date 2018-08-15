@@ -54,9 +54,9 @@ public class SurveyController {
         return this.surveyService.delete(id);
     }
 
-    @PostMapping(value = "/categories")
-    public Survey addCategory(@RequestBody Category category) {
-        return this.surveyService.addCategory(this.categoryService.forTag(category));
+    @PostMapping(value = "/{id}/categories")
+    public Survey addCategory(@PathVariable("id") Long id, @RequestBody Category category) {
+        return this.surveyService.addCategory(id, this.categoryService.forTag(category));
     }
 
 }
