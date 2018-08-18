@@ -112,6 +112,15 @@ export class SurveyForm {
     answers.splice(answers.findIndex(index => index.id === answer.id), 1);
   }
 
+  public createSurvey(survey: Survey): void {
+    this.surveyService.create(survey)
+      .subscribe(response => {
+        this.survey = survey;
+        this.isInitialized = true;
+      });
+
+  }
+
   public createQuestion(question: Question): void {
     this.questionService.create(this.survey.id, question)
       .subscribe(response => this.questions.set(response, []));
