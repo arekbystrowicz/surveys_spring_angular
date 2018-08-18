@@ -88,15 +88,7 @@ public class SurveyService {
         survey.getCategories().remove(category);
         survey = this.surveyRepository.save(survey);
 
-        if (this.categoryIsUsed(category)) {
-            this.categoryService.delete(categoryId);
-        }
-
         return survey;
-    }
-
-    private boolean categoryIsUsed(Category category) {
-        return this.surveyRepository.findOneByCategoriesContaining(category).isPresent();
     }
 
 }
