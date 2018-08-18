@@ -31,7 +31,7 @@ public class Survey extends AuditModel {
     @NotNull
     @OneToOne
     private User author;
-    @OneToMany
+    @ManyToMany
     private List<Category> categories;
 
     public Long getId() {
