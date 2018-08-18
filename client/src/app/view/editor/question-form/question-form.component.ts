@@ -28,34 +28,4 @@ export class QuestionFormComponent implements OnInit {
     this.form.deleteQuestion(this.question);
   }
 
-  // private getNewAnswerInput(): HTMLElement {
-  //   return document.getElementById(this.question.id + '-new-answer-input');
-  // }
-  //
-  // private getNewAnswerButton(): HTMLElement {
-  //   return document.getElementById(this.question.id + '-new-answer-button');
-  // }
-  //
-  // private getNewAnswerSubmitButton(): HTMLElement {
-  //   return document.getElementById(this.question.id + '-new-answer-submit-button');
-  // }
-  //
-  // private toggleOn(): void {
-  //   this.getNewAnswerInput().setAttribute('type', 'text');
-  //   this.getNewAnswerButton().style.display = 'none';
-  //   this.getNewAnswerSubmitButton().className = "inline-block";
-  // }
-  //
-  // private toggleOff(): void {
-  //   this.getNewAnswerInput().setAttribute('type', 'hidden');
-  //   this.getNewAnswerButton().style.display = 'block';
-  //   this.getNewAnswerSubmitButton().className = "invisible";
-  // }
-  // public createAnswer(): void {
-  //   this.answerService.create(this.question.id, this.newAnswer)
-  //     .subscribe(answer => this.answers.push(answer));
-  //
-  //   this.newAnswer = new Answer();
-  // }
-
 }
