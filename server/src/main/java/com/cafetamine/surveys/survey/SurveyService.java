@@ -2,6 +2,7 @@ package com.cafetamine.surveys.survey;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import com.cafetamine.surveys.user.User;
@@ -46,8 +47,14 @@ public class SurveyService {
         return this.surveyRepository.findAllByTitleAndIsAccessible(title, true);
     }
 
-    public Survey create(Survey survey) {
+    public Survey create(Survey survey, User author) {
         // TODO adjust implementation to client
+
+        survey.setAccessible(true);
+        survey.setPublished(false);
+        survey.setAuthor(author);
+        survey.setCategories(new ArrayList<>());
+
         return this.surveyRepository.save(survey);
     }
 
