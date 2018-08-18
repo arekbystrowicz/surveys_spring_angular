@@ -22,7 +22,8 @@ export class SurveyService {
   }
 
   public create(survey: Survey): Observable<Survey> {
-    return this.http.post<Survey>(this.originUrl, survey);
+    // TODO do user login!
+    return this.http.post<Survey>(`${this.originUrl}?user_id=1`, survey);
   }
 
   public update(survey: Survey): Observable<Survey> {
