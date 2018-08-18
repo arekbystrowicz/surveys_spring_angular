@@ -137,7 +137,7 @@ export class SurveyForm {
     this.categoryService.forTag(category)
       .subscribe(response => {
         this.surveyService.addCategory(this.survey, response)
-          .subscribe( response => this.survey = response);
+          .subscribe( survey => this.survey = survey);
       });
   }
 
