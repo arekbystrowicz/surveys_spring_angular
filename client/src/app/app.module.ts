@@ -25,6 +25,7 @@ import { SurveyForm } from "./view/editor/form/form";
 import { NewAnswerFormComponent } from './view/editor/new-answer-form/new-answer-form.component';
 import { NewQuestionFormComponent } from './view/editor/new-question-form/new-question-form.component';
 import { CategoryFormComponent } from './view/editor/category-form/category-form.component';
+import { NewCategoryFormComponent } from './view/editor/new-category-form/new-category-form.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { CategoryFormComponent } from './view/editor/category-form/category-form
     AnswerFormComponent,
     NewAnswerFormComponent,
     NewQuestionFormComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    NewCategoryFormComponent
   ],
   imports: [
     BrowserModule,
