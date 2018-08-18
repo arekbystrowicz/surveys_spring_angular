@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
-import { SurveyForm } from "./form/form";
+import { SurveyForm } from "./logic/form";
 
 
 @Component({

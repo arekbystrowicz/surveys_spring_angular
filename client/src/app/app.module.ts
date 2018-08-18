@@ -21,7 +21,7 @@ import { EditorComponent } from './view/editor/editor.component';
 import { SurveyFormComponent } from './view/editor/components/survey-form/survey-form.component';
 import { QuestionFormComponent } from './view/editor/components/question-form/question-form.component';
 import { AnswerFormComponent } from './view/editor/components/answer-form/answer-form.component';
-import { SurveyForm } from "./view/editor/form/form";
+import { SurveyForm } from "./view/editor/logic/form";
 import { NewAnswerFormComponent } from './view/editor/components/new-answer-form/new-answer-form.component';
 import { NewQuestionFormComponent } from './view/editor/components/new-question-form/new-question-form.component';
 import { CategoryFormComponent } from './view/editor/components/category-form/category-form.component';
