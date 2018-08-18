@@ -34,9 +34,11 @@ public class CategoryService {
         return this.create(category);
     }
 
-    public void delete(Long id) {
+    public Category delete(Long id) {
         Category category = this.getById(id);
         this.categoryRepository.delete(category);
+
+        return category;
     }
 
     private Category create(Category category) {
