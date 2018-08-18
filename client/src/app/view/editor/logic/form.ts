@@ -115,7 +115,7 @@ export class SurveyForm {
   public createSurvey(survey: Survey): void {
     this.surveyService.create(survey)
       .subscribe(response => {
-        this.survey = survey;
+        this.survey = response;
         this.isInitialized = true;
       });
 
@@ -137,7 +137,7 @@ export class SurveyForm {
     this.categoryService.forTag(category)
       .subscribe(response => {
         this.surveyService.addCategory(this.survey, response)
-          .subscribe( survey => this.survey = survey);
+          .subscribe( response => this.survey = response);
       });
   }
 
