@@ -20,4 +20,10 @@ export class NewSurveyFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public create(): void {
+    if (this.survey.title && this.survey.description) {
+      this.form.createSurvey(this.survey);
+    }
+  }
+
 }
