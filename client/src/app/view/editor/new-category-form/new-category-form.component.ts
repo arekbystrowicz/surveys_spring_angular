@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SurveyForm } from "../form/form";
 import { Category } from "../../../model/category";
 
+
 @Component({
   selector: 'app-new-category-form',
   templateUrl: './new-category-form.component.html',
