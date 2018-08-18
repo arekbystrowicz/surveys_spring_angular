@@ -6,6 +6,9 @@
   <li *ngFor="let category of form.getCategories()">
     <app-category-form [category]="category" [form]="form"></app-category-form>
   </li>
+  <li>
+    <app-new-category-form [form]="form"></app-new-category-form>
+  </li>
 </ul>
 
 <ul>
