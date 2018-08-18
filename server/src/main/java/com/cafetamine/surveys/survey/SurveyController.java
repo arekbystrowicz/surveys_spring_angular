@@ -60,14 +60,14 @@ public class SurveyController {
     public Survey addCategory(@PathVariable("survey_id") Long surveyId,
                               @PathVariable("category_id") Long categoryId) {
 
-        return this.surveyService.addCategory(surveyId, this.categoryService.getById(categoryId));
+        return this.surveyService.addCategory(surveyId, categoryId);
     }
 
     @DeleteMapping(value = "/{survey_id}/categories/{category_id}")
     public Survey removeCategory(@PathVariable("survey_id") Long surveyId,
                                  @PathVariable("category_id") Long categoryId) {
 
-        return this.surveyService.removeCategory(surveyId, this.categoryService.getById(categoryId));
+        return this.surveyService.removeCategory(surveyId, categoryId);
     }
 
 }
