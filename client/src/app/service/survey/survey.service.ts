@@ -38,4 +38,8 @@ export class SurveyService {
     return this.http.put(`${this.originUrl}/${survey.id}/categories/${category.id}`, category)
   }
 
+  public removeCategory(survey: Survey, category: Category) {
+    return this.http.delete(`${this.originUrl}/${survey.id}/categories/${category.id}`)
+  }
+
 }
