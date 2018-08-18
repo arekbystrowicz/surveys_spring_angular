@@ -19,30 +19,14 @@ public class CategoryController {
         return this.categoryService.getAll();
     }
 
-      // TODO parameters on source root?
-//    @GetMapping(params = "user_id={id}")
-//    public Iterable<Category> getAllByAuthor(@RequestParam("user_id") Long id) {
-//        return this.categoryService.getByAuthor(this.userService.getById(id));
-//    }
-
-    @GetMapping("/{id}")
-    public Category getById(@PathVariable Long id) {
+    @GetMapping(value = "/{id}")
+    public Category getById(@PathVariable("id") Long id) {
         return this.categoryService.getById(id);
     }
 
     @PostMapping()
-    public Category create(@RequestBody Category category) {
-        return this.categoryService.create(category);
-    }
-
-    @PutMapping(value = "/{id}")
-    public Category update(@RequestBody Category category, @PathVariable("id") Long id) {
-        return this.categoryService.update(id, category);
-    }
-
-    @DeleteMapping(value = "/{id}")
-    public Category delete(@PathVariable Long id) {
-        return this.categoryService.delete(id);
+    public Category getByTag(@RequestBody Category category) {
+        return this.categoryService.forTag(category);
     }
 
 }
