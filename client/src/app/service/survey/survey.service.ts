@@ -35,7 +35,7 @@ export class SurveyService {
 
   public addCategory(survey: Survey, category: Category) {
     // TODO fix server-side (put mapping)
-    return this.http.put(`${this.originUrl}/${survey.id}/${category.id}`, category)
+    return this.http.put(`${this.originUrl}/${survey.id}/categories/${category.id}`, category)
   }
 
 }
