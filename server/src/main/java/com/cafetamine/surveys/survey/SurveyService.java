@@ -70,4 +70,11 @@ public class SurveyService {
         return this.surveyRepository.save(survey);
     }
 
+    public Survey addCategory(Long id, Category category) {
+        Survey survey = this.getById(id);
+        survey.getCategories().add(category);
+
+        return this.surveyRepository.save(survey);
+    }
+
 }
