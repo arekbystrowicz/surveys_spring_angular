@@ -1,22 +1,24 @@
-package com.cafetamine.surveys.service;
+package com.cafetamine.surveys.survey;
 
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import com.cafetamine.surveys.model.User;
-import com.cafetamine.surveys.model.Category;
-import com.cafetamine.surveys.model.Survey;
-import com.cafetamine.surveys.persistence.SurveyRepository;
+import com.cafetamine.surveys.user.User;
+import com.cafetamine.surveys.category.Category;
+
+import com.cafetamine.surveys.category.CategoryService;
 
 
 @Service
 public class SurveyService {
 
     private SurveyRepository surveyRepository;
+    private CategoryService categoryService;
 
-    public SurveyService(SurveyRepository surveyRepository) {
+    public SurveyService(SurveyRepository surveyRepository, CategoryService categoryService) {
         this.surveyRepository = surveyRepository;
+        this.categoryService = categoryService;
     }
 
     public Survey getById(Long id) {
@@ -70,6 +72,23 @@ public class SurveyService {
         survey.setAccessible(false);
 
         return this.surveyRepository.save(survey);
+    }
+
+    public Survey addCategory(Long surveyId, Long categoryId) {
+        Survey survey = this.getById(surveyId);
+        survey.getCategories().add(this.categoryService.getById(categoryId));
+
+        return this.surveyRepository.save(survey);
+    }
+
+    public Survey removeCategory(Long surveyId, Long categoryId) {
+        Survey survey = this.getById(surveyId);
+        Category category = this.categoryService.getById(categoryId);
+
+        survey.getCategories().remove(category);
+        survey = this.surveyRepository.save(survey);
+
+        return survey;
     }
 
 }

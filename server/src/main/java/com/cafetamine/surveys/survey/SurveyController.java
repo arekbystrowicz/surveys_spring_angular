@@ -1,10 +1,8 @@
-package com.cafetamine.surveys.controller;
+package com.cafetamine.surveys.survey;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.cafetamine.surveys.model.Survey;
-import com.cafetamine.surveys.service.UserService;
-import com.cafetamine.surveys.service.SurveyService;
+import com.cafetamine.surveys.user.UserService;
 
 
 @RestController
@@ -48,6 +46,20 @@ public class SurveyController {
     @DeleteMapping(value = "/{id}")
     public Survey delete(@PathVariable Long id) {
         return this.surveyService.delete(id);
+    }
+
+    @PutMapping(value = "/{survey_id}/categories/{category_id}")
+    public Survey addCategory(@PathVariable("survey_id") Long surveyId,
+                              @PathVariable("category_id") Long categoryId) {
+
+        return this.surveyService.addCategory(surveyId, categoryId);
+    }
+
+    @DeleteMapping(value = "/{survey_id}/categories/{category_id}")
+    public Survey removeCategory(@PathVariable("survey_id") Long surveyId,
+                                 @PathVariable("category_id") Long categoryId) {
+
+        return this.surveyService.removeCategory(surveyId, categoryId);
     }
 
 }

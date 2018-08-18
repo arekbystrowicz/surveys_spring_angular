@@ -1,4 +1,7 @@
-package com.cafetamine.surveys.model;
+package com.cafetamine.surveys.category;
+
+import com.cafetamine.surveys.shared.AuditModel;
+import com.cafetamine.surveys.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -14,9 +17,6 @@ public class Category extends AuditModel {
     private Long id;
     @NotEmpty
     private String tag;
-    @NotNull
-    @OneToOne
-    private User author;
 
     public Long getId() {
         return id;
@@ -32,14 +32,6 @@ public class Category extends AuditModel {
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
     }
 
 }
