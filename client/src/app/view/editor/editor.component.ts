@@ -16,7 +16,10 @@ export class EditorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form.init(+this.route.snapshot.paramMap.get('id'));
+    let surveyId = +this.route.snapshot.paramMap.get('id');
+    if (surveyId) {
+      this.form.init(surveyId);
+    }
   }
 
 }
