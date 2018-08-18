@@ -7,14 +7,18 @@ import java.util.Optional;
 import com.cafetamine.surveys.user.User;
 import com.cafetamine.surveys.category.Category;
 
+import com.cafetamine.surveys.category.CategoryService;
+
 
 @Service
 public class SurveyService {
 
     private SurveyRepository surveyRepository;
+    private CategoryService categoryService;
 
-    public SurveyService(SurveyRepository surveyRepository) {
+    public SurveyService(SurveyRepository surveyRepository, CategoryService categoryService) {
         this.surveyRepository = surveyRepository;
+        this.categoryService = categoryService;
     }
 
     public Survey getById(Long id) {
