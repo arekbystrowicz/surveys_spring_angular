@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { SurveyForm } from "../form/form";
-import { Question } from "../../../model/question";
-import { Answer } from "../../../model/answer";
+import { SurveyForm } from "../../form/form";
+import { Question } from "../../../../model/question";
+import { Answer } from "../../../../model/answer";
 
 
 @Component({

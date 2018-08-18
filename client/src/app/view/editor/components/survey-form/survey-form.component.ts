@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { SurveyForm } from "../form/form";
-import { Survey } from "../../../model/survey";
+import { SurveyForm } from "../../form/form";
+import { Survey } from "../../../../model/survey";
 
 @Component({
   selector: 'app-survey-form',
