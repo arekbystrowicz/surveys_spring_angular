@@ -1,7 +1,8 @@
 package com.cafetamine.surveys.survey;
 
-import com.cafetamine.surveys.category.Category;
 import org.springframework.web.bind.annotation.*;
+
+import com.cafetamine.surveys.category.Category;
 
 import com.cafetamine.surveys.user.UserService;
 import com.cafetamine.surveys.category.CategoryService;
@@ -22,6 +23,7 @@ public class SurveyController {
 
         this.surveyService = surveyService;
         this.userService = userService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping()
@@ -54,9 +56,11 @@ public class SurveyController {
         return this.surveyService.delete(id);
     }
 
-    @PostMapping(value = "/{id}/categories")
-    public Survey addCategory(@PathVariable("id") Long id, @RequestBody Category category) {
-        return this.surveyService.addCategory(id, this.categoryService.forTag(category));
+    @PutMapping(value = "/{survey_id}/categories/{category_id}")
+    public Survey addCategory(@PathVariable("survey_id") Long surveyId,
+                              @PathVariable("category_id") Long categoryId) {
+
+        return this.surveyService.addCategory(surveyId, this.categoryService.getById(categoryId));
     }
 
 }
