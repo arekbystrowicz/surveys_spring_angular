@@ -118,4 +118,12 @@ export class SurveyForm {
     }
   }
 
+  public addCategory(category: Category): void {
+    this.categoryService.forTag(category)
+      .subscribe(response => {
+        this.surveyService.addCategory(this.survey, response)
+          .subscribe( survey => this.survey = survey);
+      });
+  }
+
 }
