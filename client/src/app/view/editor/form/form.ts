@@ -126,4 +126,9 @@ export class SurveyForm {
       });
   }
 
+  public removeCategory(category: Category) {
+    this.surveyService.removeCategory(this.survey, category)
+      .subscribe(survey => this.survey = survey);
+  }
+
 }
