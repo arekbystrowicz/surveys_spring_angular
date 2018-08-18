@@ -19,4 +19,8 @@ export class CategoryFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public remove(): void {
+    this.form.removeCategory(this.category);
+  }
+
 }
