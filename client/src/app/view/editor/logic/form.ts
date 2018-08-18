@@ -14,6 +14,7 @@ import { CategoryService } from "../../../service/category/category.service";
 @Injectable()
 export class SurveyForm {
 
+  isInitialized: boolean;
   survey: Survey;
   questions: Map<Question, Answer[]> = new Map<Question, Answer[]>();
 
@@ -23,10 +24,15 @@ export class SurveyForm {
               private categoryService: CategoryService) {
   }
 
+  public build() {
+    this.survey = new Survey();
+    this.isInitialized = false;
+  }
+
   public init(surveyId: number): void {
     this.setSurvey(surveyId);
     this.setQuestions(surveyId);
-
+    this.isInitialized = true;
   }
 
   private setSurvey(surveyId: number): void {

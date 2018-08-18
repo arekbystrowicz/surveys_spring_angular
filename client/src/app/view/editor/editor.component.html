@@ -1,33 +1,39 @@
-<h3>edit {{ form.getSurvey()?.title }}</h3>
+<div *ngIf="form.isInitialized">
+  <h3>edit {{ form.getSurvey()?.title }}</h3>
 
-<app-survey-form [survey]="form.getSurvey()" [form]="form"></app-survey-form>
+  <app-survey-form [survey]="form.getSurvey()" [form]="form"></app-survey-form>
 
-<ul *ngIf="form.survey">
-  <li *ngFor="let category of form.getCategories()">
-    <app-category-form [category]="category" [form]="form"></app-category-form>
-  </li>
-  <li>
-    <app-new-category-form [form]="form"></app-new-category-form>
-  </li>
-</ul>
+  <ul *ngIf="form.survey">
+    <li *ngFor="let category of form.getCategories()">
+      <app-category-form [category]="category" [form]="form"></app-category-form>
+    </li>
+    <li>
+      <app-new-category-form [form]="form"></app-new-category-form>
+    </li>
+  </ul>
 
-<ul>
-  <li *ngFor="let question of form.getQuestions()">
-    <app-question-form [question]="question" [form]="form"></app-question-form>
+  <ul>
+    <li *ngFor="let question of form.getQuestions()">
+      <app-question-form [question]="question" [form]="form"></app-question-form>
 
-    <ul>
-      <li *ngFor="let answer of form.getAnswers(question)">
-        <app-answer-form [question]="question" [answer]="answer" [form]="form"></app-answer-form>
-      </li>
+      <ul>
+        <li *ngFor="let answer of form.getAnswers(question)">
+          <app-answer-form [question]="question" [answer]="answer" [form]="form"></app-answer-form>
+        </li>
 
-      <li>
-        <app-new-answer-form [form]="form" [question]="question"></app-new-answer-form>
-      </li>
-    </ul>
+        <li>
+          <app-new-answer-form [form]="form" [question]="question"></app-new-answer-form>
+        </li>
+      </ul>
 
-  </li>
+    </li>
 
-  <li>
-    <app-new-question-form [form]="form"></app-new-question-form>
-  </li>
-</ul>
+    <li>
+      <app-new-question-form [form]="form"></app-new-question-form>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!form.isInitialized">
+  <h3>create new Survey</h3>
+</div>
