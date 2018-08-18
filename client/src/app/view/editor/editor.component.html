@@ -36,4 +36,6 @@
 
 <div *ngIf="!form.isInitialized">
   <h3>create new Survey</h3>
+
+  <app-new-survey-form [survey]="form.getSurvey()" [form]="form"></app-new-survey-form>
 </div>
