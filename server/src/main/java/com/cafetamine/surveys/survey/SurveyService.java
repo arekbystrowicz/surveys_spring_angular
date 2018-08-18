@@ -81,4 +81,15 @@ public class SurveyService {
         return this.surveyRepository.save(survey);
     }
 
+    public Survey removeCategory(Long surveyId, Long categoryId) {
+        Survey survey = this.getById(surveyId);
+        Category category = this.categoryService.getById(categoryId);
+
+        survey.getCategories().remove(category);
+        survey = this.surveyRepository.save(survey);
+        this.categoryService.safeDelete(category);
+
+        return survey;
+    }
+
 }
