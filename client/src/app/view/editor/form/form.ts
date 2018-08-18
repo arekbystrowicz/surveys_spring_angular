@@ -8,6 +8,7 @@ import { Category } from "../../../model/category";
 import { SurveyService } from "../../../service/survey/survey.service";
 import { QuestionService } from "../../../service/question/question.service";
 import { AnswerService } from "../../../service/answer/answer.service";
+import { CategoryService } from "../../../service/category/category.service";
 
 
 @Injectable()
@@ -18,7 +19,8 @@ export class SurveyForm {
 
   constructor(private surveyService: SurveyService,
               private questionService: QuestionService,
-              private answerService: AnswerService) {
+              private answerService: AnswerService,
+              private categoryService: CategoryService) {
   }
 
   public init(surveyId: number): void {
