@@ -34,13 +34,13 @@ export class SurveyService {
     return this.http.delete<Survey>(`${this.originUrl}/${survey.id}`);
   }
 
-  public addCategory(survey: Survey, category: Category) {
+  public addCategory(survey: Survey, category: Category): Observable<Survey> {
     // TODO fix server-side (put mapping)
-    return this.http.put(`${this.originUrl}/${survey.id}/categories/${category.id}`, category)
+    return this.http.put<Survey>(`${this.originUrl}/${survey.id}/categories/${category.id}`, category)
   }
 
-  public removeCategory(survey: Survey, category: Category) {
-    return this.http.delete(`${this.originUrl}/${survey.id}/categories/${category.id}`)
+  public removeCategory(survey: Survey, category: Category): Observable<Survey> {
+    return this.http.delete<Survey>(`${this.originUrl}/${survey.id}/categories/${category.id}`)
   }
 
 }
