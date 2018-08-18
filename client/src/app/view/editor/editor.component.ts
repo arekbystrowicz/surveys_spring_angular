@@ -19,6 +19,8 @@ export class EditorComponent implements OnInit {
     let surveyId = +this.route.snapshot.paramMap.get('id');
     if (surveyId) {
       this.form.init(surveyId);
+    } else {
+      this.form.build();
     }
   }
 
