@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 
 import { Survey } from "../../model/survey";
+import { Category } from "../../model/category";
 
 
 @Injectable()
@@ -30,6 +31,11 @@ export class SurveyService {
 
   public delete(survey: Survey):  Observable<Survey> {
     return this.http.delete<Survey>(`${this.originUrl}/${survey.id}`);
+  }
+
+  public addCategory(survey: Survey, category: Category) {
+    // TODO fix server-side (put mapping)
+    return this.http.put(`${this.originUrl}/${survey.id}/${category.id}`, category)
   }
 
 }
