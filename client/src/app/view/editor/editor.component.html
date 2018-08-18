@@ -2,7 +2,7 @@
 
 <app-survey-form [survey]="form.getSurvey()" [form]="form"></app-survey-form>
 
-<ul>
+<ul *ngIf="form.survey">
   <li *ngFor="let category of form.getCategories()">
     <app-category-form [category]="category" [form]="form"></app-category-form>
   </li>
