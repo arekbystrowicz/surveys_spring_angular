@@ -1,0 +1,23 @@
+input {
+  display: block;
+}
+
+.hidden {
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+.invisible {
+  display: none;
+}
+
+.inline {
+  display: inline-block;
+}

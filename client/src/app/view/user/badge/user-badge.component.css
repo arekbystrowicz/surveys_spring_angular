@@ -1,0 +1,16 @@
+div {
+  border: 1px solid black;
+  width: 150px;
+  height: 35px;
+  padding: 5px;
+}
+img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+p {
+  display: inline-block;
+  height: 25px;
+
+}

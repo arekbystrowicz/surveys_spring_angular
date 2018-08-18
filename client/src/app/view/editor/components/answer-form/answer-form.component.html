@@ -1,0 +1,11 @@
+<div>
+
+  <input class="hidden"
+         size="65"
+         placeholder="{{ answer.description }}"
+         [(ngModel)]="answer.description"
+         (focusout)="updateAnswer()">
+
+  <button (click)="deleteAnswer()">delete</button>
+
+</div>
