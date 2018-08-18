@@ -33,9 +33,9 @@ public class SurveyController {
         return this.surveyService.getByAuthor(this.userService.getById(id));
     }
 
-    @PostMapping()
-    public Survey create(@RequestBody Survey survey) {
-        return this.surveyService.create(survey);
+    @PostMapping(params = "user_id")
+    public Survey create(@RequestBody Survey survey, @RequestParam("user_id") Long userId) {
+        return this.surveyService.create(survey, this.userService.getById(userId));
     }
 
     @PutMapping(value = "/{id}")
