@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { SurveyForm } from "../../logic/form";
+
+import { Survey } from "../../../../model/survey";
+
 
 @Component({
   selector: 'app-new-survey-form',
@@ -6,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-survey-form.component.css']
 })
 export class NewSurveyFormComponent implements OnInit {
+
+  @Input() form: SurveyForm;
+  @Input() survey: Survey;
 
   constructor() { }
 
