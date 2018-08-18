@@ -1,6 +1,7 @@
 import { User } from "./user";
 import { Category } from "./category";
 
+
 export class Survey {
   id: number;
   title: string;
@@ -11,5 +12,5 @@ export class Survey {
   createdAt: Date;
   updatedAt: Date;
   author: User;
-  categories: Array<Category>;
+  categories: Category[] = [];
 }

@@ -3,12 +3,13 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 
 import { Survey } from "../../model/survey";
+import { Category } from "../../model/category";
 
 
 @Injectable()
 export class SurveyService {
 
-  private originUrl = '//localhost:8080/categories';
+  private originUrl = '//localhost:8080/surveys';
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +22,8 @@ export class SurveyService {
   }
 
   public create(survey: Survey): Observable<Survey> {
-    return this.http.post<Survey>(this.originUrl, survey);
+    // TODO do user login!
+    return this.http.post<Survey>(`${this.originUrl}?user_id=1`, survey);
   }
 
   public update(survey: Survey): Observable<Survey> {
@@ -30,6 +32,15 @@ export class SurveyService {
 
   public delete(survey: Survey):  Observable<Survey> {
     return this.http.delete<Survey>(`${this.originUrl}/${survey.id}`);
+  }
+
+  public addCategory(survey: Survey, category: Category): Observable<Survey> {
+    // TODO fix server-side (put mapping)
+    return this.http.put<Survey>(`${this.originUrl}/${survey.id}/categories/${category.id}`, category)
+  }
+
+  public removeCategory(survey: Survey, category: Category): Observable<Survey> {
+    return this.http.delete<Survey>(`${this.originUrl}/${survey.id}/categories/${category.id}`)
   }
 
 }

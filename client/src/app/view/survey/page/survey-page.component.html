@@ -1,0 +1,24 @@
+<h3>{{ survey.title }}</h3>
+
+<table>
+  <tr>
+    <td>description</td>
+    <td>{{ survey.description }}</td>
+  </tr>
+  <tr>
+    <td>published</td>
+    <td>{{ survey.publishDate }}</td>
+  </tr>
+  <tr>
+    <td>author</td>
+    <app-user-badge [user]="survey.author"></app-user-badge>
+  </tr>
+</table>
+
+<ul>
+  <li *ngFor="let category of survey.categories">
+    <span>#{{ category.tag }}</span>
+  </li>
+</ul>
+
+<a href="/editor/{{ survey.id }}">edit</a>

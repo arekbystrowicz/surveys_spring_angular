@@ -1,0 +1,21 @@
+<div>
+  <button *ngIf="isToggled === false"
+          (click)="toggle()">create question</button>
+
+  <div *ngIf="isToggled === true">
+
+    <input class="hidden"
+           size="65"
+           placeholder="title"
+           [(ngModel)]="question.title"
+           (focusout)="update()">
+
+    <input class="hidden"
+           size="65"
+           placeholder="description"
+           [(ngModel)]="question.description"
+           (focusout)="update()">
+
+    <button (click)="cancel()">cancel</button>
+  </div>
+</div>

@@ -20,16 +20,8 @@ export class CategoryService {
     return this.http.get<Category[]>(this.originUrl);
   }
 
-  public create(category: Category): Observable<Category> {
+  public forTag(category: Category): Observable<Category> {
     return this.http.post<Category>(this.originUrl, category);
-  }
-
-  public update(category: Category): Observable<Category> {
-    return this.http.put<Category>(`${this.originUrl}/${category.id}`, category);
-  }
-
-  public delete(category: Category):  Observable<Category> {
-    return this.http.delete<Category>(`${this.originUrl}/${category.id}`);
   }
 
 }
