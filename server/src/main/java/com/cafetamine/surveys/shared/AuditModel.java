@@ -1,4 +1,4 @@
-package com.cafetamine.surveys.model;
+package com.cafetamine.surveys.shared;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.annotation.CreatedDate;

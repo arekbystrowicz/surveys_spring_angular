@@ -1,11 +1,8 @@
-package com.cafetamine.surveys.service;
+package com.cafetamine.surveys.user;
 
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
-import com.cafetamine.surveys.model.User;
-import com.cafetamine.surveys.persistence.UserRepository;
 
 
 @Service

@@ -1,7 +1,12 @@
-package com.cafetamine.surveys.model;
+package com.cafetamine.surveys.solution;
+
+import com.cafetamine.surveys.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import com.cafetamine.surveys.answer.Answer;
+import com.cafetamine.surveys.shared.AuditModel;
 
 
 @Entity
