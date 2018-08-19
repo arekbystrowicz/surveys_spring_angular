@@ -1,13 +1,6 @@
 <div>
   <app-login-form [user]="user" [loginIsValid]="loginIsValid"></app-login-form>
-
-  <div id="email">
-    <input size="65"
-           placeholder="email"
-           [(ngModel)]="user.email"
-           required>
-  </div>
-
+  <app-email-form [user]="user" [emailIsValid]="loginIsValid"></app-email-form>
   <app-password-form [user]="user" [passwordIsValid]="passwordIsValid"></app-password-form>
 
   <button (click)="register()">register</button>
