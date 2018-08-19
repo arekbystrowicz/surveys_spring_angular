@@ -6,6 +6,6 @@
          (focusout)="validate()">
 
   <div class="error" *ngIf="emailIsValid === false">
-    email is already used!
+    {{ errMsg }}
   </div>
 </div>
