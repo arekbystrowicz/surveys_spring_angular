@@ -31,6 +31,7 @@ import { NewSurveyFormComponent } from './view/editor/components/new-survey-form
 import { RegisterComponent } from './view/register/register.component';
 import { PasswordFormComponent } from './view/register/components/password-form/password-form.component';
 import { LoginFormComponent } from './view/register/components/login-form/login-form.component';
+import { EmailFormComponent } from './view/register/components/email-form/email-form.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { LoginFormComponent } from './view/register/components/login-form/login-
     NewSurveyFormComponent,
     RegisterComponent,
     PasswordFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    EmailFormComponent
   ],
   imports: [
     BrowserModule,
