@@ -18,8 +18,23 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public validate(): void {
+    if (this.isFinished()) {
+      if (this.isUnique()) {
+        this.loginIsValid = true;
+      } else {
+        this.loginIsValid = false;
+      }
+    }
+  }
+
   private isFinished(): boolean {
     return this.user.login !== "";
+  }
+
+  private isUnique(): boolean {
+    // TODO
+    return false;
   }
 
 }
