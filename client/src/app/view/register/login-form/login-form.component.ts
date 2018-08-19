@@ -18,4 +18,8 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  private isFinished(): boolean {
+    return this.user.login !== "";
+  }
+
 }
