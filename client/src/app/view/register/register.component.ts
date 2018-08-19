@@ -10,7 +10,6 @@ import { User } from "../../model/user";
 export class RegisterComponent implements OnInit {
 
   user: User = new User();
-  confirmedPassword: string;
 
   constructor() { }
 

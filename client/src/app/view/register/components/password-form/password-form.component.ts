@@ -11,6 +11,7 @@ import { User } from "../../../../model/user";
 export class PasswordFormComponent implements OnInit {
 
   @Input() user: User;
+  confirmedPassword: string;
 
   constructor() { }
 
