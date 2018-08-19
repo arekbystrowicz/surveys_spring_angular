@@ -11,8 +11,8 @@ import { User } from "../../../../model/user";
 export class PasswordFormComponent implements OnInit {
 
   @Input() user: User;
+  @Input() passwordIsValid: boolean;
   confirmedPassword: string;
-  isValid: boolean;
 
   constructor() { }
 
@@ -22,10 +22,10 @@ export class PasswordFormComponent implements OnInit {
   public validate(): void {
     if (this.isFinished()) {
       if (this.isConfirmed()) {
-        this.isValid = true;
+        this.passwordIsValid = true;
       }
       else {
-        this.isValid = false;
+        this.passwordIsValid = false;
       }
     }
   }
