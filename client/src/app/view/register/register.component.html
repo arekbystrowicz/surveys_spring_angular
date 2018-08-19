@@ -1,26 +1,31 @@
 <div>
+  <div id="login">
+    <input size="65"
+           placeholder="login"
+           [(ngModel)]="user.login"
+           required>
+  </div>
 
-  <input size="65"
-         placeholder="login"
-         [(ngModel)]="user.login"
-         required>
+  <div id="email">
+   <input size="65"
+          placeholder="email"
+          [(ngModel)]="user.email"
+          required>
+  </div>
 
-  <input size="65"
-         placeholder="email"
-         [(ngModel)]="user.email"
-         required>
+  <div id="password">
+    <input size="65"
+           type="password"
+           placeholder="password"
+           [(ngModel)]="user.password"
+           required>
 
-  <input size="65"
-         type="password"
-         placeholder="password"
-         [(ngModel)]="user.password"
-         required>
-
-  <input size="65"
-         type="password"
-         placeholder="confirm password"
-         [(ngModel)]="confirmedPassword"
-         required>
+    <input size="65"
+           type="password"
+           placeholder="confirm password"
+           [(ngModel)]="confirmedPassword"
+           required>
+  </div>
 
   <button (click)="validate()">register</button>
 
