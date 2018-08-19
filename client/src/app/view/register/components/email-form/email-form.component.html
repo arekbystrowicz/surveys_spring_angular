@@ -2,8 +2,9 @@
   <input size="65"
          placeholder="email"
          [(ngModel)]="user.email"
-         required>
-         
+         required
+         (focusout)="validate()">
+
   <div class="error" *ngIf="emailIsValid === false">
     email is already used!
   </div>
