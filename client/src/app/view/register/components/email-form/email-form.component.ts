@@ -39,8 +39,8 @@ export class EmailFormComponent implements OnInit {
     this.userService.getByEmail(this.user.email)
       .subscribe(user => {
         if (user) {
+          this.errMsg = "email is already used!";
           this.emailIsValid = false;
-          this.errMsg = "email is already used!"
         } else {
           this.emailIsValid = true;
         }
