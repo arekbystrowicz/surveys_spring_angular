@@ -29,6 +29,7 @@ import { CategoryFormComponent } from './view/editor/components/category-form/ca
 import { NewCategoryFormComponent } from './view/editor/components/new-category-form/new-category-form.component';
 import { NewSurveyFormComponent } from './view/editor/components/new-survey-form/new-survey-form.component';
 import { RegisterComponent } from './view/register/register.component';
+import { PasswordFormComponent } from './view/register/components/password-form/password-form.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { RegisterComponent } from './view/register/register.component';
     CategoryFormComponent,
     NewCategoryFormComponent,
     NewSurveyFormComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordFormComponent
   ],
   imports: [
     BrowserModule,
