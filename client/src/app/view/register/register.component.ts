@@ -10,6 +10,7 @@ import { User } from "../../model/user";
 export class RegisterComponent implements OnInit {
 
   user: User = new User();
+  passwordIsValid: boolean = false;
 
   constructor() { }
 
@@ -17,7 +18,13 @@ export class RegisterComponent implements OnInit {
   }
 
   public register(): void {
+    if (this.isValid()) {
 
+    }
+  }
+
+  public isValid(): boolean {
+    return this.passwordIsValid;
   }
 
 }
