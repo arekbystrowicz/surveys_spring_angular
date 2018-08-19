@@ -13,19 +13,7 @@
           required>
   </div>
 
-  <div id="password">
-    <input size="65"
-           type="password"
-           placeholder="password"
-           [(ngModel)]="user.password"
-           required>
-
-    <input size="65"
-           type="password"
-           placeholder="confirm password"
-           [(ngModel)]="confirmedPassword"
-           required>
-  </div>
+  <app-password-form></app-password-form>
 
   <button (click)="validate()">register</button>
 
