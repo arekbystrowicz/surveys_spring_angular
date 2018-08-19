@@ -11,6 +11,7 @@ import { User } from "../../../../model/user";
 export class PasswordFormComponent implements OnInit {
 
   @Input() user: User;
+  isValid: boolean;
   confirmedPassword: string;
 
   constructor() { }
@@ -18,8 +19,23 @@ export class PasswordFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  private isPasswordConfirmed(): boolean {
-    return this.user.password && this.user.password === this.confirmedPassword;
+  public validate(): void {
+    if (this.isFinished()) {
+      if (this.isConfirmed()) {
+        this.isValid = true;
+      }
+      else {
+        this.isValid = false;
+      }
+    }
+  }
+
+  private isFinished(): boolean {
+    return !(!this.user.password && !this.confirmedPassword);
+  }
+
+  private isConfirmed(): boolean {
+    return this.user.password === this.confirmedPassword;
   }
 
 }
