@@ -5,6 +5,8 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 
+import { AppRoutingModule } from './/app-routing.module';
+
 import { UserService } from "./service/user/user.service";
 import { CategoryService } from "./service/category/category.service";
 import { SurveyService } from "./service/survey/survey.service";
@@ -12,7 +14,6 @@ import { QuestionService } from "./service/question/question.service";
 import { AnswerService } from "./service/answer/answer.service";
 
 import { UserProfileComponent } from './view/user/profile/user-profile.component';
-import { AppRoutingModule } from './/app-routing.module';
 import { UserBadgeComponent } from './view/user/badge/user-badge.component';
 import { UserListComponent } from './view/user/list/user-list.component';
 import { SurveyListComponent } from './view/survey/list/survey-list.component';
