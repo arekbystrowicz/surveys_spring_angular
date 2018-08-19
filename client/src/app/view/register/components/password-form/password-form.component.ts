@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { User } from "../../../../model/user";
 
@@ -11,8 +11,8 @@ import { User } from "../../../../model/user";
 export class PasswordFormComponent implements OnInit {
 
   @Input() user: User;
-  isValid: boolean;
   confirmedPassword: string;
+  isValid: boolean;
 
   constructor() { }
 
