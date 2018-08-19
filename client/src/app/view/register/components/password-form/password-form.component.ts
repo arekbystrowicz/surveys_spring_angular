@@ -31,7 +31,10 @@ export class PasswordFormComponent implements OnInit {
   }
 
   private isFinished(): boolean {
-    return !(!this.user.password && !this.confirmedPassword);
+    if (this.user.password && this.confirmedPassword) {
+      return true;
+    }
+    return false;
   }
 
   private isConfirmed(): boolean {
