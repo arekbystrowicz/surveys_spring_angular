@@ -15,6 +15,8 @@ export class EmailFormComponent implements OnInit {
   @Input() user: User;
   @Input() emailIsValid: boolean;
 
+  errMsg: string = "email is already used!";
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -27,7 +29,10 @@ export class EmailFormComponent implements OnInit {
   }
 
   private isFinished(): boolean {
-    return true;
+    if (this.user.email) {
+      return true;
+    }
+    return false;
   }
 
   private isUnique(): void {
@@ -35,6 +40,7 @@ export class EmailFormComponent implements OnInit {
       .subscribe(user => {
         if (user) {
           this.emailIsValid = false;
+          this.errMsg = "email is already used!"
         } else {
           this.emailIsValid = true;
         }
