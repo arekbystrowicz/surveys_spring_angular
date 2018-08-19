@@ -3,4 +3,8 @@
          placeholder="email"
          [(ngModel)]="user.email"
          required>
+         
+  <div class="error" *ngIf="emailIsValid === false">
+    email is already used!
+  </div>
 </div>
