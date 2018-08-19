@@ -27,6 +27,7 @@ import { NewQuestionFormComponent } from './view/editor/components/new-question-
 import { CategoryFormComponent } from './view/editor/components/category-form/category-form.component';
 import { NewCategoryFormComponent } from './view/editor/components/new-category-form/new-category-form.component';
 import { NewSurveyFormComponent } from './view/editor/components/new-survey-form/new-survey-form.component';
+import { RegisterComponent } from './view/register/register.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { NewSurveyFormComponent } from './view/editor/components/new-survey-form
     NewQuestionFormComponent,
     CategoryFormComponent,
     NewCategoryFormComponent,
-    NewSurveyFormComponent
+    NewSurveyFormComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
