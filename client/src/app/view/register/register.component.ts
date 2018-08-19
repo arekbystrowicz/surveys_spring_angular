@@ -17,4 +17,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  public validate(): void {
+    let isValid: boolean = true;
+    if (!this.isPasswordConfirmed()) {
+      isValid = false;
+    }
+    console.log(isValid);
+  }
+
+  private isPasswordConfirmed(): boolean {
+    return this.user.password && this.user.password === this.confirmedPassword;
+  }
+
 }
