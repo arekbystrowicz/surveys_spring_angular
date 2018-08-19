@@ -30,8 +30,15 @@ export class EmailFormComponent implements OnInit {
     return true;
   }
 
-  private isUnique(): boolean {
-    return true;
+  private isUnique(): void {
+    this.userService.getByEmail(this.user.email)
+      .subscribe(user => {
+        if (user) {
+          this.emailIsValid = false;
+        } else {
+          this.emailIsValid = true;
+        }
+      });
   }
 
 }
