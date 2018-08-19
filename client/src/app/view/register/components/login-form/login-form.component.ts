@@ -34,9 +34,9 @@ export class LoginFormComponent implements OnInit {
     this.userService.getByLogin(this.user.login)
       .subscribe(user => {
         if (user) {
-          this.loginIsValid = true;
-        } else {
           this.loginIsValid = false;
+        } else {
+          this.loginIsValid = true;
         }
       });
   }
