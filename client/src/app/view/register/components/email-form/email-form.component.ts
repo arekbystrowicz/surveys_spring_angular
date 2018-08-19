@@ -20,4 +20,18 @@ export class EmailFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public validate() {
+    if (this.isFinished()) {
+      this.isUnique();
+    }
+  }
+
+  public isFinished() {
+    return true;
+  }
+
+  public isUnique() {
+    return true;
+  }
+
 }
