@@ -3,7 +3,8 @@
   <input size="65"
          placeholder="username"
          [(ngModel)]="user.login"
-         required>
+         required
+         (focusout)="validate()">
 
   <div class="error" *ngIf="loginIsValid === false">
     username is already used!
