@@ -18,4 +18,8 @@ export class PasswordFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  private isPasswordConfirmed(): boolean {
+    return this.user.password && this.user.password === this.confirmedPassword;
+  }
+
 }
