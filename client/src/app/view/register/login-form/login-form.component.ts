@@ -22,11 +22,7 @@ export class LoginFormComponent implements OnInit {
 
   public validate(): void {
     if (this.isFinished()) {
-      if (this.isUnique()) {
-        this.loginIsValid = true;
-      } else {
-        this.loginIsValid = false;
-      }
+      this.isUnique();
     }
   }
 
@@ -34,8 +30,15 @@ export class LoginFormComponent implements OnInit {
     return this.user.login !== "";
   }
 
-  private isUnique(): boolean {
-    return this.userService.isLoginUnique(this.user.login);
+  private isUnique(): void {
+    this.userService.getByLogin(this.user.login)
+      .subscribe(user => {
+        if (user) {
+          this.loginIsValid = true;
+        } else {
+          this.loginIsValid = false;
+        }
+      });
   }
 
 }
