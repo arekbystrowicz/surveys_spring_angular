@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { User } from "../../../model/user";
 
+import { UserService } from "../../../service/user/user.service";
+
 
 @Component({
   selector: 'app-login-form',
@@ -13,7 +15,7 @@ export class LoginFormComponent implements OnInit {
   @Input() user: User;
   @Input() loginIsValid: boolean;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
