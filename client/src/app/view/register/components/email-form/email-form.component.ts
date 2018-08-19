@@ -24,7 +24,12 @@ export class EmailFormComponent implements OnInit {
 
   public validate(): void {
     if (this.isFinished()) {
-      this.isUnique();
+      if (this.isEmail()) {
+        this.isUnique();
+      } else {
+        this.errMsg = "is not a valid email";
+        this.emailIsValid = false;
+      }
     }
   }
 
@@ -33,6 +38,10 @@ export class EmailFormComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  private isEmail() {
+    return true;
   }
 
   private isUnique(): void {
