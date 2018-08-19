@@ -35,8 +35,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   private isUnique(): boolean {
-    // TODO
-    return false;
+    return this.userService.isLoginUnique(this.user.login);
   }
 
 }
