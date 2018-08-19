@@ -5,4 +5,8 @@
          [(ngModel)]="user.login"
          required>
 
+  <div class="error" *ngIf="loginIsValid === false">
+    username is already used!
+  </div>
+
 </div>
