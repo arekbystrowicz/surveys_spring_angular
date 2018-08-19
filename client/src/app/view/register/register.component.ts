@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   user: User = new User();
   passwordIsValid: boolean = false;
   loginIsValid: boolean = false;
+  emailIsValid: boolean = false;
 
   constructor() { }
 
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public isValid(): boolean {
-    return this.passwordIsValid && this.loginIsValid;
+    return this.passwordIsValid && this.loginIsValid && this.emailIsValid;
   }
 
 }
