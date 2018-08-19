@@ -40,4 +40,8 @@ export class UserService {
     return this.http.get<User>(`${this.originUrl}?login=${login}`);
   }
 
+  public getByEmail(email: string): Observable<User> {
+    return this.http.get<User>(`${this.originUrl}?email=${email}`);
+  }
+
 }
