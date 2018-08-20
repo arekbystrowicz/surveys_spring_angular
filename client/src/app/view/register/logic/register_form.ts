@@ -31,6 +31,15 @@ export class RegisterForm {
       );
   }
 
+  public isEmailUnique(): boolean {
+    let user: User;
+    return !!this.userService.getByEmail(this.user.email)
+      .subscribe(
+        response => user = response,
+        err => user = null
+      );
+  }
+
   public validateEmail(): boolean {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
       return true;

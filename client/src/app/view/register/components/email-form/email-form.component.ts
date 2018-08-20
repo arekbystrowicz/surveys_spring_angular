@@ -39,12 +39,8 @@ export class EmailFormComponent implements OnInit {
     return this.form.validateEmail();
   }
 
-  private isUnique(): void {
-    this.userService.getByEmail(this.user.email)
-      .subscribe(
-        response => this.handleUsedEmail(),
-        err => this.handleValidEmail()
-      );
+  private isUnique(): boolean {
+    return this.form.isEmailUnique();
   }
 
   private handleInvalidEmail(): void {
