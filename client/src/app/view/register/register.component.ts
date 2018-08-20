@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   emailIsValid: boolean;
 
   constructor(private userService: UserService) {
-    this.userService = this.userService;
+    this.userService = userService;
   }
 
   ngOnInit() {
@@ -26,7 +26,8 @@ export class RegisterComponent implements OnInit {
 
   public register(): void {
     if (this.isValid()) {
-      this.userService.create(this.user);
+      this.userService.create(this.user)
+        .subscribe(response => this.user = this.user);
     }
   }
 
