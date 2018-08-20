@@ -40,7 +40,11 @@ export class LoginFormComponent implements OnInit {
           this.errMsg = "login is already used";
           this.loginIsValid = false;
         },
-        err => this.loginIsValid = true
+        err => {
+          this.errMsg = null;
+          this.loginIsValid = true;
+        }
+
       );
   }
 
