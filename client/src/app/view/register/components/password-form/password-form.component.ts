@@ -13,6 +13,7 @@ export class PasswordFormComponent implements OnInit {
   @Input() user: User;
   @Input() passwordIsValid: boolean;
   confirmedPassword: string;
+  errMsg: string;
 
   constructor() { }
 
@@ -22,9 +23,11 @@ export class PasswordFormComponent implements OnInit {
   public validate(): void {
     if (this.isFinished()) {
       if (this.isConfirmed()) {
+        this.errMsg = null;
         this.passwordIsValid = true;
       }
       else {
+        this.errMsg = "passwords doesn't match";
         this.passwordIsValid = false;
       }
     }
@@ -34,6 +37,7 @@ export class PasswordFormComponent implements OnInit {
     if (this.user.password && this.confirmedPassword) {
       return true;
     }
+    this.errMsg = null;
     return false;
   }
 
