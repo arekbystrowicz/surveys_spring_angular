@@ -32,7 +32,11 @@ public class UserService {
     }
 
     public User getByLogin(String login) {
-        return this.userRepository.findOneByLogin(login).get();
+        Optional<User> user = this.userRepository.findOneByLogin(login);
+        if (!user.isPresent()) {
+            throw new RuntimeException("404 user not found");
+        }
+        return user.get();
     }
 
     public User getByEmail(String email) {
