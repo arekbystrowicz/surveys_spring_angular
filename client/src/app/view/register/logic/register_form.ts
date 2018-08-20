@@ -9,8 +9,18 @@ import { UserService } from "../../../service/user/user.service";
 export class RegisterForm {
 
   user: User = new User();
+  
+  private isLoginValid: boolean = false;
 
   constructor(private userService: UserService) {
+  }
+
+  public getUser(): User {
+    return this.user;
+  }
+
+  public hasUserLoginChanged(): boolean {
+    return this.user.login !== "";
   }
 
   public register(): void {
