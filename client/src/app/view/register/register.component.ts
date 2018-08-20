@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   public register(): void {
     if (this.isValid()) {
       this.userService.create(this.user)
-        .subscribe(response => this.user = this.user);
+        .subscribe(response => this.user = response);
     }
   }
 
