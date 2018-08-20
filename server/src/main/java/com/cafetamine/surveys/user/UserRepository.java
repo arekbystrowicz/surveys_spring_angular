@@ -13,4 +13,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     Iterable<User> findAllByIsActive(Boolean isActive);
 
+    Optional<User> findOneByLogin(String login);
+
 }
