@@ -40,7 +40,11 @@ public class UserService {
     }
 
     public User getByEmail(String email) {
-        return this.userRepository.findOneByEmail(email).get();
+        Optional<User> user = this.userRepository.findOneByEmail(email);
+        if (!user.isPresent()) {
+            throw new RuntimeException("404 user not found");
+        }
+        return user.get();
     }
 
     public User create(User user) {
