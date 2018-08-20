@@ -35,6 +35,10 @@ public class UserService {
         return this.userRepository.findOneByLogin(login).get();
     }
 
+    public User getByEmail(String email) {
+        return this.userRepository.findOneByEmail(email).get();
+    }
+
     public User create(User user) {
         user.setActive(true);
         return this.userRepository.save(user);
