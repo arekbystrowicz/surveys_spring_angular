@@ -11,9 +11,9 @@ import { User } from "../../model/user";
 export class RegisterComponent implements OnInit {
 
   user: User = new User();
-  passwordIsValid: boolean = false;
-  loginIsValid: boolean = false;
-  emailIsValid: boolean = false;
+  passwordIsValid: boolean;
+  loginIsValid: boolean;
+  emailIsValid: boolean;
 
   constructor() { }
 
