@@ -24,11 +24,10 @@ export class EmailFormComponent implements OnInit {
 
   public validate(): void {
     if (this.isFinished()) {
-      if (this.isEmail()) {
+      if (this.isValidEmail()) {
         this.isUnique();
       } else {
-        this.errMsg = "is not a valid email";
-        this.emailIsValid = false;
+        this.handleInvalidEmail();
       }
     }
   }
@@ -40,7 +39,7 @@ export class EmailFormComponent implements OnInit {
     return false;
   }
 
-  private isEmail(): boolean {
+  private isValidEmail(): boolean {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
       return true;
     }
@@ -50,15 +49,25 @@ export class EmailFormComponent implements OnInit {
   private isUnique(): void {
     this.userService.getByEmail(this.user.email)
       .subscribe(
-        response => {
-          this.errMsg = "email is already used";
-          this.emailIsValid = false;
-        },
-        err => {
-          this.errMsg = null;
-          this.emailIsValid = true;
-        }
+        response => this.handleUsedEmail(),
+        err => this.handleValidEmail()
       );
   }
 
+  private handleInvalidEmail(): void {
+    this.errMsg = "is not a valid email";
+    this.emailIsValid = false;
+  }
+
+  private handleUsedEmail(): void {
+    this.errMsg = "email is already used";
+    this.emailIsValid = false;
+  }
+
+  private handleValidEmail(): void {
+    this.errMsg = null;
+    this.emailIsValid = true;
+  }
+
 }
+
