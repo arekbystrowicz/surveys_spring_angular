@@ -9,8 +9,7 @@ import { UserService } from "../../../service/user/user.service";
 export class RegisterForm {
 
   user: User = new User();
-
-  private isLoginValid: boolean = false;
+  confirmedPassword: string;
 
   constructor(private userService: UserService) {
   }
@@ -19,8 +18,16 @@ export class RegisterForm {
     return this.user;
   }
 
-  public hasUserLoginChanged(): boolean {
+  public hasLoginChanged(): boolean {
     return this.user.login !== "";
+  }
+
+  public hasEmailChanged(): boolean {
+    return this.user.email !== "";
+  }
+
+  public hasPasswordChanged(): boolean {
+    return this.user.password !== "" && this.confirmedPassword !== "";
   }
 
   public register(): void {
