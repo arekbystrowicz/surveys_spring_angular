@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from "../../model/user";
 
-import { UserService } from "../../service/user/user.service";
+import { RegisterForm } from "./logic/register_form";
 
 
 @Component({
@@ -14,26 +14,16 @@ export class RegisterComponent implements OnInit {
 
   user: User = new User();
 
-  passwordIsValid: boolean = false;
-  loginIsValid: boolean = false;
-  emailIsValid: boolean = false;
-
-  constructor(private userService: UserService) {
-    this.userService = userService;
+  constructor(private form: RegisterForm) {
   }
 
   ngOnInit() {
   }
 
   public register(): void {
-    if (this.isValid()) {
-      this.userService.create(this.user)
-        .subscribe(response => this.user = response);
+    if (this.form.isValid()) {
+      this.form.register();
     }
-  }
-
-  public isValid(): boolean {
-    return this.passwordIsValid && this.loginIsValid && this.emailIsValid;
   }
 
 }
