@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { RegisterForm } from "../../logic/register_form";
 
+import { User } from "../../../../model/user";
+
 import { UserService } from "../../../../service/user/user.service";
 
 
@@ -12,6 +14,7 @@ import { UserService } from "../../../../service/user/user.service";
 })
 export class LoginFormComponent implements OnInit {
 
+  @Input() user: User;
   @Input() form: RegisterForm;
 
   errMsg: string;

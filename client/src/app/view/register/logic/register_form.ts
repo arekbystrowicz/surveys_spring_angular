@@ -31,6 +31,10 @@ export class RegisterForm {
       );
   }
 
+  public hasEmailChanged(): boolean {
+    return this.user.email !== "";
+  }
+
   public isEmailUnique(): boolean {
     let user: User;
     return !!this.userService.getByEmail(this.user.email)
@@ -45,10 +49,6 @@ export class RegisterForm {
       return true;
     }
     return false;
-  }
-
-  public hasEmailChanged(): boolean {
-    return this.user.email !== "";
   }
 
   public hasPasswordChanged(): boolean {
