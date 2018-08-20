@@ -31,6 +31,10 @@ public class UserService {
         return this.userRepository.findAllByIsActive(true);
     }
 
+    public User getByLogin(String login) {
+        return this.userRepository.findOneByLogin(login).get();
+    }
+
     public User create(User user) {
         user.setActive(true);
         return this.userRepository.save(user);
