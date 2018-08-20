@@ -36,10 +36,7 @@ export class EmailFormComponent implements OnInit {
   }
 
   private isValidEmail(): boolean {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
-      return true;
-    }
-    return false;
+    return this.form.validateEmail();
   }
 
   private isUnique(): void {

@@ -31,6 +31,13 @@ export class RegisterForm {
       );
   }
 
+  public validateEmail(): boolean {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
+      return true;
+    }
+    return false;
+  }
+
   public hasEmailChanged(): boolean {
     return this.user.email !== "";
   }
