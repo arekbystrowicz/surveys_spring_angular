@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { User } from "../../../../model/user";
+import { RegisterForm } from "../../logic/register_form";
 
 import { UserService } from "../../../../service/user/user.service";
 
@@ -12,8 +12,7 @@ import { UserService } from "../../../../service/user/user.service";
 })
 export class EmailFormComponent implements OnInit {
 
-  @Input() user: User;
-  @Input() emailIsValid: boolean;
+  @Input() form: RegisterForm;
 
   errMsg: string;
 
