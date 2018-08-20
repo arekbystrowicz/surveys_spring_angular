@@ -35,17 +35,17 @@ export class LoginFormComponent implements OnInit {
   private isUnique(): void {
     this.userService.getByLogin(this.user.login)
       .subscribe(
-        response => this.handleExitingEmail(),
-        err => this.handleValidEmail()
+        response => this.handleUsedLogin(),
+        err => this.handleValidLogin()
       );
   }
 
-  private handleExitingEmail(): void {
+  private handleUsedLogin(): void {
     this.errMsg = "login is already used";
     this.loginIsValid = false;
   }
 
-  private handleValidEmail(): void {
+  private handleValidLogin(): void {
     this.errMsg = null;
     this.loginIsValid = true;
   }
