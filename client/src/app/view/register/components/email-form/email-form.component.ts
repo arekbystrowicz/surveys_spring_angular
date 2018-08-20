@@ -15,7 +15,7 @@ export class EmailFormComponent implements OnInit {
   @Input() user: User;
   @Input() emailIsValid: boolean;
 
-  errMsg: string = "email is already used!";
+  errMsg: string;
 
   constructor(private userService: UserService) { }
 
