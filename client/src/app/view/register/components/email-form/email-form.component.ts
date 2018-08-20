@@ -49,14 +49,10 @@ export class EmailFormComponent implements OnInit {
 
   private isUnique(): void {
     this.userService.getByEmail(this.user.email)
-      .subscribe(user => {
-        if (user) {
-          this.errMsg = "email is already used!";
-          this.emailIsValid = false;
-        } else {
-          this.emailIsValid = true;
-        }
-      });
+      .subscribe(
+        response => this.emailIsValid = false,
+        err => this.emailIsValid = true
+      );
   }
 
 }
