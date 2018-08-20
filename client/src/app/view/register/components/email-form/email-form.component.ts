@@ -54,7 +54,10 @@ export class EmailFormComponent implements OnInit {
           this.errMsg = "email is already used";
           this.emailIsValid = false;
         },
-        err => this.emailIsValid = true
+        err => {
+          this.errMsg = null;
+          this.emailIsValid = true;
+        }
       );
   }
 
