@@ -5,7 +5,7 @@
          required
          (focusout)="validate()">
 
-  <div class="error" *ngIf="emailIsValid === false">
+  <div class="error" *ngIf="errMsg">
     {{ errMsg }}
   </div>
 </div>
