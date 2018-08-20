@@ -32,10 +32,7 @@ export class EmailFormComponent implements OnInit {
   }
 
   private isFinished(): boolean {
-    if (this.user.email) {
-      return true;
-    }
-    return false;
+    return this.form.hasEmailChanged();
   }
 
   private isValidEmail(): boolean {
