@@ -50,7 +50,10 @@ export class EmailFormComponent implements OnInit {
   private isUnique(): void {
     this.userService.getByEmail(this.user.email)
       .subscribe(
-        response => this.emailIsValid = false,
+        response => {
+          this.errMsg = "email is already used";
+          this.emailIsValid = false;
+        },
         err => this.emailIsValid = true
       );
   }
