@@ -15,6 +15,8 @@ export class LoginFormComponent implements OnInit {
   @Input() user: User;
   @Input() loginIsValid: boolean;
 
+  errMsg: string;
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -23,6 +25,7 @@ export class LoginFormComponent implements OnInit {
   public validate(): void {
     if (this.isFinished()) {
       this.isUnique();
+      this.loginIsValid = true;
     }
   }
 
@@ -32,13 +35,13 @@ export class LoginFormComponent implements OnInit {
 
   private isUnique(): void {
     this.userService.getByLogin(this.user.login)
-      .subscribe(user => {
-        if (user) {
+      .subscribe(
+        response => {
+          this.errMsg = "login is already used";
           this.loginIsValid = false;
-        } else {
-          this.loginIsValid = true;
-        }
-      });
+        },
+        err => this.loginIsValid = true
+      );
   }
 
 }

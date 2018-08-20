@@ -6,8 +6,8 @@
          required
          (focusout)="validate()">
 
-  <div class="error" *ngIf="loginIsValid === false">
-    username is already used!
+  <div class="error" *ngIf="errMsg">
+    {{ errMsg }}
   </div>
 
 </div>
