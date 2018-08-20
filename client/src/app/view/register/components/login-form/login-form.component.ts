@@ -23,30 +23,18 @@ export class LoginFormComponent implements OnInit {
 
   public validate(): void {
     if (this.isFinished()) {
-      this.isUnique();
+      if (!this.isValid()) {
+        this.errMsg = "username is already used!"
+      }
     }
   }
 
-  private isFinished(): boolean {
-    return this.form.hasUserLoginChanged();
+  public isFinished(): boolean {
+    return this.form.hasLoginChanged();
   }
 
-  private isUnique(): void {
-    this.userService.getByLogin(this.user.login)
-      .subscribe(
-        response => this.handleUsedLogin(),
-        err => this.handleValidLogin()
-      );
-  }
-
-  private handleUsedLogin(): void {
-    this.errMsg = "login is already used";
-    this.loginIsValid = false;
-  }
-
-  private handleValidLogin(): void {
-    this.errMsg = null;
-    this.loginIsValid = true;
+  public isValid(): boolean {
+    return this.form.isLoginUnique();
   }
 
 }
