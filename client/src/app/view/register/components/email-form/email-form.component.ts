@@ -23,10 +23,10 @@ export class EmailFormComponent implements OnInit {
 
   public validate(): void {
     if (this.isFinished()) {
-      if (this.isValidEmail()) {
-        this.isUnique();
-      } else {
-        this.handleInvalidEmail();
+      if (!this.isValidEmail()) {
+        this.errMsg = "is not a valid email!";
+      } else if (!this.isUnique()) {
+        this.errMsg = "email already used!";
       }
     }
   }
@@ -41,21 +41,6 @@ export class EmailFormComponent implements OnInit {
 
   private isUnique(): boolean {
     return this.form.isEmailUnique();
-  }
-
-  private handleInvalidEmail(): void {
-    this.errMsg = "is not a valid email";
-    this.emailIsValid = false;
-  }
-
-  private handleUsedEmail(): void {
-    this.errMsg = "email is already used";
-    this.emailIsValid = false;
-  }
-
-  private handleValidEmail(): void {
-    this.errMsg = null;
-    this.emailIsValid = true;
   }
 
 }
