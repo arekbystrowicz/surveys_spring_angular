@@ -40,8 +40,11 @@ export class EmailFormComponent implements OnInit {
     return false;
   }
 
-  private isEmail() {
-    return true;
+  private isEmail(): boolean {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
+      return true;
+    }
+    return false;
   }
 
   private isUnique(): void {
