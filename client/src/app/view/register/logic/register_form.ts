@@ -23,12 +23,7 @@ export class RegisterForm {
   }
 
   public isLoginUnique(): boolean {
-    let user: User;
-    return !!this.userService.getByLogin(this.user.login)
-      .subscribe(
-        response => user = response,
-        err => user = null
-      );
+    return !this.userService.getByLogin(this.user.login).subscribe();
   }
 
   public hasEmailChanged(): boolean {
@@ -36,12 +31,7 @@ export class RegisterForm {
   }
 
   public isEmailUnique(): boolean {
-    let user: User;
-    return !!this.userService.getByEmail(this.user.email)
-      .subscribe(
-        response => user = response,
-        err => user = null
-      );
+    return !this.userService.getByEmail(this.user.email).subscribe();
   }
 
   public validateEmail(): boolean {
