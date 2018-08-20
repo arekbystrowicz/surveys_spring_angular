@@ -13,9 +13,10 @@ import { UserService } from "../../service/user/user.service";
 export class RegisterComponent implements OnInit {
 
   user: User = new User();
-  passwordIsValid: boolean;
-  loginIsValid: boolean;
-  emailIsValid: boolean;
+
+  passwordIsValid: boolean = false;
+  loginIsValid: boolean = false;
+  emailIsValid: boolean = false;
 
   constructor(private userService: UserService) {
     this.userService = userService;
