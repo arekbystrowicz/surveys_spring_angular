@@ -22,6 +22,15 @@ export class RegisterForm {
     return this.user.login !== "";
   }
 
+  public isLoginUnique(): boolean {
+    let user: User;
+    return !!this.userService.getByLogin(this.user.login)
+      .subscribe(
+        response => user = response,
+        err => user = null
+      );
+  }
+
   public hasEmailChanged(): boolean {
     return this.user.email !== "";
   }
