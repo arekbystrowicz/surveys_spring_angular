@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from "../../model/user";
 
+import { UserService } from "../../service/user/user.service";
+
 
 @Component({
   selector: 'app-register',
@@ -15,14 +17,16 @@ export class RegisterComponent implements OnInit {
   loginIsValid: boolean;
   emailIsValid: boolean;
 
-  constructor() { }
+  constructor(private userService: UserService) {
+    this.userService = this.userService;
+  }
 
   ngOnInit() {
   }
 
   public register(): void {
     if (this.isValid()) {
-
+      this.userService.create(this.user);
     }
   }
 
