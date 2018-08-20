@@ -25,7 +25,6 @@ export class LoginFormComponent implements OnInit {
   public validate(): void {
     if (this.isFinished()) {
       this.isUnique();
-      this.loginIsValid = true;
     }
   }
 
@@ -36,16 +35,19 @@ export class LoginFormComponent implements OnInit {
   private isUnique(): void {
     this.userService.getByLogin(this.user.login)
       .subscribe(
-        response => {
-          this.errMsg = "login is already used";
-          this.loginIsValid = false;
-        },
-        err => {
-          this.errMsg = null;
-          this.loginIsValid = true;
-        }
-
+        response => this.handleExitingEmail(),
+        err => this.handleValidEmail()
       );
+  }
+
+  private handleExitingEmail(): void {
+    this.errMsg = "login is already used";
+    this.loginIsValid = false;
+  }
+
+  private handleValidEmail(): void {
+    this.errMsg = null;
+    this.loginIsValid = true;
   }
 
 }
