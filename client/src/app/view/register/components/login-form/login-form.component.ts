@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { User } from "../../../../model/user";
+import { RegisterForm } from "../../logic/register_form";
 
 import { UserService } from "../../../../service/user/user.service";
 
@@ -12,8 +12,7 @@ import { UserService } from "../../../../service/user/user.service";
 })
 export class LoginFormComponent implements OnInit {
 
-  @Input() user: User;
-  @Input() loginIsValid: boolean;
+  @Input() form: RegisterForm;
 
   errMsg: string;
 
@@ -29,7 +28,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   private isFinished(): boolean {
-    return this.user.login !== "";
+    return this.form.hasUserLoginChanged();
   }
 
   private isUnique(): void {
