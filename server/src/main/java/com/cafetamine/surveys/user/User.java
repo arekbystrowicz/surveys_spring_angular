@@ -19,9 +19,7 @@ public class User  extends AuditModel {
     private String email;
     @NotEmpty
     private String password;
-    @NotEmpty
     private  String name;
-    @NotEmpty
     private String surname;
     private Boolean isActive;
 
