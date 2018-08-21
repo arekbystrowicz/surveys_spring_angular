@@ -24,20 +24,17 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  public validate(): void {
-    if (this.isFinished()) {
-      if (!this.isValid()) {
-        this.errMsg = "username is already used!"
-      }
+  public check(): void {
+    if (this.form.hasLoginChanged()) {
+      this.form.getUserByLogin()
+        .subscribe(response => {
+          if (!!response) {
+            this.errMsg = "username is already used";
+          } else {
+            this.errMsg ="";
+          }
+        })
     }
-  }
-
-  public isFinished(): boolean {
-    return this.form.hasLoginChanged();
-  }
-
-  public isValid(): boolean {
-    return this.form.isLoginUnique();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs/Observable";
 
 import { User } from "../../../model/user";
 
@@ -19,40 +20,11 @@ export class RegisterForm {
   }
 
   public hasLoginChanged(): boolean {
-    return this.user.login !== "";
+    return !!this.user.login;
   }
 
-  public isLoginUnique(): boolean {
-    return !this.userService.getByLogin(this.user.login).subscribe();
-  }
-
-  public hasEmailChanged(): boolean {
-    return this.user.email !== "";
-  }
-
-  public isEmailUnique(): boolean {
-    return !this.userService.getByEmail(this.user.email).subscribe();
-  }
-
-  public validateEmail(): boolean {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
-      return true;
-    }
-    return false;
-  }
-
-  public hasPasswordChanged(): boolean {
-    return this.user.password !== "" && this.confirmedPassword !== "";
-  }
-
-  public register(): void {
-    this.userService.create(this.user)
-      .subscribe(response => this.user = response);
-  }
-
-  public isValid(): boolean {
-    return true;
-    // return this.passwordIsValid && this.loginIsValid && this.emailIsValid;
+  public getUserByLogin() {
+    return this.userService.getByLogin(this.user.login);
   }
 
 }
