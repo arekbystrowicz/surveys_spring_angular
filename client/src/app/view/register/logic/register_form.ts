@@ -23,8 +23,23 @@ export class RegisterForm {
     return !!this.user.login;
   }
 
-  public getUserByLogin() {
+  public getUserByLogin(): Observable<User> {
     return this.userService.getByLogin(this.user.login);
+  }
+
+  public hasEmailChanged(): boolean {
+    return !!this.user.email;
+  }
+
+  public geUserByEmail(): Observable<User> {
+    return this.userService.getByEmail(this.user.email);
+  }
+
+  public isEmailValid(): boolean {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
+      return true;
+    }
+    return false;
   }
 
 }
