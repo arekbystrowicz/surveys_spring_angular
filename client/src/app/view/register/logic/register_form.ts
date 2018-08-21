@@ -70,9 +70,8 @@ export class RegisterForm {
     return this.isLoginValid && this.isEmailValid && this.isPasswordValid;
   }
 
-  public register(): void {
-    this.userService.create(this.user)
-      .subscribe(response => this.user = response);
+  public register(): Observable<User> {
+    return this.userService.create(this.user);
   }
 
 }
