@@ -42,4 +42,12 @@ export class RegisterForm {
     return false;
   }
 
+  public hasPasswordChanged() {
+    return !!this.user.password && !!this.confirmedPassword;
+  }
+
+  public isPasswordMatched() {
+    return this.user.password === this.confirmedPassword;
+  }
+
 }
