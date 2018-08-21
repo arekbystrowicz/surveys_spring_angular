@@ -9,14 +9,30 @@ import { UserService } from "../../../service/user/user.service";
 @Injectable()
 export class RegisterForm {
 
-  user: User = new User();
-  confirmedPassword: string;
+  public user: User = new User();
+  public confirmedPassword: string;
+
+  private isLoginValid: boolean = false;
+  private isEmailValid: boolean = false;
+  private isPasswordValid: boolean = false;
 
   constructor(private userService: UserService) {
   }
 
   public getUser(): User {
     return this.user;
+  }
+
+  public setIsLoginValid(isLoginValid: boolean): void {
+    this.isLoginValid = isLoginValid;
+  }
+
+  public setIsEmailValid(isEmailValid: boolean): void {
+    this.isEmailValid = isEmailValid;
+  }
+
+  public setIsPasswordValid(isPasswordValid: boolean): void {
+    this.isPasswordValid = isPasswordValid;
   }
 
   public hasLoginChanged(): boolean {
@@ -35,7 +51,7 @@ export class RegisterForm {
     return this.userService.getByEmail(this.user.email);
   }
 
-  public isEmailValid(): boolean {
+  public validateEmail(): boolean {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
       return true;
     }
@@ -48,6 +64,15 @@ export class RegisterForm {
 
   public isPasswordMatched() {
     return this.user.password === this.confirmedPassword;
+  }
+
+  public isValid(): boolean {
+    return this.isLoginValid && this.isEmailValid && this.isPasswordValid;
+  }
+
+  public register(): void {
+    this.userService.create(this.user)
+      .subscribe(response => this.user = response);
   }
 
 }

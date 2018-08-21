@@ -28,10 +28,14 @@ export class LoginFormComponent implements OnInit {
         .subscribe(response => {
           if (!!response) {
             this.errMsg = "username is already used";
+            this.form.setIsLoginValid(false);
           } else {
-            this.errMsg ="";
+            this.errMsg = null;
+            this.form.setIsLoginValid(true);
           }
         })
+    } else {
+      this.form.setIsLoginValid(false);
     }
   }
 

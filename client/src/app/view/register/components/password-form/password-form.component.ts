@@ -26,9 +26,13 @@ export class PasswordFormComponent implements OnInit {
     if (this.form.hasPasswordChanged()) {
       if (this.form.isPasswordMatched()) {
         this.errMsg = null;
+        this.form.setIsPasswordValid(true);
       } else {
         this.errMsg = "password confirmation doesn't match";
+        this.form.setIsPasswordValid(false);
       }
+    } else {
+      this.form.setIsPasswordValid(false);
     }
   }
 

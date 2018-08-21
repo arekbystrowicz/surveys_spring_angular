@@ -21,9 +21,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public register(): void {
-    if (this.form.isValid()) {
-      this.form.register();
-    }
+
   }
 
 }
