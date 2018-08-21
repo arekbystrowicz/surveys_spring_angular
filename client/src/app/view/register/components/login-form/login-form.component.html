@@ -4,7 +4,7 @@
          placeholder="username"
          [(ngModel)]="user.login"
          required
-         (focusout)="validate()">
+         (focusout)="check()">
 
   <div class="error" *ngIf="errMsg">
     {{ errMsg }}

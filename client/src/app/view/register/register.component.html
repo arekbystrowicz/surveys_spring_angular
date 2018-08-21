@@ -1,7 +1,7 @@
 <div>
-  <app-login-form [user]="user" [loginIsValid]="loginIsValid"></app-login-form>
-  <app-email-form [user]="user" [emailIsValid]="loginIsValid"></app-email-form>
-  <app-password-form [user]="user" [passwordIsValid]="passwordIsValid"></app-password-form>
+  <app-login-form [form]="form" [user]="form.getUser()"></app-login-form>
+  <app-email-form [form]="form" [user]="form.getUser()"></app-email-form>
+  <app-password-form [form]="form" [user]="form.getUser()"></app-password-form>
 
   <button (click)="register()">register</button>
 

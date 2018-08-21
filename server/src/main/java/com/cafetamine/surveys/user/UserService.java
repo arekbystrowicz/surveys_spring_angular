@@ -34,7 +34,7 @@ public class UserService {
     public User getByLogin(String login) {
         Optional<User> user = this.userRepository.findOneByLogin(login);
         if (!user.isPresent()) {
-            throw new RuntimeException("404 user not found");
+            return null;
         }
         return user.get();
     }
@@ -42,7 +42,7 @@ public class UserService {
     public User getByEmail(String email) {
         Optional<User> user = this.userRepository.findOneByEmail(email);
         if (!user.isPresent()) {
-            throw new RuntimeException("404 user not found");
+            return null;
         }
         return user.get();
     }

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { RegisterForm } from "../../logic/register_form";
+
 import { User } from "../../../../model/user";
 
 
@@ -11,8 +13,8 @@ import { User } from "../../../../model/user";
 export class PasswordFormComponent implements OnInit {
 
   @Input() user: User;
-  @Input() passwordIsValid: boolean;
-  confirmedPassword: string;
+  @Input() form: RegisterForm;
+
   errMsg: string;
 
   constructor() { }
@@ -20,29 +22,18 @@ export class PasswordFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  public validate(): void {
-    if (this.isFinished()) {
-      if (this.isConfirmed()) {
+  public check(): void {
+    if (this.form.hasPasswordChanged()) {
+      if (this.form.isPasswordMatched()) {
         this.errMsg = null;
-        this.passwordIsValid = true;
+        this.form.setIsPasswordValid(true);
+      } else {
+        this.errMsg = "password confirmation doesn't match";
+        this.form.setIsPasswordValid(false);
       }
-      else {
-        this.errMsg = "passwords doesn't match";
-        this.passwordIsValid = false;
-      }
+    } else {
+      this.form.setIsPasswordValid(false);
     }
-  }
-
-  private isFinished(): boolean {
-    if (this.user.password && this.confirmedPassword) {
-      return true;
-    }
-    this.errMsg = null;
-    return false;
-  }
-
-  private isConfirmed(): boolean {
-    return this.user.password === this.confirmedPassword;
   }
 
 }

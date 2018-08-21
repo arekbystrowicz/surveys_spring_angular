@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { User } from "../../../../model/user";
+import { RegisterForm } from "../../logic/register_form";
 
-import { UserService } from "../../../../service/user/user.service";
+import { User } from "../../../../model/user";
 
 
 @Component({
@@ -12,61 +12,36 @@ import { UserService } from "../../../../service/user/user.service";
 })
 export class EmailFormComponent implements OnInit {
 
+  @Input() form: RegisterForm;
   @Input() user: User;
-  @Input() emailIsValid: boolean;
 
   errMsg: string;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  public validate(): void {
-    if (this.isFinished()) {
-      if (this.isValidEmail()) {
-        this.isUnique();
+  public check(): void {
+    if (this.form.hasEmailChanged()) {
+      if (!this.form.validateEmail()) {
+        this.errMsg = "is not a valid email";
+        this.form.setIsEmailValid(false);
       } else {
-        this.handleInvalidEmail();
+        this.form.geUserByEmail()
+          .subscribe(response => {
+            if (!!response) {
+              this.errMsg = "email is already used";
+              this.form.setIsEmailValid(false);
+            } else {
+              this.errMsg = null;
+              this.form.setIsEmailValid(true);
+            }
+          });
       }
+    } else {
+      this.form.setIsEmailValid(false);
     }
-  }
-
-  private isFinished(): boolean {
-    if (this.user.email) {
-      return true;
-    }
-    return false;
-  }
-
-  private isValidEmail(): boolean {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.user.email)) {
-      return true;
-    }
-    return false;
-  }
-
-  private isUnique(): void {
-    this.userService.getByEmail(this.user.email)
-      .subscribe(
-        response => this.handleUsedEmail(),
-        err => this.handleValidEmail()
-      );
-  }
-
-  private handleInvalidEmail(): void {
-    this.errMsg = "is not a valid email";
-    this.emailIsValid = false;
-  }
-
-  private handleUsedEmail(): void {
-    this.errMsg = "email is already used";
-    this.emailIsValid = false;
-  }
-
-  private handleValidEmail(): void {
-    this.errMsg = null;
-    this.emailIsValid = true;
   }
 
 }

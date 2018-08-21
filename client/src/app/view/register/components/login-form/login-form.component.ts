@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { User } from "../../../../model/user";
+import { RegisterForm } from "../../logic/register_form";
 
-import { UserService } from "../../../../service/user/user.service";
+import { User } from "../../../../model/user";
 
 
 @Component({
@@ -13,41 +13,30 @@ import { UserService } from "../../../../service/user/user.service";
 export class LoginFormComponent implements OnInit {
 
   @Input() user: User;
-  @Input() loginIsValid: boolean;
+  @Input() form: RegisterForm;
 
   errMsg: string;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  public validate(): void {
-    if (this.isFinished()) {
-      this.isUnique();
+  public check(): void {
+    if (this.form.hasLoginChanged()) {
+      this.form.getUserByLogin()
+        .subscribe(response => {
+          if (!!response) {
+            this.errMsg = "username is already used";
+            this.form.setIsLoginValid(false);
+          } else {
+            this.errMsg = null;
+            this.form.setIsLoginValid(true);
+          }
+        })
+    } else {
+      this.form.setIsLoginValid(false);
     }
-  }
-
-  private isFinished(): boolean {
-    return this.user.login !== "";
-  }
-
-  private isUnique(): void {
-    this.userService.getByLogin(this.user.login)
-      .subscribe(
-        response => this.handleUsedLogin(),
-        err => this.handleValidLogin()
-      );
-  }
-
-  private handleUsedLogin(): void {
-    this.errMsg = "login is already used";
-    this.loginIsValid = false;
-  }
-
-  private handleValidLogin(): void {
-    this.errMsg = null;
-    this.loginIsValid = true;
   }
 
 }
