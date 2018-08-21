@@ -4,8 +4,6 @@ import { RegisterForm } from "../../logic/register_form";
 
 import { User } from "../../../../model/user";
 
-import { UserService } from "../../../../service/user/user.service";
-
 
 @Component({
   selector: 'app-email-form',
@@ -19,31 +17,26 @@ export class EmailFormComponent implements OnInit {
 
   errMsg: string;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  public validate(): void {
-    if (this.isFinished()) {
-      if (!this.isValidEmail()) {
-        this.errMsg = "is not a valid email!";
-      } else if (!this.isUnique()) {
-        this.errMsg = "email already used!";
+  public check(): void {
+    if (this.form.hasEmailChanged()) {
+      if (!this.form.isEmailValid()) {
+        this.errMsg = "is not a valid email";
+      } else {
+        this.form.geUserByEmail()
+          .subscribe(response => {
+            if (!!response) {
+              this.errMsg = "email is already used";
+            } else {
+              this.errMsg = null;
+            }
+          });
       }
     }
-  }
-
-  private isFinished(): boolean {
-    return this.form.hasEmailChanged();
-  }
-
-  private isValidEmail(): boolean {
-    return this.form.validateEmail();
-  }
-
-  private isUnique(): boolean {
-    return this.form.isEmailUnique();
   }
 
 }

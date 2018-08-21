@@ -3,7 +3,7 @@
          placeholder="email"
          [(ngModel)]="user.email"
          required
-         (focusout)="validate()">
+         (focusout)="check()">
 
   <div class="error" *ngIf="errMsg">
     {{ errMsg }}
