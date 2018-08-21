@@ -1,0 +1,13 @@
+<div>
+
+  <input size="65"
+         placeholder="username"
+         [(ngModel)]="user.login"
+         required
+         (focusout)="check()">
+
+  <div class="error" *ngIf="errMsg">
+    {{ errMsg }}
+  </div>
+
+</div>

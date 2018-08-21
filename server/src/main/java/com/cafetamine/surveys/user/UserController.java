@@ -24,6 +24,16 @@ public class UserController {
         return this.userService.getById(id);
     }
 
+    @GetMapping(params = "email")
+    public User getByEmail(@RequestParam("email") String email) {
+        return this.userService.getByEmail(email);
+    }
+
+    @GetMapping(params = "login")
+    public User getByLogin(@RequestParam("login") String login) {
+        return this.userService.getByLogin(login);
+    }
+
     @PostMapping()
     public User signIn(@RequestBody User user) {
         return this.userService.create(user);

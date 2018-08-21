@@ -31,8 +31,23 @@ public class UserService {
         return this.userRepository.findAllByIsActive(true);
     }
 
+    public User getByLogin(String login) {
+        Optional<User> user = this.userRepository.findOneByLogin(login);
+        if (!user.isPresent()) {
+            return null;
+        }
+        return user.get();
+    }
+
+    public User getByEmail(String email) {
+        Optional<User> user = this.userRepository.findOneByEmail(email);
+        if (!user.isPresent()) {
+            return null;
+        }
+        return user.get();
+    }
+
     public User create(User user) {
-        // TODO adjust implementation to client
         user.setActive(true);
         return this.userRepository.save(user);
     }

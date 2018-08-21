@@ -6,6 +6,7 @@ import { UserListComponent } from "./view/user/list/user-list.component";
 import { SurveyListComponent } from "./view/survey/list/survey-list.component";
 import { SurveyPageComponent } from "./view/survey/page/survey-page.component";
 import { EditorComponent } from "./view/editor/editor.component";
+import { RegisterComponent } from "./view/register/register.component";
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'surveys', component: SurveyListComponent },
   { path: 'surveys/:id', component: SurveyPageComponent },
   { path: 'editor/:id', component: EditorComponent },
-  { path: 'editor', component: EditorComponent }
+  { path: 'editor', component: EditorComponent },
+  { path: 'register', component: RegisterComponent}
 ];
 
 
