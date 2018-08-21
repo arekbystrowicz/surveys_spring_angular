@@ -4,8 +4,6 @@ import { RegisterForm } from "../../logic/register_form";
 
 import { User } from "../../../../model/user";
 
-import { UserService } from "../../../../service/user/user.service";
-
 
 @Component({
   selector: 'app-login-form',
@@ -19,7 +17,7 @@ export class LoginFormComponent implements OnInit {
 
   errMsg: string;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit() {
   }
